@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        @vite('resources/css/app.css')
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-    </head>
-    <body class="antialiased">
-       <div class="bus bus--full bus--top-white bus--bottom-love">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @vite('resources/css/app.css')
+    <title>Laravel</title>
+
+    <!-- Fonts -->
+</head>
+
+<body class="antialiased">
+    <div class="bus bus--full bus--top-white bus--bottom-love">
         <div class="bus-body">
             <div class="bus__body--top roof"></div>
             <div class="bus__body--top side-top"></div>
@@ -122,26 +124,47 @@
     </div>
 
 
-<div class="flex justify-center">
-<label class="pr-4" for="title">Select Color: </label>
-<select name="color" class="w-1/6" onchange="bodyColor(this)">
-    @foreach ($colors as $color)
-        <option value="{{ $color->hex_code }}" @selected(old('color') == $color->hex_code)>
-            {{ $color->name }}
-        </option>
-    @endforeach
-</select>
-</div>
-    </body>
-            @vite('resources/js/app.js')
+    <div class="flex justify-center">
+        <label class="pr-4" for="title">Select Color: </label>
+        <select name="color" class="w-1/6" onchange="bodyColor(this)">
+            @foreach ($colors as $color)
+                <option value="{{ $color->hex_code }}" @selected(old('color') == $color->hex_code)>
+                    {{ $color->name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+
+
+    <div class="flex justify-center">
+        <div class="border-2 rounded-lg mt-10 w-1/3 p-2">
+            <input type="text" class="w-1/3 m-1 px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500" placeholder="CC CCC CCC" />
+            <div class="flex m-1">
+            <input type="text" class="w-full px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500" placeholder="MMM MMM MMM MMM" />
+            </div>
+            <div class="flex m-1">
+                <input type="text" class="w-1/3 px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500" placeholder="PPPPII" />
+
+                <input type="text" class="w-2/3 px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500" placeholder="MMM MMM MMM MMM" />
+            </div>
+            <div class="flex m-1">
+                <input type="text" class="w-1/4 px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500" placeholder="DD D" />
+                <input type="text" class="w-1/4 px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500" placeholder="UUUU" />
+                <input type="text" class="w-1/4 px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500" placeholder="EE" />
+                <input type="text" class="w-1/4 px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500" placeholder="XXXX TT" />
+            </div>
+        </div>
+    </div>
+
+</body>
+@vite('resources/js/app.js')
+
 </html>
 <script>
-
-function bodyColor(selector)
-{
-var selectedColor = selector.options[selector.selectedIndex].value;
-var element = document.querySelector('.bus__body--bottom');
-console.log(selectedColor);
-element.style.backgroundColor = selectedColor;
-}
+    function bodyColor(selector) {
+        var selectedColor = selector.options[selector.selectedIndex].value;
+        var element = document.querySelector('.bus__body--bottom');
+        console.log(selectedColor);
+        element.style.backgroundColor = selectedColor;
+    }
 </script>
