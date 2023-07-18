@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('welcome', [
-            'colors' => Colors::all(['name','hex_code']),
+            'colors' => Colors::all(['name', 'hex_code']),
         ]);
     }
 
