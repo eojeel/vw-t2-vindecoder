@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -309,16 +308,14 @@ class McodeSeeder extends Seeder
             '935' => 'Transistorized ignition system',
         ];
 
-
         $insert_data = array_map(function ($key, $value) {
             return [
                 'code' => $key,
-                'description' => $value
+                'description' => $value,
             ];
         }, array_keys($data), $data);
 
         DB::table('mcode')->insert($insert_data);
-
 
     }
 }

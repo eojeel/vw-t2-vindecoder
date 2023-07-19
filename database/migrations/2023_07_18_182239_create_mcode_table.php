@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mcode', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('code');
-            $table->string('description');
+            $table->mediumText('description');
             $table->timestamps();
         });
     }
