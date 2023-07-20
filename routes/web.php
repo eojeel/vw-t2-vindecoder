@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\vinDecoderController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
