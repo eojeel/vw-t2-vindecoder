@@ -97,11 +97,15 @@
                 </div>
             </div>
 
-            <div class="bumper">
+        <div class="bumper">
                 <div class="bumper-top"></div>
                 <div class="bumper-straight bs-middle"></div>
                 <div class="bumper-curve bc-1"></div>
                 <div class="bumper-straight bs-1"></div>
+                <div class="bumper-curve bc-2"></div>
+                <div class="bumper-curve bc-3"></div>
+                <div class="bumper-straight bs-3"></div>
+                <div class="bumper-curve bc-4"></div>
                 <div class="bus__body--bottom above-bumper"></div>
             </div>
         </div>
