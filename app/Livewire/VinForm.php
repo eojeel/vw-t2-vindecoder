@@ -8,12 +8,23 @@ class VinForm extends Component
 {
     public $title = 'VW T2 Vin Decoder';
 
-    #[Rule('required')]
-    public $mmm = '';
+    public $mmmmm = '';
+    public $mmmm = '';
+    public $cc = '';
+    public $pp = '';
 
     public function save()
     {
-        dd($this->mmm);
+        $validated = $this->validate([
+            'cc' => 'required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+            'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+            'pp' => 'required|digits:6',
+            'mmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+        ]);
+
+
+        dd($validated);
+
     }
 
     public function render()

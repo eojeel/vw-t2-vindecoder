@@ -1762,16 +1762,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v3.0.0-beta.1",
+            "version": "v3.0.0-beta.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "ea97977ac080fff70f0a35280bdb7322c246345e"
+                "reference": "04298292a365841879d64c13881d5499517bb597"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/ea97977ac080fff70f0a35280bdb7322c246345e",
-                "reference": "ea97977ac080fff70f0a35280bdb7322c246345e",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/04298292a365841879d64c13881d5499517bb597",
+                "reference": "04298292a365841879d64c13881d5499517bb597",
                 "shasum": ""
             },
             "require": {
@@ -1798,7 +1798,7 @@
                         "Livewire\\LivewireServiceProvider"
                     ],
                     "aliases": {
-                        "Livewire": "Livewire\\LivewireManager"
+                        "Livewire": "Livewire\\Livewire"
                     }
                 }
             },
@@ -1823,7 +1823,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v3.0.0-beta.1"
+                "source": "https://github.com/livewire/livewire/tree/v3.0.0-beta.3"
             },
             "funding": [
                 {
@@ -1831,7 +1831,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-20T14:59:22+00:00"
+            "time": "2023-07-21T23:02:51+00:00"
         },
         {
             "name": "monolog/monolog",

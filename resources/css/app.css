@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .vin-btn {
+        @apply border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500;
+    }
+}
 
 *,::before,::after {
     box-sizing: border-box;
