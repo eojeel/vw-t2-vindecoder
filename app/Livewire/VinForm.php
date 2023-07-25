@@ -37,7 +37,7 @@ class VinForm extends Component
             'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
         ]);
 
-        dd($validated);
+        return response(200);
 
     }
 
