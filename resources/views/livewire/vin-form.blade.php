@@ -1,4 +1,4 @@
-<div>
+<div class="container mx-auto ">
     <form wire:submit="save">
         <div class="flex justify-center">
             <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-10 w-1/4 p-2">
@@ -66,4 +66,14 @@
                 type="submit">Submit</button>
         </div>
     </form>
+
+    <div class="flex justify-center mt-5">
+        @isset($mmmResults)
+            <ul class="list-disc justify-center">
+                @forelse($mmmResults as $mresult)
+                    <li>{{ $mresult->code }} {{ $mresult->description }}</li>
+                @endforeach
+            </ul>
+        @endisset
+    </div>
 </div>

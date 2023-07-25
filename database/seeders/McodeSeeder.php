@@ -315,7 +315,7 @@ class McodeSeeder extends Seeder
             ];
         }, array_keys($data), $data);
 
-        DB::table('mcode')->insert($insert_data);
+        DB::table('mcodes')->insert($insert_data);
 
     }
 }

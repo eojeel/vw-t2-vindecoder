@@ -2,15 +2,20 @@
 
 namespace App\Livewire;
 
+use App\Models\Mcode;
 use Livewire\Component;
 
 class VinForm extends Component
 {
     public $title = 'VW T2 Vin Decoder';
 
+    public ?Mcode $mcode;
+
     public $mmmmm;
 
     public $mmmm;
+
+    public $mmmResults;
 
     public $cc;
 
@@ -27,18 +32,17 @@ class VinForm extends Component
     public function save()
     {
         $validated = $this->validate([
-            'cc' => 'required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            'pp' => 'required|size:6',
+            // 'cc' => 'required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+            // 'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+            // 'pp' => 'required|size:6',
             'mmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            'dd' => 'required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/',
-            'uu' => 'required|size:4|regex:/^[a-zA-Z0-9]{4}$/',
-            'ee' => 'required|size:2|regex:/^[a-zA-Z0-9]{2}$/',
-            'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
+            // 'dd' => 'required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/',
+            // 'uu' => 'required|size:4|regex:/^[a-zA-Z0-9]{4}$/',
+            // 'ee' => 'required|size:2|regex:/^[a-zA-Z0-9]{2}$/',
+            // 'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
         ]);
 
-        return response(200);
-
+        $this->mmmResults = Mcode::getByCodes($this->mmmm);
     }
 
     public function render()
