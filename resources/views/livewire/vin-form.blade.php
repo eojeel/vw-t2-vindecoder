@@ -68,11 +68,21 @@
     </form>
 
     <div class="flex justify-center mt-5">
-        @isset($mmmResults)
+        @isset($results)
             <ul class="list-disc justify-center">
-                @forelse($mmmResults as $mresult)
-                    <li>{{ $mresult->code }} {{ $mresult->description }}</li>
-                @endforeach
+                @if($results)
+                    <ul>
+                        @foreach($results as $key => $value)
+                            @if (is_array($value))
+                                @foreach ($value as $k => $v)
+                                    <li>{{ $k }}: {{ $v }}</li>
+                                @endforeach
+                            @else
+                                <li>{{ $key }}: {{ $value }}</li>
+                            @endif
+                        @endforeach
+                    </ul>
+                @endif
             </ul>
         @endisset
     </div>

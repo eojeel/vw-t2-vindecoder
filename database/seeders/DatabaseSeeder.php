@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ColorSeeder::class,
             McodeSeeder::class,
+            PaintCodesSeeder::class,
+            InteriorCodeSeeder::class,
         ]);
     }
 }

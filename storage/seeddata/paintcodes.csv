@@ -1,0 +1,257 @@
+Plate code,Color code,German name,English name,Remarks
+101,L53H,orientblau,Orient Blue,
+106,"L53H
+L90D","Bottom: Orientblau
+Upper half: Pastellweiß","Bottom: Orient Blue
+Upper half: Pastel White",Color combination for microbuses (type 22)
+202,L620,savannenbeige,savanna beige,1968-1970
+202,L30B,kasanrot,? red,1973-1975
+206,"L30B
+L90D","Bottom: Kasanrot
+Upper half: Pastellweiß","Bottom: ? Red
+Upper half: Pastel White","Color combination for microbuses (type 22 and 24)
+(1973-1975)"
+261,"L620
+L581","bottom: savannenbeige
+roof: wolkenweiß","bottom: savanna beige
+roof: cloud white","color combination for microbuses (type 22 and 24)
+(1968-1970)"
+303,L31H,chiantirot,chianti red,
+310,"L31H
+?","bottom: chiantirot
+upper half: schwarz","bottom: chianti red
+upper half: black","color combination for microbuses (type 22 and 24)
+(1971-1972)"
+404,L11H,sierragelb,sierra yellow,
+406,"L11H
+L90D","bottom: sierragelb
+upper half: pastellweiß","bottom: sierra yellow
+upper half: pastel white",color combination for microbuses (type 22 and 24)
+410,"L11H
+?","bottom: sierragelb
+upper half: schwarz","bottom: sierra yellow
+upper half: black","color combination for microbuses (type 22 and 24)
+(1971-1972)"
+505,L53D,niagarablau,niagara blue,
+506,"L53D
+L90D","bottom: niagarablau
+upper half: pastellweiß","bottom: niagara blue
+upper half: pastel white",color combination for microbuses (type 22 and 24)
+510,"L53D
+?","bottom: niagarablau
+upper half: schwarz","bottom: niagara blue
+upper half: black","color combination for microbuses (type 22 and 24)
+(1971-1972)"
+606,L90D,pastellweiß,pastell white,
+610,"L11H
+?","bottom: pastellweiß
+upper half: schwarz","bottom: pastel white
+upper half: black","color combination for microbuses (type 22 and 24)
+(1971-1972)"
+706,"L20B
+L90D","bottom: leuchtorange
+upper half: pastellweiß","bottom: brilliant orange
+upper half: pastel white",color combination for microbuses (type 22 and 24)
+707,L20B,leuchtorange,brilliant orange,
+906,"L20B
+L90D","bottom: ulmengrün
+upper half: pastellweiß","bottom: elm green
+upper half: pastel white",color combination for microbuses (type 22 and 24)
+909,L60D,ulmengrün,elm green,
+910,"L60D
+?","bottom: ulmengrün
+upper half: schwarz","bottom: elm green
+upper half: black","color combination for microbuses (type 22 and 24)
+(1971-1972)"
+1313,L87,perlweiß,pearl white,
+1706,"L61B
+L90D","Bottom: Sumatragrün
+Upper half: Pastellweiß","Bottom: Sumatra Green
+Upper half: Pastel White",Color combination for microbuses (type 22 and 24)
+1717,L61B,sumatragrün,Sumatra Green,
+2006,"L13H
+L90D","Bottom: Ceylonbeige
+Upper half: Pastellweiß","Bottom: Ceylon Beige
+Upper half: Pastel White",Color combination for microbuses (type 22 and 24)
+2020,L13H,ceylonbeige,Ceylon Beige,
+2222,L610,deltagrün,Delta Green,
+2261,"L610
+L581","Bottom: Deltagrün
+Roof: Wolkenweiß","Bottom: Delta Green
+Roof: Cloud White",Color combination for microbuses (type 22 and 24)
+3838,L512,samtgrün,velvet Green,
+4141,L345,lichtgrau,light Grey,
+4242,L282,lotosweiß,lotus white,
+4343,L555,tizianrot,titian red,
+4361,"L555
+L581","bottom: tizianrot
+roof: wolkenweiß","bottom: titian red
+roof: cloud white",color combination for microbuses (type 22 and 24)
+4646,L567,elfenbein (RAL 1014),ivory (RAL 1014),
+4747,L50K,neptunblau,neptune blue,
+4761,"L50K
+L581","bottom: neptunblau
+roof: wolkenweiß","bottom: neptune blue
+roof: cloud white",color combination for microbuses (type 22 and 24)
+4803,L86Z,?,agata brown,"sales campaign (Mcode S723)
+chassis nr. 2x7 2118 500 - 2x72 300 000 (1977)"
+4817,LH8A,dattelbraun,date brown,
+4831,L86Z,?,agata brown,sales campaign (Mcode S765)
+4991,?,silberfisch,silverfish (metallic paint),
+4949,?,grundiert,primer,
+52x006,"L41
+L282","bottom: ebenholzschwarz
+roof: lotosweiß","bottom: ??-woodblack
+roof: lotus white",color combination for taxis (type 22 and 24)
+52x115,?,elfenbein (RAL 1014),ivory (RAL 1014),for ambulances
+52x200,?,orange (RAL 2000),orange (RAL 2000),for road works vehicles
+52x211,?,signalorange (RAL 2002),signal orange (RAL 2002),
+52x300,?,feuerwehrrot (RAL 3000),fire brigade red (RAL 3000),for fire trucks
+52x316,?,rubin,?,
+52x544,?,bottom: blau (?) roof: weiß,"bottom: dark blue(?)
+roof: white",code found on Dutch police vehicle
+52x614,?,polizeigrün (RAL 6009),police green (RAL 6009),for German Police Vehicles
+52x904,?,polizeiweiß,police white,
+521104,?,postgelb,mail yellow,colour for German mail vehicles (type 21)
+521115,?,?,?,
+521300,?,feuerwehrrot (RAL 3000),fire brigade red (RAL 3000),for fire trucks (type 21)
+521508,?,blau(?),blue (?),code found on German 1971 panelvan (type 21)
+521726,?,?,army green,code found on a highroof 1969 Swiss armyvan(type 21)
+521920,?,?,?,
+522115,?,?,?,
+522325,?,"bottom: tizianrot
+roof: weiß","bottom: titian red
+roof: white",color combination found on 1968 microbus (type 28)
+522614,?,gelb (RAL 1004),yellow (RAL 1004),code only for microbuses (type 22)
+522703,?,lichtgrau,light grey (?),code only for microbuses (type 22)
+523134,?,gelb (?),yellow (?),color found on German 1971 kombi (type 23)
+523184,L11H,sieragelb,sierra yellow,code for Westfalia campmobiles (type 23)
+523185,-,sieragelb/pastellweiß,sierra yellow/pastell white,code for Westfalia campmobiles (type 23)
+523300,?,feuerwehrrot (RAL 3000),fire brigade red (RAL 3000),for fire trucks (type 23)
+523324,?,?,?,code for Westfalia campmobiles (type 23)(?)
+523330,?,?,?,
+523331,L30H,montanarot,montana red,code for Westfalia campmobiles (type 23)
+523337,L31H,chiantirot,chianti red,code for Westfalia campmobiles (type 23)
+523338,-,chiantirot/pastellweiß,chianti red/pastell white,code for Westfalia campmobiles (type 23)
+523551,L50K,neptunblau,neptune blue,code for Westfalia campmobiles (type 23)
+523562,?,brilliantweiß,?,code for Westfalia campmobiles (type 23)
+523570,?,niagarablau,?,code for Westfalia campmobiles (type 23)
+523571,?,niagarablau/pastellweiß,?,code for Westfalia campmobiles (type 23)
+523642,L512,samtgrün,velvet green,code for Westfalia campmobiles (type 23)
+523672,?,deltagrün,delta green,code for Westfalia campmobiles (type 23)
+523694,?,ulmengrün,elm green,code for Westfalia campmobiles (type 23)
+523695,?,ulmengrün/pastellweiß,elm green/pastell white,code for Westfalia campmobiles (type 23)
+523703,?,lichtgrau,light grey (?),code for Westfalia campmobiles (type 23)
+523806,L620,savannenbeige,savanna beige,code for Westfalia campmobiles (type 23)
+523809,?,?,?,
+523811,?,kansasbeige,kansas beige,code for Westfalia campmobiles (type 23)
+523812,?,kansasbeige/pastellweiß,kansas beige/pastell white,code for Westfalia campmobiles (type 23)
+523904,?,polizeiweiß,police white,
+523907,L87,perlweiß,pearl white,code for Westfalia campmobiles (type 23)
+523917,L282,lotosweiß,lotus white,code for Westfalia campmobiles (type 23)
+523926,L90D,pastellweiß,pastell white,code for Westfalia campmobiles (type 23)
+524006,"L41
+L282","bottom: ebenholzschwarz
+roof: lotosweiß","bottom: ??-woodblack
+roof: lotus white",color combination for taxis
+526330,?,? rot,? red,code found on 1970 Canadian crewcab (type 26)
+6506,"L91D
+L90D","bottom: kansasbeige
+upper half: pastellweiß","bottom: kansas beige
+upper half: pastel white",color combination for microbuses (type 22 and 24)
+6510,"L91D
+?","bottom: kansasbeige
+upper half: schwarz","bottom: kansas beige
+upper half: black","color combination for microbuses (type 22 and 24)
+(1971-1972)"
+6565,L91D,kansasbeige,kansas beige,
+6761,"L50H
+L581","Bottom: Blau(?)
+Roof: Wolkenweiß","Bottom: Brilliant Blue
+Roof: Cloud White",
+6767,L50H,?,brilliant blue ?,
+6861,"L30H
+L581","Bottom: Montanarot
+Roof: Wolkenweiß","Bottom: Montana Red
+Roof: Cloud White",Color combination for microbuses (type 22 and 24)
+6868,L30H,montanarot,montana Red,
+9006,?,"schwarz, dach und stoßstangen weiß","black, roof and bumpers white",Used on German taxi's
+9115,L567,elfenbein,ivory,
+9135,?,postgelb,mail yellow,Used on German mail vehicles
+9156,L20A,marinogelb,chrome yellow,Code only used on Westfalia campmobiles
+9157,"L20A
+L90D","unter: marinogelb
+Oben: Pastell Weiß","Bottom: Chrome Yellow
+Top: Pastell White",Code only used on Westfalia campers
+9184,L11H,sierragelb,Sierra Yellow,Code only used on Westfalia campers
+9191,?,elfenbein (RAL 1015),Ivory (RAL 1015),Code used for German Taxi's
+9199,?,gelb?,yellow?,
+9713,?,Bundesbahngrau? (Bundesbahn farb?),Grey? (German-Railways colour?),
+9922,?,?,White?,Code for Swiss Mail vehicles?
+9226,L20B,leuchtorange,Brilliant Orange,Code only used on Westfalia campers
+9227,"L20B
+L90D","Bottom: Leuchtorange
+Top: Pastellweiß","Bottom: Brilliant Orange
+Top: Pastell White",Code only used on Westfalia campers
+9300,?,rot (RAL 3000),red (RAL 3000),Code for German Fire-Trucks
+9451,L63H,taigagrün,sage Green,Code only used on Westfalia campers
+9452,"L63H
+L90D","Bottom: Taigagrün
+Top: Pastellweiß","Bottom: Sage Green
+Top: Pastell White",Code only used on Westfalia campers
+9603,?,?,?,
+9609,?,?,Army Green,Code for army vehicles
+9610,319,grün 319,Green 319,Code for German Army vehicles (Bundeswehr)
+9612,?,?,Army Green,Code for army vehicles
+9645,?,?,?,
+9648,L65K,ravennagrün,ravenna green,Code only used on Westfalia campers
+9703,?,orange???,orange???,Code only used on Westfalia campers
+9826,L13A,dakotabeige,dakota beige,Code only used on Westfalia campers
+9830,"L13A
+L90D","Bottom: dakotabeige
+Upper half: pastellweiß","Bottom: Dakota Beige
+Upper half: Pastell White",Code only used on Westfalia campers
+9832,LE1M,mexicobeige,mexico beige,
+9922,?,?,?,Code for Swiss mail vehicles (?)
+9926,L90D,pastellweiß,pastel white,Code only used on Westfalia campers
+A7A7,L345,lichtgrau,light grey,
+B1B1,L62H,?,bali yellow,
+B9B9,L567,elfenbein,ivory,
+A9A9,?,grundiert,primer,
+,,,,
+D1D1,L13H,ceylonbeige,ceylon beige,
+D1R1,"L13H
+L90D","bottom: ceylonbeige
+upper half: pastellweiß","bottom: ceylon beige
+upper half: pastel white",color combination for microbuses (type 22)
+D5D5,L13A,dakotabeige,dakota beige,(1978)
+D9D9,LE1M,mexicobeige,mexico beige,
+E1E1,L20B,leuchtorange,brilliant orange,
+E1R1,"L20B
+L90D","bottom: leuchtorange
+upper half: pastellweiß","bottom: brilliant orange
+upper half: pastel white",Color combination for microbuses (type 22)
+E6E6,L20A,marinogelb,chrome yellow,until Chassis nr 2x7 2079871
+,L21H,marinogelb,chrome yellow,from chassis nr 2x7 2079872 on
+E9E9,L12A,panamabraun,panama brown,
+G1G1,L30B,kasanrot,kasan red,
+G1R1,"L30B
+L90D","bottom: kasanrot
+upper half: pastellweiß","bottom: kasan red
+upper half: pastel white",color combination for microbuses (type 22)
+G9G9,L31A,senegalrot,senegal red,
+J2J2,L53H,orientblau,orient blue,
+J2R1,"L20B
+L90D","bottom: orientblau
+upper half: pastellweiß","Bottom: Orient Blue
+Upper half: Pastel White",Color combination for microbuses (type 22)
+J4J4,L57H,ozeanblau,reef blue,
+J6J6,L50K,neptunblau,neptune blue,
+M4M4,L61B,sumatragrün,sumatra green,
+M4R1,"L61B
+L90D","bottom: sumatragrün
+upper half: pastellweiß","bottom: sumatra green
+upper half: pastel white",color combination for microbuses (type 22)
+P4P4,L63H,taigagrün,sage green,
+R1R1,L90D,pastelweiß,pastell white,
+T1T1,L86Z,?,agata brown,
