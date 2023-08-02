@@ -67,23 +67,25 @@
         </div>
     </form>
 
-    <div class="flex justify-center mt-5">
-        @isset($results)
-            <ul class="list-disc justify-center">
-                @if($results)
-                    <ul>
-                        @foreach($results as $key => $value)
-                            @if (is_array($value))
-                                @foreach ($value as $k => $v)
-                                    <li>{{ $k }}: {{ $v }}</li>
-                                @endforeach
-                            @else
-                                <li>{{ $key }}: {{ $value }}</li>
-                            @endif
-                        @endforeach
-                    </ul>
-                @endif
+    @isset($results)
+    <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5">
+            <div class="flex flex-col items-center space-y-4">
+                <h3 class="text-xl font-semibold">MCodes:</h3>
+                <ul class="mt-5 list-disc justify-center flex flex-col">
+                    @foreach ($results->mcodes as $mcode)
+                            <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">{{ $mcode->code }} - {{ $mcode->description }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="flex flex-col items-center space-y-4 mt-2">
+            <h5 class="text-xl font-semibold float-right">Paint Codes:</h3>
+            <ul class="mt-5 list-disc justify-center flex flex-col">
+                @foreach ($results->paint_codes as $paint_code)
+                    <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">{{ $paint_code->plate_code }} - {{ $paint_code->color_code }} (German - {{ $paint_code->german_name }} | English - {{ $paint_code->english_name }})</li>
+
+                @endforeach
             </ul>
-        @endisset
-    </div>
+            </div>
+        </div>
+    @endisset
 </div>
