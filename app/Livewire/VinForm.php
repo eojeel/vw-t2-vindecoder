@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\InteriorCode;
 use App\Models\Mcode;
 use App\Models\PaintCodes;
 use Illuminate\Database\Eloquent\Collection;
@@ -33,25 +34,29 @@ class VinForm extends Component
     public function hydrate()
     {
         $this->results = new StdClass();
-        $this->results->mcodes = new Collection();
-        $this->results->paint_codes = new Collection();
+
+        $resArray = ['mcodes', 'paint_codes', 'interiorCodes'];
+        foreach ($resArray as $res) {
+            $this->results->$res = new Collection();
+        }
     }
 
     public function save()
     {
         $validated = $this->validate([
-            // 'cc' => 'required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            // 'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+             'cc' => 'required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+             'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
             'pp' => 'required|size:6',
             'mmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            // 'dd' => 'required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/',
-            // 'uu' => 'required|size:4|regex:/^[a-zA-Z0-9]{4}$/',
-            // 'ee' => 'required|size:2|regex:/^[a-zA-Z0-9]{2}$/',
-            // 'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
+             'dd' => 'required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/',
+             'uu' => 'required|size:4|regex:/^[a-zA-Z0-9]{4}$/',
+             'ee' => 'required|size:2|regex:/^[a-zA-Z0-9]{2}$/',
+             'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
         ]);
 
-        $this->results->mcodes = $this->mCode($this->mmmm);
-        $this->results->paint_codes = $this->paintCode($this->pp);
+        $this->results->mCodes = $this->mCode($this->mmmm);
+        $this->results->paintCodes = $this->paintCode($this->pp);
+        $this->results->interiorCodes = $this->interior($this->pp);
     }
 
     public function render()
@@ -59,14 +64,18 @@ class VinForm extends Component
         return view('livewire.vin-form');
     }
 
-    public function mCode(string $mcodes): Collection
+    private function mCode(string $mcodes): Collection
     {
-        return Mcode::getByCodes($mcodes);
+        return Mcode::CodeDetails($mcodes);
     }
 
-    public function paintCode(string $paintCode): Collection
+    private function paintCode(string $paintCode): Collection
     {
-        return PaintCodes::getByCode($paintCode);
+        return PaintCodes::PaintDetails($paintCode);
+    }
 
+    private function interior(string $interiorCode): Collection
+    {
+        return InteriorCode::InteriorDetails($interiorCode);
     }
 }

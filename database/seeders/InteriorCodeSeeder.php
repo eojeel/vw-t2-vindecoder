@@ -22,7 +22,7 @@ class InteriorCodeSeeder extends Seeder
         fclose($handle);
 
         foreach ($data as $row) {
-            DB::table('interior_code')->insert([
+            DB::table('interior_codes')->insert([
                 'code' => $row['VW code'],
                 'material' => $row['Material'],
                 'german_name' => $row['German name'],
