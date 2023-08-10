@@ -2,13 +2,14 @@
 
 namespace App\Livewire;
 
-use App\Models\InteriorCode;
-use App\Models\Mcode;
-use App\Models\PaintCodes;
-use Illuminate\Database\Eloquent\Collection;
-use Livewire\Attributes\Rule;
-use Livewire\Component;
 use stdClass;
+use App\Models\Mcode;
+use Livewire\Component;
+use App\Models\PaintCodes;
+use App\Models\InteriorCode;
+use Livewire\Attributes\Rule;
+use App\Models\ExportDestination;
+use Illuminate\Database\Eloquent\Collection;
 
 class VinForm extends Component
 {
@@ -44,7 +45,7 @@ class VinForm extends Component
     {
         $this->results = new StdClass();
 
-        $resArray = ['mCodes', 'paintCodes', 'interiorCodes'];
+        $resArray = ['mCodes', 'paintCodes', 'interiorCodes', 'exportDestination'];
         foreach ($resArray as $res) {
             $this->results->$res = new Collection();
         }
@@ -55,6 +56,7 @@ class VinForm extends Component
         $this->results->mCodes = $this->mCode($this->mmmm);
         $this->results->paintCodes = $this->paintCode($this->pp);
         $this->results->interiorCodes = $this->interior($this->pp);
+        $this->results->exportDestination = $this->export($this->ee);
     }
 
     public function render()
@@ -62,7 +64,7 @@ class VinForm extends Component
         return view('livewire.vin-form');
     }
 
-    private function mCode(string $mcodes): Collection
+    private function mCode(string|null $mcodes): Collection
     {
         return Mcode::CodeDetails($mcodes);
     }
@@ -75,5 +77,10 @@ class VinForm extends Component
     private function interior(string $interiorCode): Collection
     {
         return InteriorCode::InteriorDetails($interiorCode);
+    }
+
+    private function export(string $exportCode): Collection
+    {
+        return ExportDestination::ExportDetails($exportCode);
     }
 }

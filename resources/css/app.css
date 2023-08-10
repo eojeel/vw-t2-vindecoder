@@ -3,13 +3,16 @@
 @tailwind utilities;
 
 @layer components {
-    .vin-btn {
-        @apply border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-gray-500 m-1;
+    input, select {
+        @apply border-2 border-blue-900 rounded-md shadow-sm focus:outline-none focus:border-blue-400 m-1;
     }
-
     .error {
         @apply bg-red-100 border border-red-400 rounded relative text-red-700 pt-1 pb-1 ml-1;
     }
+}
+
+html {
+    background-color: #A8A8A8;
 }
 
 .row:after {

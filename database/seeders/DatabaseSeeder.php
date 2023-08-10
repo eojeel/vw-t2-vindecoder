@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             McodeSeeder::class,
             PaintCodesSeeder::class,
             InteriorCodeSeeder::class,
+            ExportDestinationSeeder::class,
         ]);
     }
 }

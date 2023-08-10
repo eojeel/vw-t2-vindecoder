@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite('resources/css/app.css')
     @livewireStyles
-    <title>Laravel</title>
-
-    <!-- Fonts -->
+    <title>vw t2 Vin Descoder</title>
 </head>
-
 <body class="antialiased">
+<h1 class="py-5 text-4xl text-white">VW T2 (1968-1979) Vin Decoder</h1>
     <div class="bus bus--full bus--top-white bus--bottom-love">
         <div class="bus-body">
             <div class="bus__body--top roof"></div>
@@ -132,7 +130,7 @@
     <div class="flex justify-center">
         <label class="mt-4" for="title">Select Color: </label>
         <select name="color"
-            class="w-1/6 m-1 px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500"
+            class="w-1/6 m-1 px-4 py-2"
             onchange="bodyColor(this)">
             @foreach ($colors as $color)
                 <option value="{{ $color->hex_code }}" @selected(old('color') == $color->hex_code)>

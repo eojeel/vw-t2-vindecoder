@@ -9,7 +9,7 @@ class ColorSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('colors')->insert([
+        $colors = [
             ['name' => 'Savannah beige', 'hex_code' => '#93866d'],
             ['name' => 'Lotus white', 'hex_code' => '#e4dec3'],
             ['name' => 'Ivory', 'hex_code' => '#fff7bd'],
@@ -42,6 +42,8 @@ class ColorSeeder extends Seeder
             ['name' => 'Date Nut brown', 'hex_code' => '#301100'],
             ['name' => 'Panama brown', 'hex_code' => '#a46909'],
             ['name' => 'Mexico beige', 'hex_code' => '#bba970'],
-        ]);
+        ];
+
+        DB::table('colors')->insert($colors);
     }
 }
