@@ -66,9 +66,9 @@
                 type="submit">Submit</button>
         </div>
     </form>
-
     @isset($results)
     <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5">
+        @if($results->mCodes->isNotEmpty())
             <div class="flex flex-col items-center space-y-4">
                 <h3 class="text-xl font-semibold">MCodes:</h3>
                 <ul class="mt-5 list-disc justify-center flex flex-col">
@@ -77,7 +77,9 @@
                     @endforeach
                 </ul>
             </div>
+        @endif
 
+        @if($results->paintCodes->isNotEmpty())
             <div class="flex flex-col items-center space-y-4 mt-2">
             <h5 class="text-xl font-semibold float-right">Paint Codes:</h3>
             <ul class="mt-5 list-disc justify-center flex flex-col">
@@ -86,7 +88,9 @@
                 @endforeach
             </ul>
             </div>
+        @endif
 
+        @if($results->interiorCodes->isNotEmpty())
             <div class="flex flex-col items-center space-y-4 mt-2">
             <h5 class="text-xl font-semibold float-right">Interior:</h3>
             <ul class="mt-5 list-disc justify-center flex flex-col">
@@ -95,8 +99,10 @@
                 @endforeach
             </ul>
             </div>
+        @endif
 
-                        <div class="flex flex-col items-center space-y-4 mt-2">
+        @if($results->exportDestination->isNotEmpty())
+            <div class="flex flex-col items-center space-y-4 mt-2">
             <h5 class="text-xl font-semibold float-right">Export Destination:</h3>
             <ul class="mt-5 list-disc justify-center flex flex-col">
                 @foreach ($results->exportDestination as $export)
@@ -104,6 +110,7 @@
                 @endforeach
             </ul>
             </div>
+        @endif
         </div>
     @endisset
 </div>

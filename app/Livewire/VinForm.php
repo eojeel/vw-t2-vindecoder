@@ -2,14 +2,14 @@
 
 namespace App\Livewire;
 
-use stdClass;
-use App\Models\Mcode;
-use Livewire\Component;
-use App\Models\PaintCodes;
-use App\Models\InteriorCode;
-use Livewire\Attributes\Rule;
 use App\Models\ExportDestination;
+use App\Models\InteriorCode;
+use App\Models\Mcode;
+use App\Models\PaintCodes;
 use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\Rule;
+use Livewire\Component;
+use stdClass;
 
 class VinForm extends Component
 {
@@ -53,10 +53,22 @@ class VinForm extends Component
 
     public function save()
     {
-        $this->results->mCodes = $this->mCode($this->mmmm);
-        $this->results->paintCodes = $this->paintCode($this->pp);
-        $this->results->interiorCodes = $this->interior($this->pp);
-        $this->results->exportDestination = $this->export($this->ee);
+
+        $validated = $this->validate([
+            'cc' => 'required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+            'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+            'pp' => 'required|size:6',
+            'mmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+            'dd' => 'required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/',
+            'uu' => 'required|size:4|regex:/^[a-zA-Z0-9]{4}$/',
+            'ee' => 'required|size:2|regex:/^[a-zA-Z0-9]{2}$/',
+            'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
+        ]);
+
+        $this->results->mCodes = $this->mCode($validated->mmmm);
+        $this->results->paintCodes = $this->paintCode($validated->pp);
+        $this->results->interiorCodes = $this->interior($validated->pp);
+        $this->results->exportDestination = $this->export($validated->ee);
     }
 
     public function render()
@@ -64,7 +76,7 @@ class VinForm extends Component
         return view('livewire.vin-form');
     }
 
-    private function mCode(string|null $mcodes): Collection
+    private function mCode(string $mcodes): Collection
     {
         return Mcode::CodeDetails($mcodes);
     }
