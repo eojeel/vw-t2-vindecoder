@@ -4,7 +4,6 @@ Vindecoder todo lis
 
 ### Todo
 
-- [ ] Work on the website ~3d #feat @john 2020-03-20
 - [ ] gather all codes
   - [ ] what codes are required
 

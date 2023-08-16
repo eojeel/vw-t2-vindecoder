@@ -65,10 +65,10 @@ class VinForm extends Component
             'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
         ]);
 
-        $this->results->mCodes = $this->mCode($validated->mmmm);
-        $this->results->paintCodes = $this->paintCode($validated->pp);
-        $this->results->interiorCodes = $this->interior($validated->pp);
-        $this->results->exportDestination = $this->export($validated->ee);
+        $this->results->mCodes = $this->mCode($validated['mmmm']);
+        $this->results->paintCodes = $this->paintCode($validated['pp']);
+        $this->results->interiorCodes = $this->interior($validated['pp']);
+        $this->results->exportDestination = $this->export($validated['ee']);
     }
 
     public function render()

@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Colors extends Model
 {
+    public $primaryKey = 'code';
+
     use HasFactory;
 }
