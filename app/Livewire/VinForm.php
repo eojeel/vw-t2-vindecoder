@@ -67,6 +67,9 @@ class VinForm extends Component
 
         $this->results->mCodes = $this->mCode($validated['mmmm']);
         $this->results->paintCodes = $this->paintCode($validated['pp']);
+        $this->results->colorDisplay = $this->results->paintCodes->first()
+            ->color()
+            ->get();
         $this->results->interiorCodes = $this->interior($validated['pp']);
         $this->results->exportDestination = $this->export($validated['ee']);
     }
