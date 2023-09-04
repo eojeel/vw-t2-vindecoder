@@ -1,3 +1,9 @@
+@push('scripts')
+<script>
+Livewire.on('vin-form', { console.log('test') })
+   bodyColor('#597589');
+</script>
+@endpush
 <div class="container mx-auto ">
     <form wire:submit="save">
         <div class="flex justify-center">
@@ -114,3 +120,9 @@
         </div>
     @endisset
 </div>
+<script>
+    window.addEventListener('BusColour', event => {
+        const data = event.detail.data;
+        console.log(`Received data from Livewire dehydrate: ${data}`);
+    });
+</script>

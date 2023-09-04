@@ -10,4 +10,10 @@ class Colors extends Model
     public $primaryKey = 'code';
 
     use HasFactory;
+
+    public static function random()
+    {
+        $random = Colors::inRandomOrder()->first();
+        return $random;
+    }
 }

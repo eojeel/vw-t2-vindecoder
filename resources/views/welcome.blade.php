@@ -146,10 +146,10 @@
 
 </html>
 <script>
-    function bodyColor(selector) {
-        var selectedColor = selector.options[selector.selectedIndex].value;
-        var element = document.querySelector('.bus__body--bottom');
-        console.log(selectedColor);
-        element.style.backgroundColor = selectedColor;
-    }
+function bodyColor(selector) {
+    var selectedColor = selector.options[selector.selectedIndex].value;
+    var element = document.querySelector('.bus__body--bottom');
+    console.log(selectedColor);
+    element.style.backgroundColor = selectedColor;
+}
 </script>

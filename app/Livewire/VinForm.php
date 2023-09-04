@@ -2,14 +2,15 @@
 
 namespace App\Livewire;
 
-use App\Models\ExportDestination;
-use App\Models\InteriorCode;
-use App\Models\Mcode;
-use App\Models\PaintCodes;
-use Illuminate\Database\Eloquent\Collection;
-use Livewire\Attributes\Rule;
-use Livewire\Component;
 use stdClass;
+use App\Models\Mcode;
+use App\Models\Colors;
+use Livewire\Component;
+use App\Models\PaintCodes;
+use App\Models\InteriorCode;
+use Livewire\Attributes\Rule;
+use App\Models\ExportDestination;
+use Illuminate\Database\Eloquent\Collection;
 
 class VinForm extends Component
 {
@@ -49,6 +50,11 @@ class VinForm extends Component
         foreach ($resArray as $res) {
             $this->results->$res = new Collection();
         }
+    }
+
+    public function dehydrate()
+    {
+        $this->dispatch('BusColour', $this->results->colorDisplay ?? Colors::random());
     }
 
     public function save()

@@ -1,7 +1,8 @@
 <?php
 
-use App\Livewire\VinForm;
+use Livewire\Livewire;
 
+use App\Livewire\VinForm;
 use function Pest\Livewire\livewire;
 
 //test that it validates the cc field
@@ -35,7 +36,7 @@ it('Validates form input', function () {
     livewire(VinForm::class)
         ->set('cc', '12 123 123')
         ->set('mmmmm', '123 123 123 123 123')
-        ->set('pp', '123456')
+        ->set('pp', 'j2j252')
         ->set('mmmm', '123 123 123 123')
         ->set('dd', '12 1')
         ->set('uu', '1234')
@@ -43,4 +44,11 @@ it('Validates form input', function () {
         ->set('tt', '1234 11')
         ->call('save')
         ->assertHasNoErrors();
+});
+
+
+it('dispatches BusColour event on dehydrate', function () {
+    Livewire::test(VinForm::class)
+    ->dehydrate()
+    ->dispatch('BusColour');
 });
