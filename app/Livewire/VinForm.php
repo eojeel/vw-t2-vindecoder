@@ -2,15 +2,15 @@
 
 namespace App\Livewire;
 
-use stdClass;
-use App\Models\Mcode;
 use App\Models\Colors;
-use Livewire\Component;
-use App\Models\PaintCodes;
-use App\Models\InteriorCode;
-use Livewire\Attributes\Rule;
 use App\Models\ExportDestination;
+use App\Models\InteriorCode;
+use App\Models\Mcode;
+use App\Models\PaintCodes;
 use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\Rule;
+use Livewire\Component;
+use stdClass;
 
 class VinForm extends Component
 {
@@ -50,16 +50,11 @@ class VinForm extends Component
         foreach ($resArray as $res) {
             $this->results->$res = new Collection();
         }
-    }
 
-    public function dehydrate()
-    {
-        $this->dispatch('BusColour', $this->results->colorDisplay ?? Colors::random());
     }
 
     public function save()
     {
-
         $validated = $this->validate([
             'cc' => 'required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
             'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
@@ -78,6 +73,8 @@ class VinForm extends Component
             ->get();
         $this->results->interiorCodes = $this->interior($validated['pp']);
         $this->results->exportDestination = $this->export($validated['ee']);
+
+        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
     }
 
     public function render()

@@ -14,6 +14,7 @@ class Colors extends Model
     public static function random()
     {
         $random = Colors::inRandomOrder()->first();
+
         return $random;
     }
 }
