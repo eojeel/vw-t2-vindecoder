@@ -118,6 +118,8 @@
     window.addEventListener('BusColour', event => {
         const data = event.detail;
         var element = document.querySelector('.bus__body--bottom');
+        const select = document.getElementById("colorSelector");
+        select.value = data;
         element.style.backgroundColor = data;
         console.log(`Received data from Livewire dehydrate: ${data}`);
     });

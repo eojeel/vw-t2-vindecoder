@@ -129,7 +129,7 @@
 
     <div class="flex justify-center">
         <label class="mt-4" for="title">Select Color: </label>
-        <select name="color"
+        <select name="colorSelector" id="colorSelector"
             class="w-1/6 m-1 px-4 py-2"
             onchange="bodyColor(this)">
             @foreach ($colors as $color)

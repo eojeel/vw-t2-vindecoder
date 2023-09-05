@@ -68,13 +68,17 @@ class VinForm extends Component
 
         $this->results->mCodes = $this->mCode($validated['mmmm']);
         $this->results->paintCodes = $this->paintCode($validated['pp']);
-        $this->results->colorDisplay = $this->results->paintCodes->first()
-            ->color()
-            ->get();
+
+        $firstPaintCode = $this->results->paintCodes->first();
+        if ($firstPaintCode) {
+            $this->results->colorDisplay = $firstPaintCode->color()->get();
+        }
         $this->results->interiorCodes = $this->interior($validated['pp']);
         $this->results->exportDestination = $this->export($validated['ee']);
 
-        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
+        if (! empty($this->results->colorDisplay)) {
+            $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
+        }
     }
 
     public function render()
