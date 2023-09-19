@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\ChassisNumber;
 use App\Models\Colors;
 use App\Models\ExportDestination;
 use App\Models\InteriorCode;
@@ -46,7 +47,7 @@ class VinForm extends Component
     {
         $this->results = new StdClass();
 
-        $resArray = ['mCodes', 'paintCodes', 'interiorCodes', 'exportDestination'];
+        $resArray = ['mCodes', 'paintCodes', 'interiorCodes', 'exportDestination', 'chassisNumber'];
         foreach ($resArray as $res) {
             $this->results->$res = new Collection();
         }
@@ -57,33 +58,39 @@ class VinForm extends Component
     {
         $validated = $this->validate([
             'cc' => 'required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            'pp' => 'required|size:6',
-            'mmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            'dd' => 'required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/',
-            'uu' => 'required|size:4|regex:/^[a-zA-Z0-9]{4}$/',
-            'ee' => 'required|size:2|regex:/^[a-zA-Z0-9]{2}$/',
-            'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
+            // 'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+            // 'pp' => 'required|size:6',
+            // 'mmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
+            // 'dd' => 'required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/',
+            // 'uu' => 'required|size:4|regex:/^[a-zA-Z0-9]{4}$/',
+            // 'ee' => 'required|size:2|regex:/^[a-zA-Z0-9]{2}$/',
+            // 'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
         ]);
 
-        $this->results->mCodes = $this->mCode($validated['mmmm']);
-        $this->results->paintCodes = $this->paintCode($validated['pp']);
+        $this->results->chassisNumber = $this->chassisNumber($validated['cc']);
+        // $this->results->mCodes = $this->mCode($validated['mmmm']);
+        // $this->results->paintCodes = $this->paintCode($validated['pp']);
 
-        $firstPaintCode = $this->results->paintCodes->first();
-        if ($firstPaintCode) {
-            $this->results->colorDisplay = $firstPaintCode->color()->get();
-        }
-        $this->results->interiorCodes = $this->interior($validated['pp']);
-        $this->results->exportDestination = $this->export($validated['ee']);
+        // $firstPaintCode = $this->results->paintCodes->first();
+        // if ($firstPaintCode) {
+        //     $this->results->colorDisplay = $firstPaintCode->color()->get();
+        // }
+        // $this->results->interiorCodes = $this->interior($validated['pp']);
+        // $this->results->exportDestination = $this->export($validated['ee']);
 
-        if (! empty($this->results->colorDisplay)) {
-            $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
-        }
+        // if (! empty($this->results->colorDisplay)) {
+        //     $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
+        // }
     }
 
     public function render()
     {
         return view('livewire.vin-form');
+    }
+
+    private function chassisNumber(string $chassisNumber): string
+    {
+        return ChassisNumber::Details($chassisNumber);
     }
 
     private function mCode(string $mcodes): Collection

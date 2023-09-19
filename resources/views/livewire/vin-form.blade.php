@@ -1,7 +1,7 @@
 <div class="container mx-auto ">
     <form wire:submit="save">
         <div class="flex justify-center">
-            <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-10 w-1/3 p-2">
+            <div class="border-4 border-gray-500 bg-gray-300 rounded-lg">
                 <input wire:model.blur="cc" type="text" name="c" class="w-1/3 mb-1 px-4 py-2 vin-btn"
                     placeholder="CC CCC CCC" />
                 <div>
@@ -68,6 +68,17 @@
     </form>
     @isset($results)
     <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5">
+
+    @if(!empty($results->chassisNumber))
+            <div class="flex flex-col items-center space-y-4">
+                <h3 class="text-xl font-semibold">MCodes:</h3>
+                <ul class="mt-5 list-disc justify-center flex flex-col">
+                <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">Year - {{ $results->chassisNumber }}</li>
+                </ul>
+            </div>
+        @endif
+
+
         @if($results->mCodes->isNotEmpty())
             <div class="flex flex-col items-center space-y-4">
                 <h3 class="text-xl font-semibold">MCodes:</h3>
@@ -111,7 +122,7 @@
             </ul>
             </div>
         @endif
-        </div>
+    </div>
     @endisset
 </div>
 <script>
