@@ -1,4 +1,4 @@
-<div class="container mx-auto ">
+<div class="container mx-auto">
     <form wire:submit="save">
         <div class="flex justify-center">
             <div class="border-4 border-gray-500 bg-gray-300 rounded-lg">

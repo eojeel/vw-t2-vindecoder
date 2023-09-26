@@ -13,11 +13,12 @@
 
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex flex-wrap">
-            <div class="md:w-2/5">
+            <div class="md:w-2/5 lg:w-3/5">
+
                 <h2 class="sm:text-3xl text-2xl text-white font-medium title-font mb-2">VW T2 (1968-1979) Vin Decoder
                 </h2>
 
-                <div class="bus bus--full bus--top-white bus--bottom-love">
+                <div class="bus relative bus--full bus--top-white bus--bottom-love">
                     <div class="bus-body">
                         <div class="bus__body--top roof"></div>
                         <div class="bus__body--top side-top"></div>
@@ -135,7 +136,7 @@
 
                 <div class="flex justify-center">
                     <label class="mt-4" for="title">Select Color: </label>
-                    <select name="colorSelector" id="colorSelector" class="w-1/6 m-1 px-4 py-2"
+                    <select name="colorSelector" id="colorSelector" class="sm:w-3/6 md:w-2/6 m-1 px-4 py-2"
                         onchange="bodyColor(this)">
                         @foreach ($colors as $color)
                             <option value="{{ $color->hex_code }}" @selected(old('color') == $color->hex_code)>
@@ -144,10 +145,9 @@
                         @endforeach
                     </select>
                 </div>
-
             </div>
 
-            <div class="md:w-3/5 md:pl-6 py-64">
+            <div class="md:w-3/5 lg:w-2/5 lg:py-64 md:py-48 md:pl-6 sm:py-42">
                 @livewire('vin-form')
             </div>
         </div>
