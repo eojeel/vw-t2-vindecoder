@@ -11,7 +11,6 @@ use App\Models\PaintCodes;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
-use stdClass;
 
 class VinForm extends Component
 {
@@ -88,7 +87,7 @@ class VinForm extends Component
         return view('livewire.vin-form');
     }
 
-    private function chassisNumber(string $chassisNumber): string|null
+    private function chassisNumber(string $chassisNumber): ?string
     {
         return ChassisNumber::Details($chassisNumber);
     }

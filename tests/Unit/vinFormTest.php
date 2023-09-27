@@ -5,9 +5,12 @@ use Livewire\Livewire;
 
 use function Pest\Livewire\livewire;
 
+beforeEach(function () {
+    $this->seed();
+});
+
 //test that it validates the cc field
 it('Errors on invalid input', function () {
-
     livewire(VinForm::class)
         ->set('cc', '12 123 12')
         ->set('mmmmm', '123 123 123 12')
@@ -32,7 +35,6 @@ it('Errors on invalid input', function () {
 
 //test that it validates the cc field
 it('Validates form input', function () {
-
     livewire(VinForm::class)
         ->set('cc', '12 123 123')
         ->set('mmmmm', '123 123 123 123 123')
@@ -50,7 +52,7 @@ it('dispatches BusColour event', function () {
     Livewire::test(VinForm::class)
         ->set('cc', '12 123 123')
         ->set('mmmmm', '123 123 123 123 123')
-        ->set('pp', 'j2j252')
+        ->set('pp', 'J2J252')
         ->set('mmmm', '123 123 123 123')
         ->set('dd', '12 1')
         ->set('uu', '1234')

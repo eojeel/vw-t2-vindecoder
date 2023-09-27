@@ -19,10 +19,10 @@ class ChassisNumber extends Model
         6 => '1976',
         7 => '1977',
         8 => '1978',
-        9 => '1979'
+        9 => '1979',
     ];
 
-    public static function Details($chassisNumber): string|null
+    public static function Details($chassisNumber): ?string
     {
 
         return self::$years[$chassisNumber[0]] ?? null;
