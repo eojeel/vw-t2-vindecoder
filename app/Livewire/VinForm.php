@@ -2,15 +2,16 @@
 
 namespace App\Livewire;
 
-use App\Models\ChassisNumber;
-use App\Models\Colors;
-use App\Models\ExportDestination;
-use App\Models\InteriorCode;
+use App\Models\Vin;
 use App\Models\Mcode;
-use App\Models\PaintCodes;
-use Illuminate\Database\Eloquent\Collection;
-use Livewire\Attributes\Rule;
+use App\Models\Colors;
 use Livewire\Component;
+use App\Models\PaintCodes;
+use App\Models\InteriorCode;
+use App\Models\ChassisNumber;
+use Livewire\Attributes\Rule;
+use App\Models\ExportDestination;
+use Illuminate\Database\Eloquent\Collection;
 
 class VinForm extends Component
 {
@@ -65,6 +66,8 @@ class VinForm extends Component
             'ee' => 'required|size:2|regex:/^[a-zA-Z0-9]{2}$/',
             'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
         ]);
+
+        Vin::create($validated);
 
         $this->results->chassisNumber = $this->chassisNumber($validated['cc']);
         $this->results->mCodes = $this->mCode($validated['mmmm']);
