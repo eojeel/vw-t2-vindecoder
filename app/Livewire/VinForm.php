@@ -2,16 +2,16 @@
 
 namespace App\Livewire;
 
-use App\Models\Vin;
-use App\Models\Mcode;
-use App\Models\Colors;
-use Livewire\Component;
-use App\Models\PaintCodes;
-use App\Models\InteriorCode;
 use App\Models\ChassisNumber;
-use Livewire\Attributes\Rule;
+use App\Models\Colors;
 use App\Models\ExportDestination;
+use App\Models\InteriorCode;
+use App\Models\Mcode;
+use App\Models\PaintCodes;
+use App\Models\Vin;
 use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\Rule;
+use Livewire\Component;
 
 class VinForm extends Component
 {
