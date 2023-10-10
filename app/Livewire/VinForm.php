@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Requests\VinFormRequest;
 use App\Models\ChassisNumber;
 use App\Models\Colors;
 use App\Models\ExportDestination;
@@ -54,18 +55,9 @@ class VinForm extends Component
 
     }
 
-    public function save()
+    public function save(VinFormRequest $request)
     {
-        $validated = $this->validate([
-            'cc' => 'required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            'mmmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            'pp' => 'required|size:6',
-            'mmmm' => 'required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/',
-            'dd' => 'required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/',
-            'uu' => 'required|size:4|regex:/^[a-zA-Z0-9]{4}$/',
-            'ee' => 'required|size:2|regex:/^[a-zA-Z0-9]{2}$/',
-            'tt' => 'required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/',
-        ]);
+        $validated = $this->validate($request->all());
 
         Vin::create($validated);
 

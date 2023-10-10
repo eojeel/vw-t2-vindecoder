@@ -10,14 +10,12 @@
 </head>
 
 <body class="antialiased">
-
     <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+                  <div class="mx-auto text-center text-white">
+                <h2 class="sm:text-3xl text-2xl font-medium title-font mb-2 mt-32">VW T2 (1968-1979) Vin Decoder</h2>
+                </div>
+        <div class="container mx-auto flex flex-wrap">
             <div class="md:w-2/5 lg:w-3/5">
-
-                <h2 class="sm:text-3xl text-2xl text-white font-medium title-font mb-2">VW T2 (1968-1979) Vin Decoder
-                </h2>
-
                 <div class="bus relative bus--full bus--top-white bus--bottom-love">
                     <div class="bus-body">
                         <div class="bus__body--top roof"></div>
