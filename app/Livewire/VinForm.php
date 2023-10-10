@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Http\Requests\VinFormRequest;
 use App\Models\ChassisNumber;
 use App\Models\Colors;
 use App\Models\ExportDestination;
@@ -18,31 +17,48 @@ class VinForm extends Component
 {
     public $title = 'VW T2 Vin Decoder';
 
-    #[Rule('required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/')]
+    #[Rule('nullable|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/', as: 'M-Code')]
     public $mmmmm;
 
-    #[Rule('required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/')]
+    #[Rule('required|regex:/^([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/', as: 'M-Code')]
     public $mmmm;
 
-    #[Rule('required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/')]
+    #[Rule('required|regex:/^([A-Za-z0-9]{2})\s([A-Za-z0-9]{3})\s([A-Za-z0-9]{3})$/', as: 'Chassis Number')]
     public $cc;
 
-    #[Rule('required|size:6')]
+    #[Rule('required|size:6', as: 'Paint Code')]
     public $pp;
 
-    #[Rule('required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/')]
+    #[Rule('required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/', as: 'Production Date')]
     public $dd;
 
-    #[Rule('required|size:4|regex:/^[a-zA-Z0-9]{4}$/')]
+    #[Rule('required|size:4|regex:/^[a-zA-Z0-9]{4}$/', as: 'Production Plant')]
     public $uu;
 
-    #[Rule('required|size:2|regex:/^[a-zA-Z0-9]{2}$/')]
+    #[Rule('required|size:2|regex:/^[a-zA-Z0-9]{2}$/', as: 'Export Destination')]
     public $ee;
 
-    #[Rule('required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/')]
+    #[Rule('required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/', as: 'Body Model (Engine & Gearbox) Type')]
     public $tt;
 
     public $results;
+
+    public function mount($vindetails)
+    {
+        if (! empty($vindetails)) {
+            $this->hydrate();
+            $this->decodeVin($vindetails);
+
+            $this->cc = $vindetails->cc;
+            $this->mmmmm = $vindetails->mmmmm;
+            $this->mmmm = $vindetails->mmmm;
+            $this->pp = $vindetails->pp;
+            $this->dd = $vindetails->dd;
+            $this->uu = $vindetails->uu;
+            $this->ee = $vindetails->ee;
+            $this->tt = $vindetails->tt;
+        }
+    }
 
     public function hydrate()
     {
@@ -52,15 +68,20 @@ class VinForm extends Component
         foreach ($resArray as $res) {
             $this->results->$res = new Collection();
         }
-
     }
 
-    public function save(VinFormRequest $request)
+    public function save()
     {
-        $validated = $this->validate($request->all());
+        $validated = $this->validate();
+
+        $this->decodeVin($validated);
 
         Vin::create($validated);
 
+    }
+
+    private function decodeVin($validated)
+    {
         $this->results->chassisNumber = $this->chassisNumber($validated['cc']);
         $this->results->mCodes = $this->mCode($validated['mmmm']);
         $this->results->paintCodes = $this->paintCode($validated['pp']);

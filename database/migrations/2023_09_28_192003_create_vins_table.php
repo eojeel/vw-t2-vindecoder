@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('vins', function (Blueprint $table) {
             $table->id();
             $table->string('cc');
-            $table->string('mmmmm');
+            $table->string('mmmmm')->nullable();
             $table->string('pp');
             $table->string('mmmm');
             $table->string('dd');
