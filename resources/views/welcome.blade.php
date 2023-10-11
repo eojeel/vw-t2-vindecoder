@@ -11,11 +11,13 @@
 
 <body class="antialiased">
     <section class="text-gray-600 body-font">
+        <section class="mt-16 text-cente">
                   <div class="mx-auto text-center text-white">
-                <h2 class="sm:text-3xl text-2xl font-medium title-font mb-2 mt-32">VW T2 (1968-1979) Vin Decoder</h2>
+                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container font-bold text-center text-3xl/none md:text-4xl/none lg:text-5xl/none">VW T2 (1968-1979) Vin Decoder</h2>
                 </div>
+            </section>
         <div class="container mx-auto flex flex-wrap">
-            <div class="md:w-2/5 lg:w-3/5">
+            <div class="w-full md:w-2/5 lg:w-3/5">
                 <div class="bus relative bus--full bus--top-white bus--bottom-love">
                     <div class="bus-body">
                         <div class="bus__body--top roof"></div>
@@ -144,16 +146,22 @@
                     </select>
                 </div>
             </div>
-            <div class="md:w-3/5 lg:w-2/5 lg:py-48 md:py-48 md:pl-6 sm:py-42">
+            <div class="md:w-3/5 lg:w-2/5 lg:py-28 md:py-28 md:pl-6 sm:py-42">
                 @livewire('vin-form', ['vindetails' => $vindetails ?? []])
             </div>
         </div>
     </section>
-
 </body>
 @vite('resources/js/app.js')
 @livewireScripts
 
+<div class="flex-grow mt-16 bg-gradient-to-r from-gray-200/[.35] to-gray-200/[.15]">
+<footer class="container py-8 text-center">
+    <p class="mt-8 text-xs tracking-widest uppercase opacity-50">
+        © Joe Lee {{ date('Y') }}. All rights reserved.
+    </p>
+</footer>
+</div>
 </html>
 <script>
     function bodyColor(selector) {

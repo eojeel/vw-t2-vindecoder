@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\VinForm;
+use App\Models\Vin;
 use Livewire\Livewire;
 
 use function Pest\Livewire\livewire;
@@ -35,29 +36,50 @@ it('Errors on invalid input', function () {
 
 //test that it validates the cc field
 it('Validates form input', function () {
+
+    $vinDetails = Vin::factory()->create();
+
     livewire(VinForm::class)
-        ->set('cc', '12 123 123')
-        ->set('mmmmm', '123 123 123 123 123')
-        ->set('pp', 'j2j252')
-        ->set('mmmm', '123 123 123 123')
-        ->set('dd', '12 1')
-        ->set('uu', '1234')
-        ->set('ee', '11')
-        ->set('tt', '1234 11')
+        ->set('cc', $vinDetails['cc'])
+        ->set('mmmmm', $vinDetails['mmmmm'])
+        ->set('pp', $vinDetails['pp'])
+        ->set('mmmm', $vinDetails['mmmm'])
+        ->set('dd', $vinDetails['dd'])
+        ->set('uu', $vinDetails['uu'])
+        ->set('ee', $vinDetails['ee'])
+        ->set('tt', $vinDetails['tt'])
         ->call('save')
         ->assertHasNoErrors();
 });
 
 it('dispatches BusColour event', function () {
+
+    $vinDetails = Vin::factory()->create();
+
     Livewire::test(VinForm::class)
-        ->set('cc', '12 123 123')
-        ->set('mmmmm', '123 123 123 123 123')
-        ->set('pp', 'J2J252')
-        ->set('mmmm', '123 123 123 123')
-        ->set('dd', '12 1')
-        ->set('uu', '1234')
-        ->set('ee', '11')
-        ->set('tt', '1234 11')
+        ->set('cc', $vinDetails['cc'])
+        ->set('mmmmm', $vinDetails['mmmmm'])
+        ->set('pp', $vinDetails['pp'])
+        ->set('mmmm', $vinDetails['mmmm'])
+        ->set('dd', $vinDetails['dd'])
+        ->set('uu', $vinDetails['uu'])
+        ->set('ee', $vinDetails['ee'])
+        ->set('tt', $vinDetails['tt'])
         ->call('save')
         ->assertDispatched('BusColour');
+});
+
+it('can handle vindetails', function () {
+
+    $vinDetails = Vin::factory()->create();
+
+    Livewire::test(VinForm::class, ['vindetails' => $vinDetails])
+        ->assertSet('cc', '12 123 123')
+        ->assertSet('mmmmm', '123 123 123 123 123')
+        ->assertSet('pp', 'J2J252')
+        ->assertSet('mmmm', '123 123 123 123')
+        ->assertSet('dd', '12 1')
+        ->assertSet('uu', '1234')
+        ->assertSet('ee', '11')
+        ->assertSet('tt', '1234 11');
 });

@@ -68,12 +68,11 @@
     </form>
     @isset($results)
         <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5">
-
             @if (!empty($results->chassisNumber))
                 <div class="flex flex-col items-center space-y-4">
-                    <h3 class="text-xl font-semibold">MCodes:</h3>
-                    <ul class="mt-5 list-disc justify-center flex flex-col">
-                        <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">Year
+                    <h3 class="text-xl font-semibold">Chassis Number</h3>
+                    <ul class="mt-5 justify-center flex flex-col">
+                        <li class="w-full border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">Year
                             - {{ $results->chassisNumber }}</li>
                     </ul>
                 </div>
@@ -81,11 +80,11 @@
 
 
             @if ($results->mCodes->isNotEmpty())
-                <div class="flex flex-col items-center space-y-4">
-                    <h3 class="text-xl font-semibold">MCodes:</h3>
-                    <ul class="mt-5 list-disc justify-center flex flex-col">
+                <div class="flex flex-col items-center space-y-4 mt-4">
+                    <h3 class="text-xl font-semibold">M-Codes</h3>
+                    <ul class="mt-5 justify-center flex flex-col">
                         @foreach ($results->mCodes as $mcode)
-                            <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">
+                            <li class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100dark:border-opacity-50">
                                 {{ $mcode->code }} - {{ $mcode->description }}</li>
                         @endforeach
                     </ul>
@@ -93,12 +92,11 @@
             @endif
 
             @if ($results->paintCodes->isNotEmpty())
-                <div class="flex flex-col items-center space-y-4 mt-2">
-                    <h5 class="text-xl font-semibold float-right">Paint Codes:</h3>
-                        <ul class="mt-5 list-disc justify-center flex flex-col">
+                <div class="flex flex-col items-center space-y-4 mt-4">
+                    <h5 class="text-xl font-semibold float-right">Paint Codes</h3>
+                        <ul class="mt-5 justify-center flex flex-col">
                             @foreach ($results->paintCodes as $paint_code)
-                                <li
-                                    class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">
+                            <li class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100dark:border-opacity-50">
                                     {{ $paint_code->plate_code }} - {{ $paint_code->color_code }} (German -
                                     {{ $paint_code->german_name }} | English - {{ $paint_code->english_name }})</li>
                             @endforeach
@@ -107,12 +105,11 @@
             @endif
 
             @if ($results->interiorCodes->isNotEmpty())
-                <div class="flex flex-col items-center space-y-4 mt-2">
-                    <h5 class="text-xl font-semibold float-right">Interior:</h3>
-                        <ul class="mt-5 list-disc justify-center flex flex-col">
+                <div class="flex flex-col items-center space-y-4 mt-4">
+                    <h5 class="text-xl font-semibold float-right">Interior</h3>
+                        <ul class="mt-5 justify-center flex flex-col">
                             @foreach ($results->interiorCodes as $interior)
-                                <li
-                                    class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">
+                            <li class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100dark:border-opacity-50">
                                     {{ $interior->code }} - {{ $interior->material }} (German -
                                     {{ $interior->german_name }} | English - {{ $interior->english_name }})</li>
                             @endforeach
@@ -121,12 +118,11 @@
             @endif
 
             @if ($results->exportDestination->isNotEmpty())
-                <div class="flex flex-col items-center space-y-4 mt-2">
-                    <h5 class="text-xl font-semibold float-right">Export Destination:</h3>
-                        <ul class="mt-5 list-disc justify-center flex flex-col">
+                <div class="flex flex-col items-center space-y-4 mt-4">
+                    <h5 class="text-xl font-semibold float-right">Export Destination</h3>
+                        <ul class="mt-5 justify-center flex flex-col">
                             @foreach ($results->exportDestination as $export)
-                                <li
-                                    class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">
+                            <li class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100dark:border-opacity-50">
                                     {{ $export->code }} - {{ $export->export }}</li>
                             @endforeach
                         </ul>
