@@ -2,16 +2,17 @@
 
 namespace App\Livewire;
 
-use App\Models\ChassisNumber;
-use App\Models\Colors;
-use App\Models\ExportDestination;
-use App\Models\InteriorCode;
-use App\Models\Mcode;
-use App\Models\PaintCodes;
 use App\Models\Vin;
-use Illuminate\Database\Eloquent\Collection;
-use Livewire\Attributes\Rule;
+use App\Models\Mcode;
+use App\Models\Colors;
 use Livewire\Component;
+use App\Models\PaintCodes;
+use App\Models\InteriorCode;
+use App\Models\ChassisNumber;
+use Livewire\Attributes\Rule;
+use App\Models\ExportDestination;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
 
 class VinForm extends Component
 {
@@ -76,8 +77,10 @@ class VinForm extends Component
 
         $this->decodeVin($validated);
 
-        Vin::create($validated);
 
+        if (!Vin::where('cc', $validated['cc'])->exists()) {
+            Vin::create($validated);
+        }
     }
 
     private function decodeVin($validated)

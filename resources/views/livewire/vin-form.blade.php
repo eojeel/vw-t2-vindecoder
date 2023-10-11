@@ -18,7 +18,7 @@
                 </div>
                 <div class="flex mb-1">
                     <input wire:model.blur="pp" type="text" name="p" class="w-2/5 mr-2 px-4 py-2 vin-btn"
-                        placeholder="PPPPII" value="@old('pp')"/>
+                        placeholder="PPPPII" value="@old('pp')" />
                     <input wire:model.blur="mmmm" type="text" name="m2" class="w-3/5 px-4 py-2 vin-btn"
                         placeholder="MMM MMM MMM MMM" />
                 </div>
@@ -63,66 +63,76 @@
         <div class="flex justify-center mt-2">
             <button
                 class="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
-                type="submit">Submit</button>
+                type="submit">Decode Vin!</button>
         </div>
     </form>
     @isset($results)
-    <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5">
+        <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5">
 
-    @if(!empty($results->chassisNumber))
-            <div class="flex flex-col items-center space-y-4">
-                <h3 class="text-xl font-semibold">MCodes:</h3>
-                <ul class="mt-5 list-disc justify-center flex flex-col">
-                <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">Year - {{ $results->chassisNumber }}</li>
-                </ul>
-            </div>
-        @endif
+            @if (!empty($results->chassisNumber))
+                <div class="flex flex-col items-center space-y-4">
+                    <h3 class="text-xl font-semibold">MCodes:</h3>
+                    <ul class="mt-5 list-disc justify-center flex flex-col">
+                        <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">Year
+                            - {{ $results->chassisNumber }}</li>
+                    </ul>
+                </div>
+            @endif
 
 
-        @if($results->mCodes->isNotEmpty())
-            <div class="flex flex-col items-center space-y-4">
-                <h3 class="text-xl font-semibold">MCodes:</h3>
-                <ul class="mt-5 list-disc justify-center flex flex-col">
-                    @foreach ($results->mCodes as $mcode)
-                            <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">{{ $mcode->code }} - {{ $mcode->description }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+            @if ($results->mCodes->isNotEmpty())
+                <div class="flex flex-col items-center space-y-4">
+                    <h3 class="text-xl font-semibold">MCodes:</h3>
+                    <ul class="mt-5 list-disc justify-center flex flex-col">
+                        @foreach ($results->mCodes as $mcode)
+                            <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">
+                                {{ $mcode->code }} - {{ $mcode->description }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-        @if($results->paintCodes->isNotEmpty())
-            <div class="flex flex-col items-center space-y-4 mt-2">
-            <h5 class="text-xl font-semibold float-right">Paint Codes:</h3>
-            <ul class="mt-5 list-disc justify-center flex flex-col">
-                @foreach ($results->paintCodes as $paint_code)
-                    <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">{{ $paint_code->plate_code }} - {{ $paint_code->color_code }} (German - {{ $paint_code->german_name }} | English - {{ $paint_code->english_name }})</li>
-                @endforeach
-            </ul>
-            </div>
-        @endif
+            @if ($results->paintCodes->isNotEmpty())
+                <div class="flex flex-col items-center space-y-4 mt-2">
+                    <h5 class="text-xl font-semibold float-right">Paint Codes:</h3>
+                        <ul class="mt-5 list-disc justify-center flex flex-col">
+                            @foreach ($results->paintCodes as $paint_code)
+                                <li
+                                    class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">
+                                    {{ $paint_code->plate_code }} - {{ $paint_code->color_code }} (German -
+                                    {{ $paint_code->german_name }} | English - {{ $paint_code->english_name }})</li>
+                            @endforeach
+                        </ul>
+                </div>
+            @endif
 
-        @if($results->interiorCodes->isNotEmpty())
-            <div class="flex flex-col items-center space-y-4 mt-2">
-            <h5 class="text-xl font-semibold float-right">Interior:</h3>
-            <ul class="mt-5 list-disc justify-center flex flex-col">
-                @foreach ($results->interiorCodes as $interior)
-                    <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">{{ $interior->code }} - {{ $interior->material }} (German - {{ $interior->german_name }} | English - {{ $interior->english_name }})</li>
-                @endforeach
-            </ul>
-            </div>
-        @endif
+            @if ($results->interiorCodes->isNotEmpty())
+                <div class="flex flex-col items-center space-y-4 mt-2">
+                    <h5 class="text-xl font-semibold float-right">Interior:</h3>
+                        <ul class="mt-5 list-disc justify-center flex flex-col">
+                            @foreach ($results->interiorCodes as $interior)
+                                <li
+                                    class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">
+                                    {{ $interior->code }} - {{ $interior->material }} (German -
+                                    {{ $interior->german_name }} | English - {{ $interior->english_name }})</li>
+                            @endforeach
+                        </ul>
+                </div>
+            @endif
 
-        @if($results->exportDestination->isNotEmpty())
-            <div class="flex flex-col items-center space-y-4 mt-2">
-            <h5 class="text-xl font-semibold float-right">Export Destination:</h3>
-            <ul class="mt-5 list-disc justify-center flex flex-col">
-                @foreach ($results->exportDestination as $export)
-                    <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">{{ $export->code }} - {{ $export->export }}</li>
-                @endforeach
-            </ul>
-            </div>
-        @endif
-    </div>
+            @if ($results->exportDestination->isNotEmpty())
+                <div class="flex flex-col items-center space-y-4 mt-2">
+                    <h5 class="text-xl font-semibold float-right">Export Destination:</h3>
+                        <ul class="mt-5 list-disc justify-center flex flex-col">
+                            @foreach ($results->exportDestination as $export)
+                                <li
+                                    class="w-full border-b-2 border-neutral-100 border-opacity-100 py-2 dark:border-opacity-50">
+                                    {{ $export->code }} - {{ $export->export }}</li>
+                            @endforeach
+                        </ul>
+                </div>
+            @endif
+        </div>
     @endisset
 </div>
 <script>

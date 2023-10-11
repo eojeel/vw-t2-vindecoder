@@ -144,7 +144,7 @@
                     </select>
                 </div>
             </div>
-            <div class="md:w-3/5 lg:w-2/5 lg:py-64 md:py-48 md:pl-6 sm:py-42">
+            <div class="md:w-3/5 lg:w-2/5 lg:py-48 md:py-48 md:pl-6 sm:py-42">
                 @livewire('vin-form', ['vindetails' => $vindetails ?? []])
             </div>
         </div>
