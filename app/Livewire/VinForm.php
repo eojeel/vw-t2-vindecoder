@@ -29,16 +29,16 @@ class VinForm extends Component
     #[Rule('required|size:6', as: 'Paint Code')]
     public $pp;
 
-    #[Rule('required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/', as: 'Production Date')]
+    #[Rule('required|regex:/^[a-zA-Z0-9]{2} [a-zA-Z0-9]$/', as: '(DD D) Production Date')]
     public $dd;
 
-    #[Rule('required|size:4|regex:/^[a-zA-Z0-9]{4}$/', as: 'Production Plant')]
+    #[Rule('required|size:4|regex:/^[a-zA-Z0-9]{4}$/', as: '(UUUU) Production Plant')]
     public $uu;
 
-    #[Rule('required|size:2|regex:/^[a-zA-Z0-9]{2}$/', as: 'Export Destination')]
+    #[Rule('required|size:2|regex:/^[a-zA-Z0-9]{2}$/', as: '(EE) Export Destination')]
     public $ee;
 
-    #[Rule('required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/', as: 'Body Model (Engine & Gearbox) Type')]
+    #[Rule('required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/', as: '(XXXX TT) Body Model (Engine & Gearbox) Type')]
     public $tt;
 
     public $results;
@@ -64,7 +64,7 @@ class VinForm extends Component
     {
         $this->results = new Collection();
 
-        $resArray = ['mCodes', 'paintCodes', 'interiorCodes', 'exportDestination'];
+        $resArray = ['mCode', 'paintCodes', 'interiorCodes', 'exportDestination'];
         foreach ($resArray as $res) {
             $this->results->$res = new Collection();
         }
@@ -84,7 +84,7 @@ class VinForm extends Component
     private function decodeVin($validated)
     {
         $this->results->chassisNumber = $this->chassisNumber($validated['cc']);
-        $this->results->mCodes = $this->mCode($validated['mmmm']);
+        $this->results->mCode = $this->mCode($validated['mmmm']);
         $this->results->paintCodes = $this->paintCode($validated['pp']);
 
         $firstPaintCode = $this->results->paintCodes->first();

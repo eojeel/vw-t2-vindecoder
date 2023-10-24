@@ -7,10 +7,9 @@
         @apply border-2 border-blue-900 rounded-md shadow-sm focus:outline-none focus:border-blue-400 m-1;
     }
     .error {
-        @apply rounded-lg bg-red-100 border border-red-400 rounded relative text-red-700 pt-1 pb-1 ml-1;
+        @apply text-sm rounded-lg bg-red-100 border border-red-400 relative text-red-700 p-1;
     }
 }
-
 html {
     background-color: #A8A8A8;
 }
