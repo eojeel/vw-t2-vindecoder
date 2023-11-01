@@ -1,25 +1,27 @@
 <div class="container mx-auto">
     <form wire:submit="save">
         <div class="flex justify-center">
-            <div class="border-4 border-gray-500 bg-gray-300 rounded-lg">
-                <input wire:model.blur="cc" type="text" name="c" class="w-1/3 mb-1 px-4 py-2 vin-btn"
+            <div class="border-4 border-gray-500 bg-gray-300 rounded-lg p-2">
+                <input wire:model.blur="cc" type="text" name="c" class="w-1/3 mb-1 vin-input"
                     placeholder="CC CCC CCC" />
                 <div>
                     @error('cc')
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </div>
-                <input wire:model.blur="mmmmm" type="text" name="m" class="w-full mb-1 px-4 py-2 vin-btn"
+                <div class="flex">
+                <input wire:model.blur="mmmmm" type="text" name="m" class="flex w-full mb-1 vin-input"
                     placeholder="MMM MMM MMM MMM MMM">
+                </div>
                 <div>
                     @error('mmmmm')
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="flex mb-1">
-                    <input wire:model.blur="pp" type="text" name="p" class="w-2/5 mr-2 px-4 py-2 vin-btn"
+                    <input wire:model.blur="pp" type="text" name="p" class="w-2/5 mr-2 vin-input"
                         placeholder="PPPPII" value="@old('pp')" />
-                    <input wire:model.blur="mmmm" type="text" name="m2" class="w-3/5 px-4 py-2 vin-btn"
+                    <input wire:model.blur="mmmm" type="text" name="m2" class="w-3/5 vin-input"
                         placeholder="MMM MMM MMM MMM" />
                 </div>
                 <div class="flex mb-1">
@@ -35,13 +37,13 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-4">
-                    <input wire:model.blur="dd" type="text" name="d" class="mr-2 px-4 py-2 vin-btn"
+                    <input wire:model.blur="dd" type="text" name="d" class="mr-2 vin-input"
                         placeholder="DD D" />
-                    <input wire:model.blur='uu' type="text" name="u" class="mr-2 px-4 py-2 vin-btn"
+                    <input wire:model.blur='uu' type="text" name="u" class="mr-2 vin-input"
                         placeholder="UUUU" />
-                    <input wire:model.blur='ee' type="text" name="e" class="mr-2 px-4 py-2 vin-btn"
+                    <input wire:model.blur='ee' type="text" name="e" class="mr-2 vin-input"
                         placeholder="EE" />
-                    <input wire:model.blur='tt' type="text" name="x" class="px-4 py-2 vin-btn"
+                    <input wire:model.blur='tt' type="text" name="x" class=" vin-input"
                         placeholder="XXXX TT" />
                 </div>
                 <div class="flex justify-center">
@@ -93,7 +95,7 @@
                 <div class="flex flex-col items-center space-y-4 mt-4">
                     <h3 class="text-xl font-semibold">M-Codes</h3>
                     <ul class="mt-5 justify-center flex flex-col">
-                        @foreach ($results->mCodes as $mcode)
+                        @foreach ($results->mCode as $mcode)
                             <li class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100dark:border-opacity-50">
                                 {{ $mcode->code }} - {{ $mcode->description }}</li>
                         @endforeach

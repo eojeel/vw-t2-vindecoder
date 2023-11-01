@@ -9,7 +9,11 @@ export default {
     container: {
         center: true,
       },
-    extend: {},
+    extend: {
+        fontFamily: {
+            'Roboto': ['"Roboto"', 'cursive'],
+          },
+    },
   },
   plugins: [],
 }

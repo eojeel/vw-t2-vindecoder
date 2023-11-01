@@ -1,0 +1,86 @@
+Model,Sales code,Model designation,Engine Kw (BHP),T,Engine,Transmission,Extras
+211,1,Delivery van,51 (70),M,**,-,-
+211,3,Delivery van,51 (70),A,**,249,-
+211,11,Delivery van,37 (50),M,-,-,-
+211,21,Delivery van,35 (47),M,-,-,-
+211,31,Delivery van,"51 (70)
+49 (66)",M,251,-,-
+211,33,Delivery van,"51 (70)
+46 (62)",A,251,249,-
+211,41,Delivery van,"50 (68)
+49 (66)",M,*,-,-
+211,43,Delivery van,"50 (68)
+46 (62)",A,*,249,-
+211,61,Delivery van,51 (70),M,*,-,-
+211,63,Delivery van,51 (70),A,*,249,-
+211,101,Fire truck,51 (70),M,**,-,-
+211,111,Fire truck,"37 (50)
+35 (47)",M,-,-,140
+211,121,Fire truck,35 (47),M,157,-,140
+211,131,Fire truck,"51 (70)
+49 (66)",M,251,-,140
+211,133,Fire truck,46 (62),A,251,249,140
+211,201,High roof delivery van,51 (70),M,**,-,516
+211,203,High roof delivery van,51 (70),A,**,249,516
+211,211,High roof delivery van,"37 (50)
+35 (47)",M,-,-,516
+211,221,High roof delivery van,35 (47),M,157,-,516
+211,231,High roof delivery van,"51 (70)
+50 (68)
+49 (66)",M,251,-,516
+211,233,High roof delivery van,"51 (70)
+50 (68)",A,251,249,516
+211,301,High roof delivery van,51 (70),M,**,-,515
+211,303,High roof delivery van,51 (70),A,**,249,515
+211,311,High roof delivery van,"37 (50)
+35 (47)",M,-,-,515
+211,321,High roof delivery van,35 (47),M,157,-,515
+211,331,High roof delivery van,"51 (70)
+50 (68)
+49 (66)",M,251,-,515
+211,333,High roof delivery van,"51 (70)
+50 (68)
+46 (62)",A,251,249,515
+214,1,Delivery van,51 (70),M,**,-,-
+214,3,Delivery van,51 (70),A,**,249,-
+214,11,Delivery van,37 (50),M,-,-,-
+214,21,Delivery van,35 (47),M,-,-,-
+214,31,Delivery van,"51 (70)
+49 (66)",M,251,-,-
+214,33,Delivery van,"51 (70)
+46 (62)",A,251,249,-
+214,101,Fire truck,51 (70),M,**,-,-
+214,201,High roof delivery van,51 (70),M,**,-,516
+214,203,High roof delivery van,51 (70),A,**,249,516
+214,211,High roof delivery van,"37 (50)
+35 (47)",M,-,-,516
+214,221,High roof delivery van,35 (47),M,157,-,516
+214,231,High roof delivery van,"51 (70)
+50 (68)
+49 (66)",M,251,-,516
+214,233,High roof delivery van,"51 (70)
+50 (68)",A,251,249,516
+214,301,High roof delivery van,51 (70),M,**,-,515
+214,303,High roof delivery van,51 (70),A,**,249,515
+215,11,Delivery van,37 (50),M,-,-,-
+215,21,Delivery van,35 (47),M,-,-,-
+215,31,Delivery van,"51 (70)
+49 (66)",M,251,-,-
+215,33,Delivery van,"51 (70)
+46 (62)",A,251,249,-
+215,41,Delivery van,"50 (68)
+49 (66)",M,*,-,-
+215,43,Delivery van,"50 (68)
+46 (62)",A,*,249,-
+215,111,Fire truck,"37 (50)
+35 (47)",M,-,-,140
+215,121,Fire truck,35 (47),M,157,-,140
+215,131,Fire truck,"51 (70)
+49 (66)",M,251,-,140
+215,133,Fire Truck,46 (62),A,251,249,140
+216,11,Delivery van,37 (50),M,-,-,-
+216,21,Delivery van,35 (47),M,-,-,-
+216,31,Delivery van,"51 (70)
+49 (66)",M,251,-,-
+216,33,Delivery van,"51 (70)
+46 (62)",A,251,249,-

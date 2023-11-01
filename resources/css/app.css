@@ -9,6 +9,9 @@
     .error {
         @apply text-sm rounded-lg bg-red-100 border border-red-400 relative text-red-700 p-1;
     }
+    .vin-input {
+        @apply px-4 py-2
+    }
 }
 html {
     background-color: #A8A8A8;

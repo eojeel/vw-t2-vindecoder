@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite('resources/css/app.css')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     @livewireStyles
     <title>vw t2 Vin Descoder</title>
 </head>
@@ -13,7 +16,7 @@
     <section class="text-gray-600 body-font">
         <section class="mt-16 text-cente">
                   <div class="mx-auto text-center text-white">
-                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container font-bold text-center text-3xl/none md:text-4xl/none lg:text-5xl/none">VW T2 (1968-1979) Vin Decoder</h2>
+                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container font-bold text-center text-3xl/none md:text-4xl/none lg:text-5xl/none">VW T2 (1970-1979) Vin Decoder</h2>
                 </div>
             </section>
         <div class="container mx-auto flex flex-wrap">
@@ -145,7 +148,15 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="flex justify-center mt-10">
+                @if(!empty($vindetails->cc))
+                    <span class="inline-flex items-center justify-center p-5 border-4 border-gray-500 bg-gray-300 rounded-lg ">
+                        <span class="w-full">Vin URL: {{ route('vin', ['chassisNumber' => $vindetails->cc ]) }}</span>
+                        @endif
+                    </span>
+                </div>
             </div>
+
             <div class="md:w-3/5 lg:w-2/5 lg:py-28 md:py-28 md:pl-6 sm:py-42">
                 @livewire('vin-form', ['vindetails' => $vindetails ?? []])
             </div>
@@ -157,7 +168,7 @@
 
 <div class="flex-grow mt-16 bg-gradient-to-r from-gray-200/[.35] to-gray-200/[.15]">
 <footer class="container py-8 text-center">
-    <p class="mt-8 text-xs tracking-widest uppercase opacity-50">
+    <p class="mt-2 text-xs tracking-widest uppercase opacity-50">
         © Joe Lee {{ date('Y') }}. All rights reserved.
     </p>
 </footer>
