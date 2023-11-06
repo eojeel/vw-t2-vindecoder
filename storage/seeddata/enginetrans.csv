@@ -84,3 +84,455 @@ Model,Sales code,Model designation,Engine Kw (BHP),T,Engine,Transmission,Extras
 49 (66)",M,251,-,-
 216,33,Delivery van,"51 (70)
 46 (62)",A,251,249,-
+221,1,8 Seater Micro Bus,51 (70),M,**,-,-
+221,3,8 Seater Micro Bus,51 (70),A,**,249,-
+221,11,8 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,-
+221,21,8 Seater Micro Bus,35 (47),M,157,-,-
+221,31,8 Seater Micro Bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,-
+221,33,8 Seater Micro Bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,-
+221,41,8 Seater Micro Bus,"50 (68)
+49 (66)",M,*,-,-
+221,43,8 Seater Micro Bus,"50 (68)
+49 (66)",A,*,249,-
+221,61,8 Seater Micro Bus,51 (70),M,*,-,-
+221,63,8 Seater Micro Bus,51 (70),A,*,249,-
+221,101,8 Seater Micro Bus,51 (70),M,**,-,-
+221,103,8 Seater Micro Bus,51 (70),A,**,249,-
+221,111,8 Seater Micro Bus,37 (50),M,**,-,-
+221,111,8 Seater Micro Bus,37 (50),M,-,-,-
+221,111,7 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,147
+221,121,7 Seater Micro Bus,35 (47),M,157,-,147
+221,131,7 Seater Micro Bus,49 (66),M,251,-,147
+221,131,8 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,-
+221,133,7 Seater Micro Bus,46 (62),A,251,249,147
+221,133,8 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,-
+221,141,7 Seater Micro Bus,49 (66),M,*,-,147
+221,141,8 Seater Micro Bus,50 (68),M,*,-,147
+221,143,7 Seater Micro Bus,46 (62),A,*,-,147
+221,143,8 Seater Micro Bus,50 (68),A,*,-,147
+221,201,8 Seater Micro Bus,51 (70),M,**,-,147/500
+221,203,8 Seater Micro Bus,51 (70),A,**,249,147/500
+221,211,9 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,501
+221,211,8 Seater Micro Bus,37 (50),M,-,-,147/500
+221,221,9 Seater Micro Bus,35 (47),M,157,-,501
+221,231,9 Seater Micro Bus,49 (66),M,251,-,501
+221,231,8 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,147/500
+221,233,9 Seater Micro Bus,46 (62),A,251,249,501
+221,233,8 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,147/500
+221,301,8 Seater Micro Bus,51 (70),M,**,-,-
+221,303,8 Seater Micro Bus,51 (70),A,**,249,-
+221,311,8 Seater Micro Bus,37 (50),M,-,-,147/171/500
+221,331,8 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,147/500
+221,333,8 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,147/500
+221,401,9 Seater Micro Bus,51 (70),M,**,-,501
+221,403,9 Seater Micro Bus,51 (70),A,**,249,501
+221,411,8 Seater Micro Bus,"37 (50)
+35 (47)",M,157,-,147/500
+221,411,9 Seater Micro Bus,37 (50),M,-,-,501
+221,421,8 Seater Micro Bus,35 (47),M,157,-,147/500
+221,431,8 Seater Micro Bus,49 (66),M,251,-,147/500
+221,431,9 Seater Micro Bus,"51 (70)
+49 (66)",M,251,-,501
+221,433,8 Seater Micro Bus,46 (62),A,251,249,147/500
+221,433,9 Seater Micro Bus,"51 (70)
+46 (62)",A,251,249,501
+221,501,9 Seater Micro Bus,51 (70),M,**,-,-
+221,503,9 Seater Micro Bus,51 (70),A,**,249,-/501
+221,511,9 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,171/501
+221,521,9 Seater Micro Bus,35 (47),M,157,-,500
+221,531,9 Seater Micro Bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,501
+221,533,9 Seater Micro Bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,501
+221,541,9 Seater Micro Bus,49 (66),M,*,-,500
+221,543,9 Seater Micro Bus,46 (62),A,*,249,500
+221,601,9 Seater Micro Bus,51 (70),M,**,-,500
+221,603,9 Seater Micro Bus,51 (70),A,**,-,500
+221,611,9 Seater Micro Bus,37 (50),M,-,249,500
+221,631,9 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,500
+221,633,9 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,500
+221,641,9 Seater Micro Bus,50 (68),M,*,-,500
+221,643,9 Seater Micro Bus,50 (68),A,*,249,500
+221,701,9 Seater Micro Bus,51 (70),M,**,-,-
+221,703,9 Seater Micro Bus,51 (70),A,**,249,-
+221,711,9 Seater Micro Bus,37 (50),M,-,-,171/500
+221,731,9 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,500
+221,733,9 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,500
+221,741,9 Seater Micro Bus,50 (68),M,*,-,500
+221,743,9 Seater Micro Bus,50 (68),A,*,249,500
+221,801,7 Seater Micro Bus,51 (70),M,**,-,147
+221,803,7 Seater Micro Bus,51 (70),A,**,249,147
+221,811,7 Seater Micro Bus,37 (50),M,-,-,147
+221,831,7 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,147
+221,833,7 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,147
+221,841,7 Seater Micro Bus,50 (68),M,*,-,147
+221,843,7 Seater Micro Bus,50 (68),A,*,249,147
+221,861,7 Seater Micro Bus,51 (70),M,*,-,147
+221,863,7 Seater Micro Bus,51 (70),A,*,249,147
+221,901,7 Seater Micro Bus,51 (70),M,**,-,-
+221,903,7 Seater Micro Bus,51 (70),A,**,249,-
+221,911,7 Seater Micro Bus,37 (50),M,-,-,147/171
+221,931,7 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,147
+221,933,7 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,147
+221,941,7 Seater Micro Bus,50 (68),M,*,-,147
+221,943,7 Seater Micro Bus,50 (68),A,*,249,147
+224,1,8 Seater Micro Bus,51 (70),M,**,-,-
+224,3,8 Seater Micro Bus,51 (70),A,**,249,-
+224,11,8 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,-
+224,21,8 Seater Micro Bus,35 (47),M,157,-,-
+224,31,8 Seater Micro Bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,-
+224,33,8 Seater Micro Bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,-
+224,101,8 Seater Micro Bus,51 (70),M,**,-,-
+224,103,8 Seater Micro Bus,51 (70),A,**,249,-
+224,111,8 Seater Micro Bus,37 (50),M,**,-,-
+224,111,8 Seater Micro Bus,37 (50),M,-,-,-
+224,131,8 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,-
+224,133,8 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,-
+224,201,8 Seater Micro Bus,51 (70),M,**,-,147/500
+224,203,8 Seater Micro Bus,51 (70),A,**,249,147/500
+224,211,9 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,501
+224,221,9 Seater Micro Bus,35 (47),M,157,-,501
+224,231,9 Seater Micro Bus,49 (66),M,251,-,501
+224,233,9 Seater Micro Bus,46 (62),A,251,249,501
+224,301,8 Seater Micro Bus,51 (70),M,**,-,-
+224,303,8 Seater Micro Bus,51 (70),A,**,249,-
+224,401,9 Seater Micro Bus,51 (70),M,**,-,501
+224,403,9 Seater Micro Bus,51 (70),A,**,249,501
+224,411,9 Seater Micro Bus,37 (50),M,-,-,501
+224,431,9 Seater Micro Bus,"51 (70)
+49 (66)",M,251,-,501
+224,433,9 Seater Micro Bus,"51 (70)
+46 (62)",A,251,249,501
+224,501,9 Seater Micro Bus,51 (70),M,**,-,-
+224,503,9 Seater Micro Bus,51 (70),A,**,249,-/501
+224,511,9 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,171/501
+224,521,9 Seater Micro Bus,35 (47),M,157,-,500
+224,531,9 Seater Micro Bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,501
+224,533,9 Seater Micro Bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,501
+224,601,9 Seater Micro Bus,51 (70),M,**,-,500
+224,603,9 Seater Micro Bus,51 (70),A,**,-,500
+224,611,9 Seater Micro Bus,37 (50),M,-,249,500
+224,631,9 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,500
+224,633,9 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,500
+224,701,9 Seater Micro Bus,51 (70),M,**,-,-
+224,703,9 Seater Micro Bus,51 (70),A,**,249,-
+224,711,9 Seater Micro Bus,37 (50),M,-,-,171/500
+224,731,9 Seater Micro Bus,"51 (70)
+50 (68)",M,251,-,500
+224,733,9 Seater Micro Bus,"51 (70)
+50 (68)",A,251,249,500
+224,801,7 Seater Micro Bus,51 (70),M,**,-,147
+224,803,7 Seater Micro Bus,51 (70),A,**,249,147
+224,901,7 Seater Micro Bus,51 (70),M,**,-,-
+224,903,7 Seater Micro Bus,51 (70),A,**,249,-
+225,11,8 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,-
+225,21,8 Seater Micro Bus,35 (47),M,157,-,-
+225,31,8 Seater Micro Bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,-
+225,33,8 Seater Micro Bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,-
+225,41,8 Seater Micro Bus,"50 (68)
+49 (66)",M,*,-,-
+225,43,8 Seater Micro Bus,"50 (68)
+49 (66)",A,*,249,-
+225,111,7 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,147
+225,421,8 Seater Micro Bus,35 (47),M,157,-,147/500
+225,431,8 Seater Micro Bus,49 (66),M,251,-,147/500
+225,433,8 Seater Micro Bus,46 (62),A,251,249,147/500
+225,511,9 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,171/501
+225,521,9 Seater Micro Bus,35 (47),M,157,-,500
+225,531,9 Seater Micro Bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,501
+225,533,9 Seater Micro Bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,501
+225,541,9 Seater Micro Bus,49 (66),M,*,-,500
+225,543,9 Seater Micro Bus,46 (62),A,*,249,500
+228,11,8 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,-
+228,21,8 Seater Micro Bus,35 (47),M,157,-,-
+228,31,8 Seater Micro Bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,-
+228,33,8 Seater Micro Bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,-
+228,511,9 Seater Micro Bus,"37 (50)
+35 (47)",M,-,-,171/501
+228,521,9 Seater Micro Bus,35 (47),M,157,-,500
+228,531,9 Seater Micro Bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,501
+228,533,9 Seater Micro Bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,501
+231,1,Kombi,51 (70),M,**,-,-
+231,3,Kombi,51 (70),A,**,249,-
+231,11,Kombi,37 (50),M,-,-,-
+231,11,Engineers Van,37 (50),M,-,-,-
+231,21,Kombi,35 (47),M,157,-,-
+231,31,Kombi,"51 (70)
+50 (68)",M,251,-,-
+231,31,Engineers Van,"51 (70)
+49 (66)",M,251,-,-
+231,33,Kombi,"51 (70)
+50 (68)",A,251,249,-
+231,33,Engineers Van,"37 (50)
+46 (62)",A,251,249,-
+231,41,Kombi,"50 (68)
+49 (66)",M,*,-,-
+231,43,Kombi,"50 (68)
+49 (66)",A,*,249,-
+231,61,Kombi,51 (70),M,*,-,-
+231,63,Kombi,51 (70),A,*,249,-
+231,111,Fire fighting crew truck,37 (50),M,-,-,140
+231,121,Fire fighting crew truck,35 (47),M,157,-,140
+231,131,Fire fighting crew truck,"51 (70)
+50 (68)
+49 (66)",M,251,-,140
+231,133,Fire fighting crew truck,"37 (50)
+50 (68)
+46 (62)",A,251,249,140
+231,201,Kombi,51 (70),M,**,-,13
+231,203,Kombi,51 (70),A,**,249,13
+231,211,Kombi,37 (50),M,-,-,13
+231,231,Kombi,"51 (70)
+50 (68)",M,251,-,13
+231,233,Kombi,"51 (70)
+50 (68)",A,251,249,13
+231,241,Kombi,"50 (68)
+49 (66)",M,*,-,13
+231,243,Kombi,"50 (68)
+46 (62)",A,*,249,13
+231,261,Kombi,51 (70),M,*,-,13
+231,263,Kombi,51 (70),A,*,249,13
+231,301,Kombi,51 (70),M,**,-,15
+231,601,Kombi,51 (70),M,**,-,177
+231,711,Engineers Van,37 (50),M,-,-,-
+231,731,Engineers Van,"51 (70)
+49 (66)",M,251,-,-
+231,733,Engineers Van,"37 (50)
+46 (62)",A,251,249,-
+231,811,VW Campmobile,37 (50),M,-,-,517
+231,831,VW Campmobile,50 (68),M,251,-,517
+231,833,VW Campmobile,50 (68),A,251,249,517
+231,841,VW Campmobile,50 (68),M,*,,517
+231,843,VW Campmobile,50 (68),A,*,249,517
+231,901,VW Campmobile,51 (70),M,**,,609
+231,903,VW Campmobile,51 (70),A,**,249,609
+231,911,VW Campmobile,37 (50),M,-,-,609/517
+231,931,VW Campmobile,"51 (70)
+50 (68)",M,251,-,609/517
+231,933,VW Campmobile,"51 (70)
+50 (68)",A,251,249,609/517
+231,941,VW Campmobile,"50 (68)
+49 (66)",M,*,-,609/517
+231,943,VW Campmobile,"50 (68)
+46 (62)",A,*,249,609/517
+231,961,VW Campmobile,51 (70),M,*,-,609
+231,963,VW Campmobile,51 (70),M,*,249,609
+234,1,Kombi,51 (70),M,**,-,-
+234,3,Kombi,51 (70),A,**,249,-
+234,11,Kombi,37 (50),M,-,-,-
+234,21,Kombi,35 (47),M,157,-,-
+234,31,Kombi,"51 (70)
+50 (68)",M,251,-,-
+234,33,Kombi,"51 (70)
+50 (68)",A,251,249,-
+234,201,Kombi,51 (70),M,**,-,13
+234,203,Kombi,51 (70),A,**,249,13
+234,211,Kombi,37 (50),M,-,-,13
+234,231,Kombi,"51 (70)
+50 (68)",M,251,-,13
+234,233,Kombi,"51 (70)
+50 (68)",A,251,249,13
+234,301,Kombi,51 (70),M,**,-,15
+234,811,VW Campmobile,37 (50),M,-,-,517
+234,831,VW Campmobile,50 (68),M,251,-,517
+234,833,VW Campmobile,50 (68),A,251,249,517
+234,901,VW Campmobile,51 (70),M,**,,609
+234,903,VW Campmobile,51 (70),A,**,249,609
+234,911,VW Campmobile,37 (50),M,-,-,609/517
+234,931,VW Campmobile,"51 (70)
+50 (68)",M,251,-,609/517
+234,933,VW Campmobile,"51 (70)
+50 (68)",A,251,249,609/517
+235,11,Kombi,37 (50),M,-,-,-
+235,21,Kombi,35 (47),M,157,-,-
+235,31,Kombi,"51 (70)
+50 (68)",M,251,-,-
+235,33,Kombi,"51 (70)
+50 (68)",A,251,249,-
+235,41,Kombi,"50 (68)
+49 (66)",M,*,-,-
+235,43,Kombi,"50 (68)
+49 (66)",A,*,249,-
+235,111,Fire fighting crew truck,37 (50),M,-,-,140
+235,121,Fire fighting crew truck,35 (47),M,157,-,140
+235,131,Fire fighting crew truck,"51 (70)
+50 (68)
+49 (66)",M,251,-,140
+235,133,Fire fighting crew truck,"37 (50)
+50 (68)
+46 (62)",A,251,249,140
+235,211,Kombi,37 (50),M,-,-,13
+235,231,Kombi,"51 (70)
+50 (68)",M,251,-,13
+235,233,Kombi,"51 (70)
+50 (68)",A,251,249,13
+235,241,Kombi,"50 (68)
+49 (66)",M,*,-,13
+235,243,Kombi,"50 (68)
+46 (62)",A,*,249,13
+241,11,8 Seater micro bus,"37 (50)
+35 (47)",M,-,-,-
+241,21,8 Seater micro bus,35 (47),M,157,-,-
+241,31,8 Seater micro bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,-
+241,33,8 Seater micro bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,-
+241,41,8 Seater micro bus,"50 (68)
+49 (66)",M,*,-,-
+241,43,8 Seater micro bus,"50 (68)
+49 (66)",A,*,249,-
+241,111,7 Seater micro bus,"37 (50)
+35 (47)",M,-,-,147
+241,421,8 Seater micro bus,35 (47),M,157,-,147/500
+241,431,9 Seater micro bus,"51 (70)
+49 (66)",M,251,-,501
+241,511,9 Seater micro bus,"37 (50)
+35 (47)",M,-,-,171/501
+241,531,9 Seater micro bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,501
+241,533,9 Seater micro bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,501
+241,541,9 Seater Micro Bus,49 (66),M,*,-,500
+241,543,9 Seater Micro Bus,46 (62),A,*,249,500
+244,11,8 Seater micro bus,"37 (50)
+35 (47)",M,-,-,-
+244,21,8 Seater micro bus,35 (47),M,157,-,-
+244,31,8 Seater micro bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,-
+244,33,8 Seater micro bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,-
+244,511,9 Seater micro bus,"37 (50)
+35 (47)",M,-,-,171/501
+244,531,9 Seater micro bus,"51 (70)
+50 (68)
+49 (66)",M,251,-,501
+244,533,9 Seater micro bus,"51 (70)
+50 (68)
+46 (62)",A,251,249,501
+261,1,Pick-up,51 (70),M,**,-,-
+261,3,Pick-up,51 (70),A,**,249,-
+261,11,Pick-up,"37 (50)
+35 (47)",M,-,-,-
+261,21,Pick-up,35 (47),M,157,-,-
+261,31,Pick-up,51 (70),M,251,-,-
+261,33,Pick-up,51 (70),A,251,249,-
+261,51,Pick-up,37 (50),M,-,-,-
+261,101,Pick-up,51 (70),M,**,-,201
+261,103,Pick-up,37 (50),A,**,249,201
+261,111,Pick-up,51 (70),M,-,-,201
+261,121,Pick-up,51 (70),M,157,-,201
+261,131,Pick-up with wood. platform,51 (70),M,251,-,201
+261,133,Pick-up with wood. platform,51 (70),A,251,249,201
+261,151,Pick-up with wood. platform,37 (50),M,-,-,201
+264,1,Pick-up,51 (70),M,**,-,-
+264,3,Pick-up,51 (70),A,**,249,-
+264,11,Pick-up,"37 (50)
+35 (47)",M,-,-,-
+264,21,Pick-up,35 (47),M,157,-,-
+264,31,Pick-up,51 (70),M,251,-,-
+264,33,Pick-up,51 (70),A,251,249,-
+264,51,Pick-up,37 (50),M,-,-,-
+264,101,Pick-up,51 (70),M,**,-,201
+264,103,Pick-up,37 (50),A,**,249,201
+264,111,Pick-up,51 (70),M,-,-,201
+264,121,Pick-up,51 (70),M,157,-,201
+264,131,Pick-up with wood. platform,51 (70),M,251,-,201
+264,133,Pick-up with wood. platform,51 (70),A,251,249,201
+264,151,Pick-up with wood. platform,37 (50),M,-,-,201
+265,1,Double cab. pick-up,51 (70),M,**,-,-
+265,3,Double cab. pick-up,51 (70),A,**,249,-
+265,11,Double cab. pick-up,"37 (50)
+35 (47)",M,-,-,-
+265,31,Double cab. pick-up,51 (70),M,251,-,-
+265,33,Double cab. pick-up,51 (70),A,251,249,-
+265,51,Double cab. pick-up,37 (50),M,-,-,-
+268,1,Double cab. pick-up,51 (70),M,**,-,-
+268,3,Double cab. pick-up,51 (70),A,**,249,-
+268,11,Double cab. pick-up,"37 (50)
+35 (47)",M,-,-,-
+268,31,Double cab. pick-up,51 (70),M,251,-,-
+268,33,Double cab. pick-up,51 (70),A,251,249,-
+268,51,Double cab. pick-up,37 (50),M,-,-,-
+271,1,Ambulance,51 (70),M,**,-,-
+271,3,Ambulance,51 (70),A,**,249,-
+271,11,Ambulance,"37 (50)
+35 (47)",M,-,-,150
+271,21,Ambulance,35 (47),M,157,-,-
+271,31,Ambulance,"51 (70)
+50 (68)",M,251,-,150
+271,33,Ambulance,"51 (70)
+50 (68)",A,251,249,150
+274,1,Ambulance,51 (70),M,**,-,-
+274,3,Ambulance,51 (70),A,**,249,-
+274,11,Ambulance,"37 (50)
+35 (47)",M,-,-,150
+274,21,Ambulance,35 (47),M,157,-,-
+274,31,Ambulance,"51 (70)
+50 (68)",M,251,-,150
+274,33,Ambulance,"51 (70)
+50 (68)",A,251,249,150

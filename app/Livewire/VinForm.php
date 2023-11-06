@@ -7,6 +7,7 @@ use App\Models\Colors;
 use App\Models\ExportDestination;
 use App\Models\InteriorCode;
 use App\Models\Mcode;
+use App\Models\ModelEngineGearbox;
 use App\Models\PaintCodes;
 use App\Models\Vin;
 use Illuminate\Database\Eloquent\Collection;
@@ -94,6 +95,8 @@ class VinForm extends Component
         $this->results->interiorCodes = $this->interior($validated['pp']);
         $this->results->exportDestination = $this->export($validated['ee']);
 
+        $this->results->engineTrans = $this->engineTrans($validated['tt']);
+
         if (! empty($this->results->colorDisplay)) {
             $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
         }
@@ -127,5 +130,10 @@ class VinForm extends Component
     private function export(string $exportCode): Collection
     {
         return ExportDestination::ExportDetails($exportCode);
+    }
+
+    private function engineTrans(string $engineTrans): Collection
+    {
+        return ModelEngineGearbox::Details($engineTrans);
     }
 }

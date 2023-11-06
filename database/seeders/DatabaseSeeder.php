@@ -5,12 +5,6 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\ColorSeeder;
-use Database\Seeders\McodeSeeder;
-use Database\Seeders\PaintCodesSeeder;
-use Database\Seeders\InteriorCodeSeeder;
-use Database\Seeders\ExportDestinationSeeder;
-use Database\Seeders\ModelEngineGearboxSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +20,8 @@ class DatabaseSeeder extends Seeder
             InteriorCodeSeeder::class,
             ExportDestinationSeeder::class,
             ModelEngineGearboxSeeder::class,
+            EngineCodeSeeder::class,
+            GearboxCodeSeeder::class,
         ]);
     }
 }
