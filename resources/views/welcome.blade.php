@@ -16,7 +16,7 @@
     <section class="text-gray-600 body-font">
         <section class="mt-16 text-cente">
                   <div class="mx-auto text-center text-white">
-                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container font-bold text-center text-3xl/none md:text-4xl/none lg:text-5xl/none">VW T2 (1970-1979) Vin Decoder</h2>
+                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container font-bold text-center md:text-4xl/none lg:text-5xl/none">VW T2 (1970-1979) Vin Decoder</h2>
                 </div>
             </section>
         <div class="container mx-auto flex flex-wrap">
