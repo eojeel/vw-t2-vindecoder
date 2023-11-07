@@ -27,6 +27,6 @@ class GearboxCodeSeeder extends Seeder
             ],
         ];
 
-        DB::table('gearbox_code')->insert($gearboxCode);
+        DB::table('gearbox_codes')->insert($gearboxCode);
     }
 }

@@ -32,7 +32,21 @@ class EngineCodeSeeder extends Seeder
                 'years' => '1968,1969,1970,1971',
             ],
             [
-                'engine_code' => 5,
+                'engine_code' => 3,
+                'engine_type' => 'Type 4',
+                'fuel_induction' => 'Dual carburetor',
+                'm_codes' => '157,251',
+                'years' => '1972,1973,1974',
+            ],
+            [
+                'engine_code' => 4,
+                'engine_type' => 'Type 4',
+                'fuel_induction' => 'Dual carburetor',
+                'm_codes' => '251',
+                'years' => '1972,1973,1974,1975,1976,1977,1978,1979',
+            ],
+            [
+                'engine_code' => 3,
                 'engine_type' => 'Type 1',
                 'fuel_induction' => 'Single carburetor',
                 'm_codes' => '',
@@ -47,6 +61,6 @@ class EngineCodeSeeder extends Seeder
             ],
         ];
 
-        DB::table('engine_code')->insert($engineCodes);
+        DB::table('engine_codes')->insert($engineCodes);
     }
 }

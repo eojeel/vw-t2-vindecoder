@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedInteger('code');
             $table->mediumText('description');
             $table->timestamps();
+
+            $table->index('code', 'code_index');
         });
     }
 

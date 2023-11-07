@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('model_engine_gearbox', function (Blueprint $table) {
+        Schema::create('model_engine_gearboxes', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('model_id');
             $table->unsignedInteger('sale_code');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('model_engine_gearbox');
+        Schema::dropIfExists('model_engine_gearboxes');
     }
 };

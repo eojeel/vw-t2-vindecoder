@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
-class VinForm extends Component
+class VinController extends Component
 {
     public $title = 'VW T2 Vin Decoder';
 
@@ -65,7 +65,7 @@ class VinForm extends Component
     {
         $this->results = new Collection();
 
-        $resArray = ['mCode', 'paintCodes', 'interiorCodes', 'exportDestination', 'engineTrans'];
+        $resArray = ['mCode', 'paintCodes', 'interiorCodes', 'exportDestination'];
         foreach ($resArray as $res) {
             $this->results->$res = new Collection();
         }
@@ -104,7 +104,7 @@ class VinForm extends Component
 
     public function render()
     {
-        return view('livewire.vin-form');
+        return view('livewire.vinController');
     }
 
     private function chassisNumber(string $chassisNumber): ?string
@@ -132,8 +132,8 @@ class VinForm extends Component
         return ExportDestination::ExportDetails($exportCode);
     }
 
-    private function engineTrans(string $engineTrans): array
+    private function engineTrans(string $engineTrans): Collection
     {
-        return ModelEngineGearbox::Details($engineTrans)->toArray();
+        return ModelEngineGearbox::Details($engineTrans);
     }
 }

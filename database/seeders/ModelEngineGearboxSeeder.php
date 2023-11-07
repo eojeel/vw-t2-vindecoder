@@ -25,7 +25,7 @@ class ModelEngineGearboxSeeder extends Seeder
         fclose($handle);
 
         foreach ($data as $row) {
-            DB::table('model_engine_gearbox')->insert([
+            DB::table('model_engine_gearboxes')->insert([
                 'model_id' => $row['Model'],
                 'sale_code' => $row['Sales code'],
                 'model_description' => $row['Model designation'],
