@@ -143,11 +143,12 @@
                 </div>
             @endif
 
+
             @if (!empty($results->engineTrans))
                 <div class="flex flex-col items-center space-y-4 mt-4">
                 <h5 class="text-xl font-semibold float-right">Model Details</h3>
                     <ul class="mt-5 justify-center flex flex-col">
-                        @foreach ($results->engineTrans[0] as $attribute => $value)
+                        @foreach ($results->engineTrans as $attribute => $value)
                             <li
                                 class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
                                 {{ Str::replace('_', ' ', $attribute) }} - {{ $value }}</li>

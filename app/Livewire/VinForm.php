@@ -65,7 +65,7 @@ class VinForm extends Component
     {
         $this->results = new Collection();
 
-        $resArray = ['mCode', 'paintCodes', 'interiorCodes', 'exportDestination', 'engineTrans'];
+        $resArray = ['mCode', 'paintCodes', 'interiorCodes', 'exportDestination'];
         foreach ($resArray as $res) {
             $this->results->$res = new Collection();
         }
@@ -134,6 +134,6 @@ class VinForm extends Component
 
     private function engineTrans(string $engineTrans): array
     {
-        return ModelEngineGearbox::Details($engineTrans)->toArray();
+        return ModelEngineGearbox::Details($engineTrans);
     }
 }
