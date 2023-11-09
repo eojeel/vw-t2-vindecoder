@@ -13,7 +13,10 @@ class PaintCodes extends Model
 
     public static function PaintDetails($code): Collection
     {
-        return PaintCodes::where('plate_code', mb_substr($code, 0, 4))->get();
+        $code = mb_substr($code, 0, 4);
+
+        return PaintCodes::where('plate_code', $code)
+            ->get();
     }
 
     public function color(): HasMany

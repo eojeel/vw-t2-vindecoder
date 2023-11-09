@@ -11,7 +11,7 @@ class ModelEngineGearbox extends Model
 {
     use HasFactory;
 
-    private static $modelDescription = [
+    private static $modelDescriptions = [
         '211' => 'Delivery van, sliding door right, LHD',
         '214' => 'Delivery van, sliding door left, RHD',
         '215' => 'Delivery van, sliding door left and right, LHD',
@@ -33,38 +33,28 @@ class ModelEngineGearbox extends Model
         '274' => 'Ambulance, cargo door left, RHD',
     ];
 
-    public static function Details(string $tt): ?array
+    public function getModelDetailsByCode(string $tt): ?array
     {
         $model_id = Str::substr($tt, 0, 3);
         $sale_code = Str::substr($tt, 2, 1);
+        $engine_code = Str::substr($tt, 4, 4);
 
-        $details = self::select('model_id', 'sale_code', 'model_description', 'engine_spec', 'transmission_type', 'engine_code', 'gearbox_code', 'extras')
-            ->where('model_id', $model_id)
-            ->where('sale_code', $sale_code)
-            ->first();
+        $details = self::select('model_description', 'engine_spec', 'transmission_type', 'engine_code', 'gearbox_code', 'extras')
+        ->where('model_id', $model_id)
+        ->where('sale_code', $sale_code)
+        ->first();
 
-        if (! empty($details)) {
-            $details->model_description = self::model($model_id);
+        if ($details) {
+            $details->model_description = self::modelDescription($model_id);
 
             return $details->toArray();
         }
 
         return null;
-
     }
 
-    private static function model(int $model): string
+    private static function modelDescription(int $model): string
     {
-        return self::$modelDescription[$model];
-    }
-
-    public function engine(): HasOne
-    {
-        return $this->hasOne(EngineCode::class, 'engine_code');
-    }
-
-    public function gearbox(): HasOne
-    {
-        return $this->hasOne(GearboxCode::class, 'gearbox_code');
+        return self::$modelDescriptions[$model];
     }
 }

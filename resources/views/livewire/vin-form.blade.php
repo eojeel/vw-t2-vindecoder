@@ -130,15 +130,13 @@
                 </div>
             @endif
 
-            @if ($results->exportDestination->isNotEmpty())
+            @if (!empty($results->destination))
                 <div class="flex flex-col items-center space-y-4 mt-4">
                     <h5 class="text-xl font-semibold float-right">Export Destination</h3>
                         <ul class="mt-5 justify-center flex flex-col">
-                            @foreach ($results->exportDestination as $export)
                                 <li
                                     class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
-                                    {{ $export->code }} - {{ $export->export }}</li>
-                            @endforeach
+                                    {{ $results->destination['code'] }} - {{ Str::replace('_', ' ', $results->destination['export']) }}</li>
                         </ul>
                 </div>
             @endif

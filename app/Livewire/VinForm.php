@@ -65,7 +65,7 @@ class VinForm extends Component
     {
         $this->results = new Collection();
 
-        $resArray = ['mCode', 'paintCodes', 'interiorCodes', 'exportDestination'];
+        $resArray = ['mCode', 'paintCodes', 'interiorCodes'];
         foreach ($resArray as $res) {
             $this->results->$res = new Collection();
         }
@@ -92,8 +92,9 @@ class VinForm extends Component
         if ($firstPaintCode) {
             $this->results->colorDisplay = $firstPaintCode->color()->get();
         }
+
         $this->results->interiorCodes = $this->interior($validated['pp']);
-        $this->results->exportDestination = $this->export($validated['ee']);
+        $this->results->destination = $this->export($validated['ee']);
 
         $this->results->engineTrans = $this->engineTrans($validated['tt']);
 
@@ -107,7 +108,7 @@ class VinForm extends Component
         return view('livewire.vin-form');
     }
 
-    private function chassisNumber(string $chassisNumber): ?string
+    private function chassisNumber(string $chassisNumber): string
     {
         return ChassisNumber::Details($chassisNumber);
     }
@@ -127,13 +128,15 @@ class VinForm extends Component
         return InteriorCode::InteriorDetails($interiorCode);
     }
 
-    private function export(string $exportCode): Collection
+    private function export(string $exportCode): array
     {
         return ExportDestination::ExportDetails($exportCode);
     }
 
     private function engineTrans(string $engineTrans): array
     {
-        return ModelEngineGearbox::Details($engineTrans);
+        $car = new ModelEngineGearbox();
+
+        return $car->getModelDetailsByCode($engineTrans);
     }
 }
