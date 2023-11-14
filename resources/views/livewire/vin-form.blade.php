@@ -79,11 +79,11 @@
         </div>
     </form>
     @isset($results)
-        <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5">
+        <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5 p-4">
             @if (!empty($results->chassisNumber))
                 <div class="flex flex-col items-center space-y-4">
                     <h3 class="text-xl font-semibold">Chassis Number</h3>
-                    <ul class="mt-5 justify-center flex flex-col">
+                    <ul class="mt-5 space-y-2">
                         <li class="w-full border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">Year - {{ $results->chassisNumber }}</li>
                     </ul>
                 </div>
@@ -91,9 +91,9 @@
 
 
             @if ($results->mCode->isNotEmpty())
-                <div class="flex flex-col items-center space-y-4 mt-4">
+                <div class="flex flex-col items-center space-y-4 mt-4 p-4">
                     <h3 class="text-xl font-semibold">M-Codes</h3>
-                    <ul class="mt-5 justify-center flex flex-col">
+                    <ul class="mt-5 space-y-2">
                         @foreach ($results->mCode as $mcode)
                             <li class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
                                 {{ $mcode->code }} - {{ $mcode->description }}</li>
@@ -103,9 +103,9 @@
             @endif
 
             @if ($results->paintCodes->isNotEmpty())
-                <div class="flex flex-col items-center space-y-4 mt-4">
+            <div class="flex flex-col items-center space-y-4 mt-4 p-4">
                     <h5 class="text-xl font-semibold float-right">Paint Codes</h3>
-                        <ul class="mt-5 justify-center flex flex-col">
+                        <ul class="mt-5 space-y-2">
                             @foreach ($results->paintCodes as $paint_code)
                                 <li
                                     class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
@@ -117,9 +117,9 @@
             @endif
 
             @if ($results->interiorCodes->isNotEmpty())
-                <div class="flex flex-col items-center space-y-4 mt-4">
+            <div class="flex flex-col items-center space-y-4 mt-4 p-4">
                     <h5 class="text-xl font-semibold float-right">Interior</h3>
-                        <ul class="mt-5 justify-center flex flex-col">
+                        <ul class="mt-5 space-y-2">
                             @foreach ($results->interiorCodes as $interior)
                                 <li
                                     class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
@@ -131,9 +131,9 @@
             @endif
 
             @if (!empty($results->destination))
-                <div class="flex flex-col items-center space-y-4 mt-4">
+            <div class="flex flex-col items-center space-y-4 mt-4 p-4">
                     <h5 class="text-xl font-semibold float-right">Export Destination</h3>
-                        <ul class="mt-5 justify-center flex flex-col">
+                        <ul class="mt-5 space-y-2">
                                 <li
                                     class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
                                     {{ $results->destination['code'] }} - {{ Str::replace('_', ' ', $results->destination['export']) }}</li>
@@ -141,11 +141,10 @@
                 </div>
             @endif
 
-
             @if (!empty($results->engineTrans))
-                <div class="flex flex-col items-center space-y-4 mt-4">
+            <div class="flex flex-col items-center space-y-4 mt-4 p-4">
                 <h5 class="text-xl font-semibold float-right">Model Details</h3>
-                    <ul class="mt-5 justify-center flex flex-col">
+                    <ul class="mt-5 space-y-2">
                         @foreach ($results->engineTrans as $attribute => $value)
                             <li
                                 class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">

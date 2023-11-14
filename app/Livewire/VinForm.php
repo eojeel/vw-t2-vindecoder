@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\ChassisNumber;
 use App\Models\Colors;
+use App\Models\EngineCode;
 use App\Models\ExportDestination;
 use App\Models\InteriorCode;
 use App\Models\Mcode;
@@ -46,18 +47,16 @@ class VinForm extends Component
 
     public function mount($vindetails = null)
     {
-        if (! empty($vindetails)) {
-            $this->hydrate();
-            $this->decodeVin($vindetails);
+        if (empty($vindetails)) {
+            return;
+        }
 
-            $this->cc = $vindetails->cc;
-            $this->mmmmm = $vindetails->mmmmm;
-            $this->mmmm = $vindetails->mmmm;
-            $this->pp = $vindetails->pp;
-            $this->dd = $vindetails->dd;
-            $this->uu = $vindetails->uu;
-            $this->ee = $vindetails->ee;
-            $this->tt = $vindetails->tt;
+        $this->hydrate();
+        $this->decodeVin($vindetails);
+
+        $attributes = ['cc', 'mmmmm', 'mmmm', 'pp', 'dd', 'uu', 'ee', 'tt'];
+        foreach ($attributes as $attribute) {
+            $this->{$attribute} = $vindetails->{$attribute};
         }
     }
 
@@ -97,8 +96,12 @@ class VinForm extends Component
         $this->results->destination = $this->export($validated['ee']);
 
         $this->results->engineTrans = $this->engineTrans($validated['tt']);
+        if (! empty($this->results->engineTrans)) {
+            $this->results->engineTrans['engine_spec'] .= ' - '.$this->engineModel($validated['tt']);
+        }
 
         if (! empty($this->results->colorDisplay)) {
+
             $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
         }
     }
@@ -138,5 +141,10 @@ class VinForm extends Component
         $car = new ModelEngineGearbox();
 
         return $car->getModelDetailsByCode($engineTrans);
+    }
+
+    private function engineModel(string $engine): string
+    {
+        return EngineCode::Details($engine);
     }
 }

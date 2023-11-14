@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Str;
 
 class ModelEngineGearbox extends Model
@@ -33,6 +32,11 @@ class ModelEngineGearbox extends Model
         '274' => 'Ambulance, cargo door left, RHD',
     ];
 
+    private static $transmission = [
+        'M' => '4 Speed Manual',
+        'A' => '4 Speed Automatic',
+    ];
+
     public function getModelDetailsByCode(string $tt): ?array
     {
         $model_id = Str::substr($tt, 0, 3);
@@ -40,21 +44,27 @@ class ModelEngineGearbox extends Model
         $engine_code = Str::substr($tt, 4, 4);
 
         $details = self::select('model_description', 'engine_spec', 'transmission_type', 'engine_code', 'gearbox_code', 'extras')
-        ->where('model_id', $model_id)
-        ->where('sale_code', $sale_code)
-        ->first();
+            ->where('model_id', $model_id)
+            ->where('sale_code', $sale_code)
+            ->first();
 
         if ($details) {
             $details->model_description = self::modelDescription($model_id);
+            $details->transmission_type = self::transmissionDetails($details->transmission_type);
 
             return $details->toArray();
         }
 
-        return null;
+        return [];
     }
 
     private static function modelDescription(int $model): string
     {
         return self::$modelDescriptions[$model];
+    }
+
+    private static function transmissionDetails(string $transmissionType): string
+    {
+        return self::$transmission[$transmissionType];
     }
 }
