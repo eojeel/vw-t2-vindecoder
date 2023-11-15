@@ -130,29 +130,9 @@
                 </div>
             @endif
 
-            @if (!empty($results->destination))
-            <div class="flex flex-col items-center space-y-4 mt-4 p-4">
-                    <h5 class="text-xl font-semibold float-right">Export Destination</h3>
-                        <ul class="mt-5 space-y-2">
-                                <li
-                                    class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
-                                    {{ $results->destination['code'] }} - {{ Str::replace('_', ' ', $results->destination['export']) }}</li>
-                        </ul>
-                </div>
-            @endif
+            <livewire:results-string title="Export Destination" :string="$results->destination" />
 
-            @if (!empty($results->engineTrans))
-            <div class="flex flex-col items-center space-y-4 mt-4 p-4">
-                <h5 class="text-xl font-semibold float-right">Model Details</h3>
-                    <ul class="mt-5 space-y-2">
-                        @foreach ($results->engineTrans as $attribute => $value)
-                            <li
-                                class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
-                                {{ Str::replace('_', ' ', $attribute) }} - {{ $value }}</li>
-                        @endforeach
-                    </ul>
-            </div>
-            @endif
+            <livewire:results-array title="Model Details" :array="$results->engineTrans" />
         </div>
     @endisset
 </div>

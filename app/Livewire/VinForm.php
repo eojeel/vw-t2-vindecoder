@@ -131,7 +131,7 @@ class VinForm extends Component
         return InteriorCode::InteriorDetails($interiorCode);
     }
 
-    private function export(string $exportCode): array
+    private function export(string $exportCode): string
     {
         return ExportDestination::ExportDetails($exportCode);
     }
