@@ -1,0 +1,27 @@
+steps:
+  # Step 0: Clone the public GitHub repository
+  - name: 'gcr.io/cloud-builders/git'
+    id: 'clone-repo'
+    args: ['clone', 'https://github.com/eojeel/vw-t2-vindecoder']
+
+  # Step 1: Install Composer dependencies using the defined volume for cache
+  - name: 'composer:latest'
+    id: 'composer-install'
+    args: ['install', '--no-ansi', '--no-interaction', '--no-scripts', '--no-dev', '--prefer-dist']
+
+  # Step 3: (Optional) Compile your assets using the defined volume for Node modules
+  - name: 'node:current-alpine'
+    id: 'npm-install-and-build'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        npm install && npm run build
+
+  # Step 4: Deploy to Google App Engine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'deploy'
+    args: ['app', 'deploy']
+
+
+timeout: '1600s' # Example timeout value, adjust as necessary
