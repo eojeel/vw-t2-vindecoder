@@ -1,7 +1,6 @@
 runtime: php82
 
 env_variables:
-  ## Put production environment variables here.
   APP_NAME: Vintage VW Decoder
   APP_KEY: $APP_KEY
   DB_HOST: $DB_HOST
