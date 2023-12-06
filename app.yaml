@@ -4,11 +4,11 @@ build_env_variables:
   GOOGLE_COMPOSER_VERSION: 2.5.8
 
 env_variables:
+  APP_KEY: $APP_KEY
   APP_STORAGE: /tmp
   VIEW_COMPILED_PATH: /tmp
   SESSION_DRIVER: cookie
   APP_NAME: Vintage VW Decoder
-  APP_KEY: $APP_KEY
   DB_HOST: $DB_HOST
   DB_USERNAME: $DB_USERNAME
   DB_PASSWORD: $DB_PASSWORD
