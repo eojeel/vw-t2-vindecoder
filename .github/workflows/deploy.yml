@@ -44,6 +44,9 @@ jobs:
     - name: Install NPM dependencies
       run: npm ci
 
+    - name: Compile assets
+      run: npm run build
+
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
