@@ -13,6 +13,9 @@
 .git
 .gitignore
 
+# Laravel specific
+/storage/logs/laravel.log
+
 # PHP Composer dependencies:
 /vendor/
 
