@@ -130,9 +130,14 @@
                 </div>
             @endif
 
-            <livewire:results-string title="Export Destination" :string="$results->destination" />
+            @if(isset($results->destination))
+                <livewire:results-string title="Export Destination" :string="$results->destination" />
+            @endif
 
-            <livewire:results-array title="Model Details" :array="$results->engineTrans" />
+
+            @if(isset($results->engineTrans))
+                <livewire:results-array title="Model Details" :array="$results->engineTrans" />
+            @endif
         </div>
     @endisset
 </div>
