@@ -12,7 +12,7 @@
     <title>vw t2 Vin Descoder</title>
 </head>
 
-<body class="antialiased">
+<body>
     <section class="text-gray-600 body-font">
         <section class="mt-16 text-cente">
                   <div class="mx-auto text-center text-white">
@@ -150,7 +150,7 @@
                 </div>
                 <div class="flex justify-center mt-10">
                 @if(!empty($vindetails->cc))
-                    <span class="inline-flex items-center justify-center p-5 border-4 border-gray-500 bg-gray-300 rounded-lg ">
+                    <span class="inline-flex items-center justify-center p-5 border-4 border-gray-500 bg-gray-300 rounded-lg mb-5">
                         <span class="w-full">Vin URL: {{ route('vin', ['chassisNumber' => $vindetails->cc ]) }}</span>
                         @endif
                     </span>

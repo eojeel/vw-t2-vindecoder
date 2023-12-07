@@ -74,8 +74,10 @@
         </div>
         <div class="flex justify-center mt-2">
             <button
-                class="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
-                type="submit">Decode Vin!</button>
+            class="bg-slate-900 hover:bg-slate-700 active:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full transition duration-150 ease-in-out shadow-lg focus:shadow-outline sm:w-auto md:text-base lg:w-1/2 xl:w-1/3 2xl:w-1/4 focus-visible:ring-sky-300 dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400 dark:active:bg-sky-600 disabled:opacity-50"
+            type="submit">
+              Decode Vin!
+          </button>
         </div>
     </form>
     @isset($results)
@@ -133,7 +135,6 @@
             @if(isset($results->destination))
                 <livewire:results-string title="Export Destination" :string="$results->destination" />
             @endif
-
 
             @if(isset($results->engineTrans))
                 <livewire:results-array title="Model Details" :array="$results->engineTrans" />

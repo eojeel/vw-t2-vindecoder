@@ -17,7 +17,7 @@ class ExportDestination extends Model
 
         if($export)
         {
-            return $export->code.' - '.Str::replace('_', ' ', $export->destination);
+            return $export->code.' - '.Str::replace('_', ' ', $export->export);
         }
 
         return '';

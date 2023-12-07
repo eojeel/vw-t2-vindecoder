@@ -1173,3 +1173,10 @@ html {
 .bus-blinker-circle--2:after {
     border-radius: 0 40%
 }
+
+@media screen and (max-width: 768px) {
+    .bus--full {
+        font-size: 9vw;
+    }
+
+}
