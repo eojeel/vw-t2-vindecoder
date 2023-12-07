@@ -10,5 +10,5 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/vin/{chassisNumber}', [VinController::class, 'show'])->name('vin');
 
 Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/build/assets/livewire/livewire.js', $handle);
+    return Route::get('/livewire.js', $handle);
 });
