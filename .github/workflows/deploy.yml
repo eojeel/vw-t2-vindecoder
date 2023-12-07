@@ -16,6 +16,7 @@ jobs:
     - name: Replace secrets in Googles App Engine Deployment File
       uses: 73h/gae-app-yaml-replace-env-variables@v0.3
       env:
+          APP_URL: ${{ secrets.APP_URL }}
           APP_KEY: ${{ secrets.APP_KEY }}
           DB_HOST: ${{ secrets.DB_HOST }}
           DB_USERNAME: ${{ secrets.DB_USERNAME }}
@@ -52,9 +53,6 @@ jobs:
 
     - name: Generate key
       run: php artisan key:generate
-
-    - name: clear cache
-      run: php artisan config:cache & php artisan route:cache
 
     - id: 'auth'
       uses: 'google-github-actions/auth@v1'
