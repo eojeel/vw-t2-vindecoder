@@ -164,7 +164,7 @@
     </section>
 </body>
 @vite('resources/js/app.js')
-@livewireScripts
+@livewireScriptConfig
 
 <div class="flex-grow mt-16 bg-gradient-to-r from-gray-200/[.35] to-gray-200/[.15]">
 <footer class="container py-8 text-center">

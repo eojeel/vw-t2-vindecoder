@@ -8,7 +8,3 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/vin/{chassisNumber}', [VinController::class, 'show'])->name('vin');
-
-Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/livewire.js', $handle);
-});
