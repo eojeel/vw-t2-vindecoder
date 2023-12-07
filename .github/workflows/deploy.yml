@@ -54,9 +54,6 @@ jobs:
     - name: Generate key
       run: php artisan key:generate
 
-    - name: clear cache
-      run: php artisan config:cache & php artisan route:cache
-
     - id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
