@@ -138,9 +138,9 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <label class="mt-4" for="title">Select Color: </label>
                     <select name="colorSelector" id="colorSelector" class="sm:w-3/6 md:w-2/6 m-1 px-4 py-2"
                         onchange="bodyColor(this)">
+                        <option value="" selected disabled hidden>Select a Colour</option>
                         @foreach ($colors as $color)
                             <option value="{{ $color->hex_code }}" @selected(old('color') == $color->hex_code)>
                                 {{ $color->name }}

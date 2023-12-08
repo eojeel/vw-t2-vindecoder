@@ -10,6 +10,7 @@ use App\Models\InteriorCode;
 use App\Models\Mcode;
 use App\Models\ModelEngineGearbox;
 use App\Models\PaintCodes;
+use App\Models\ProductionDate;
 use App\Models\Vin;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\Rule;
@@ -84,6 +85,7 @@ class VinForm extends Component
     private function decodeVin($validated)
     {
         $this->results->chassisNumber = $this->chassisNumber($validated['cc']);
+        $this->results->production = $this->production($validated['dd'], $this->results->chassisNumber);
         $this->results->mCode = $this->mCode($validated['mmmm']);
         $this->results->paintCodes = $this->paintCode($validated['pp']);
 
@@ -96,6 +98,7 @@ class VinForm extends Component
         $this->results->destination = $this->export($validated['ee']);
 
         $this->results->engineTrans = $this->engineTrans($validated['tt']);
+
         if (! empty($this->results->engineTrans)) {
             $this->results->engineTrans['engine_spec'] .= ' - '.$this->engineModel($validated['tt']);
         }
@@ -114,6 +117,11 @@ class VinForm extends Component
     private function chassisNumber(string $chassisNumber): string
     {
         return ChassisNumber::Details($chassisNumber);
+    }
+
+    private function production(string $productionDate, string $chassisNumber): string
+    {
+        return ProductionDate::Details($productionDate, $chassisNumber);
     }
 
     private function mCode(string $mcodes): Collection

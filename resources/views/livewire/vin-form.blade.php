@@ -84,11 +84,14 @@
         <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5 p-4">
             @if (!empty($results->chassisNumber))
                 <div class="flex flex-col items-center space-y-4">
-                    <h3 class="text-xl font-semibold">Chassis Number</h3>
+                    <h3 class="text-xl font-semibold">Model Year</h3>
                     <ul class="mt-5 space-y-2">
                         <li class="w-full border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">Year - {{ $results->chassisNumber }}</li>
                     </ul>
                 </div>
+            @endif
+            @if(isset($results->production))
+                <livewire:results-string title="Production Date" :string="$results->production" />
             @endif
 
 

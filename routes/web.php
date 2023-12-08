@@ -1,9 +1,8 @@
 <?php
 
-use Livewire\Livewire;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\VinController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VinController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 

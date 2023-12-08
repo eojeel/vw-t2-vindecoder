@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class ExportDestination extends Model
 {
@@ -15,8 +15,7 @@ class ExportDestination extends Model
         $export = static::where('code', $code)
             ->first();
 
-        if($export)
-        {
+        if ($export) {
             return $export->code.' - '.Str::replace('_', ' ', $export->export);
         }
 

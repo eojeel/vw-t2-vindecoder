@@ -24,7 +24,6 @@ class ChassisNumber extends Model
 
     public static function Details($chassisNumber): ?string
     {
-
         return self::$years[$chassisNumber[0]] ?? null;
 
     }
