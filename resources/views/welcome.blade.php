@@ -12,11 +12,13 @@
     <title>vw t2 Vin Descoder</title>
 </head>
 
+
 <body>
-    <section class="text-gray-600 body-font">
+    <x-nav/>
+    <section class="text-gray-600 body-font mb-10">
         <section class="mt-16 text-cente">
                   <div class="mx-auto text-center text-white">
-                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container font-bold text-center md:text-4xl/none lg:text-5xl/none">VW T2 (1970-1979) Vin Decoder</h2>
+                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container  text-center lg:text-5xl/none">VW T2 (1970-1979) Vin Decoder</h1>
                 </div>
             </section>
         <div class="container mx-auto flex flex-wrap">
@@ -167,11 +169,11 @@
 @livewireScriptConfig
 
 <div class="flex-grow mt-16 bg-gradient-to-r from-gray-200/[.35] to-gray-200/[.15]">
-<footer class="container py-8 text-center">
-    <p class="mt-2 text-xs tracking-widest uppercase opacity-50">
-        © Joe Lee {{ date('Y') }}. All rights reserved.
-    </p>
-</footer>
+    <footer class="container py-8 text-center">
+        <p class="mt-2 text-xs tracking-widest uppercase opacity-50">
+            © Joe Lee {{ date('Y') }}. All rights reserved.
+        </p>
+    </footer>
 </div>
 </html>
 <script>

@@ -17,8 +17,7 @@ class ProductionDate extends Model
 
         $date = Carbon::now()->setISODate($chassisNumber, $productionDate[0]);
 
-        if($productionDate[0] <= 43)
-        {
+        if ($productionDate[0] <= 43) {
             $date->subYear(1);
         }
 
