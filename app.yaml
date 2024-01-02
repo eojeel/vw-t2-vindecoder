@@ -8,6 +8,7 @@ env_variables:
   APP_KEY: $APP_KEY
   APP_STORAGE: /tmp
   VIEW_COMPILED_PATH: /tmp
+  CACHE_PATH: /tmp/cache
   SESSION_DRIVER: cookie
   APP_NAME: Vintage VW Decoder
   DB_HOST: $DB_HOST
