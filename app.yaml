@@ -1,4 +1,9 @@
-runtime: php82
+runtime: php
+env: flex
+
+runtime_config:
+  operating_system: "ubuntu22"
+  document_root: "public"
 
 build_env_variables:
   GOOGLE_COMPOSER_VERSION: 2.5.8
