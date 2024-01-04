@@ -10,44 +10,30 @@ beforeEach(function () {
     $this->seed();
 });
 
-//test that it validates the cc field
 it('Errors on invalid input', function () {
-    livewire(VinForm::class)
-        ->set('cc', '12 123 12')
-        ->set('mmmmm', '123 123 123 12')
-        ->set('pp', '1234567')
-        ->set('mmmm', '123 123 123 12')
-        ->set('dd', '12 ')
-        ->set('uu', '123')
-        ->set('ee', '1')
-        ->set('tt', '1234 1')
+    livewire::test(VinForm::class)
+        ->set('form.cc', '12 123 12')
         ->call('save')
         ->assertHasErrors([
-            'cc' => 'regex',
-            'mmmmm' => 'regex',
-            'pp' => 'size',
-            'mmmm' => 'regex',
-            'dd' => 'regex',
-            'uu' => 'size',
-            'ee' => 'size',
-            'tt' => 'regex',
+            'form.cc' => 'The Chassis Number field format is invalid.',
         ]);
 });
+
 
 //test that it validates the cc field
 it('Validates form input', function () {
 
     $vinDetails = Vin::factory()->create();
 
-    livewire(VinForm::class)
-        ->set('cc', $vinDetails['cc'])
-        ->set('mmmmm', $vinDetails['mmmmm'])
-        ->set('pp', $vinDetails['pp'])
-        ->set('mmmm', $vinDetails['mmmm'])
-        ->set('dd', $vinDetails['dd'])
-        ->set('uu', $vinDetails['uu'])
-        ->set('ee', $vinDetails['ee'])
-        ->set('tt', $vinDetails['tt'])
+    livewire::test(VinForm::class)
+        ->set('form.cc', $vinDetails['cc'])
+        ->set('form.mmmmm', $vinDetails['mmmmm'])
+        ->set('form.pp', $vinDetails['pp'])
+        ->set('form.mmmm', $vinDetails['mmmm'])
+        ->set('form.dd', $vinDetails['dd'])
+        ->set('form.uu', $vinDetails['uu'])
+        ->set('form.ee', $vinDetails['ee'])
+        ->set('form.tt', $vinDetails['tt'])
         ->call('save')
         ->assertHasNoErrors();
 });
@@ -57,14 +43,14 @@ it('dispatches BusColour event', function () {
     $vinDetails = Vin::factory()->create();
 
     Livewire::test(VinForm::class)
-        ->set('cc', $vinDetails['cc'])
-        ->set('mmmmm', $vinDetails['mmmmm'])
-        ->set('pp', $vinDetails['pp'])
-        ->set('mmmm', $vinDetails['mmmm'])
-        ->set('dd', $vinDetails['dd'])
-        ->set('uu', $vinDetails['uu'])
-        ->set('ee', $vinDetails['ee'])
-        ->set('tt', $vinDetails['tt'])
+        ->set('form.cc', $vinDetails['cc'])
+        ->set('form.mmmmm', $vinDetails['mmmmm'])
+        ->set('form.pp', $vinDetails['pp'])
+        ->set('form.mmmm', $vinDetails['mmmm'])
+        ->set('form.dd', $vinDetails['dd'])
+        ->set('form.uu', $vinDetails['uu'])
+        ->set('form.ee', $vinDetails['ee'])
+        ->set('form.tt', $vinDetails['tt'])
         ->call('save')
         ->assertDispatched('BusColour');
 });

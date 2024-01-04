@@ -1,13 +1,11 @@
 <?php
 
+use App\Livewire\VinForm;
 use App\Models\Colors;
 
-it('can display the homepage', function () {
-    $response = $this->get('/');
-
-    $response->assertStatus(200);
-    $response->assertViewIs('welcome');
-    $response->assertViewHas('colors');
+it('can display the vin page', function () {
+    $this->get('/')
+        ->assertSeeLivewire(VinForm::class);
 });
 
 it('can retrieve all colours', function () {

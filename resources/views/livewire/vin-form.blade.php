@@ -2,69 +2,69 @@
     <form wire:submit="save">
         <div class="flex justify-center">
             <div class="border-4 border-gray-500 bg-gray-300 rounded-lg p-2">
-                <input wire:model.blur="cc" type="text" name="c" class="w-1/3 mb-1 vin-input"
+                <input wire:model.blur="form.cc" type="text" name="c" class="w-1/3 mb-1 vin-input"
                     placeholder="CC CCC CCC" />
                 <div>
-                    @error('cc')
+                    @error('form.cc')
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="flex">
-                <input wire:model.blur="mmmmm" type="text" name="m" class="flex w-full mb-1 vin-input"
+                <input wire:model.blur="form.mmmmm" type="text" name="m" class="flex w-full mb-1 vin-input"
                     placeholder="MMM MMM MMM MMM MMM">
                 </div>
                 <div>
-                    @error('mmmmm')
+                    @error('form.mmmmm')
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="flex mb-1">
-                    <input wire:model.blur="pp" type="text" name="p" class="w-2/5 mr-2 vin-input"
+                    <input wire:model.blur="form.pp" type="text" name="p" class="w-2/5 mr-2 vin-input"
                         placeholder="PPPPII" value="@old('pp')" />
-                    <input wire:model.blur="mmmm" type="text" name="m2" class="w-3/5 vin-input"
+                    <input wire:model.blur="form.mmmm" type="text" name="m2" class="w-3/5 vin-input"
                         placeholder="MMM MMM MMM MMM" />
                 </div>
                 <div class="flex mb-1">
                     <div class="w-2/5 mr-2">
-                        @error('pp')
+                        @error('form.pp')
                             <span class="error">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="w-3/5">
-                        @error('mmmm')
+                        @error('form.mmmm')
                             <span class="error">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
                 <div class="grid grid-cols-4">
-                    <input wire:model.blur="dd" type="text" name="d" class="mr-2 vin-input"
+                    <input wire:model.blur="form.dd" type="text" name="d" class="mr-2 vin-input"
                         placeholder="DD D" />
-                    <input wire:model.blur='uu' type="text" name="u" class="mr-2 vin-input"
+                    <input wire:model.blur='form.uu' type="text" name="u" class="mr-2 vin-input"
                         placeholder="UUUU" />
-                    <input wire:model.blur='ee' type="text" name="e" class="mr-2 vin-input"
+                    <input wire:model.blur='form.ee' type="text" name="e" class="mr-2 vin-input"
                         placeholder="EE" />
-                    <input wire:model.blur='tt' type="text" name="x" class=" vin-input"
+                    <input wire:model.blur='form.tt' type="text" name="x" class=" vin-input"
                         placeholder="XXXX TT" />
                 </div>
                 <div class="flex justify-center">
                     <ul class="list-none space-y-2 m-2">
                         <li>
-                            @error('dd')
+                            @error('form.dd')
                                 <span class="error">{{ $message }}</span>
                             @enderror
                         </li>
                         <li>
-                            @error('uu')
+                            @error('form.uu')
                                 <span class="error">{{ $message }}</span>
                             @enderror
                         </li>
                         <li>
-                            @error('ee')
+                            @error('form.ee')
                                 <span class="error">{{ $message }}</span>
                             @enderror
                         </li>
                         <li>
-                            @error('tt')
+                            @error('form.tt')
                                 <span class="error">{{ $message }}</span>
                             @enderror
                         </li>
