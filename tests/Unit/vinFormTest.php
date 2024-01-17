@@ -4,8 +4,6 @@ use App\Livewire\VinForm;
 use App\Models\Vin;
 use Livewire\Livewire;
 
-use function Pest\Livewire\livewire;
-
 beforeEach(function () {
     $this->seed();
 });
@@ -18,7 +16,6 @@ it('Errors on invalid input', function () {
             'form.cc' => 'The Chassis Number field format is invalid.',
         ]);
 });
-
 
 //test that it validates the cc field
 it('Validates form input', function () {

@@ -153,7 +153,7 @@
                 <div class="flex justify-center mt-10">
                 @if(!empty($vindetails->cc))
                     <span class="inline-flex items-center justify-center p-5 border-4 border-gray-500 bg-gray-300 rounded-lg mb-5">
-                        <span class="w-full">Vin URL: {{ route('vin', ['chassisNumber' => $vindetails->cc ]) }}</span>
+                        <span class="w-full">Vin URL: {{ route('vin', ['chassisNumber' => str_replace(' ', '', $vindetails->cc) ]) }}</span>
                         @endif
                     </span>
                 </div>

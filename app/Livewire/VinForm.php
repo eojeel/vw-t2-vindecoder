@@ -37,10 +37,12 @@ class VinForm extends Component
         $this->hydrate();
         $this->decodeVin($vindetails);
 
-        $attributes = ['cc', 'mmmmm', 'mmmm', 'pp', 'dd', 'uu', 'ee', 'tt'];
-        foreach ($attributes as $attribute) {
-            $this->{$attribute} = $vindetails->{$attribute};
+        foreach ($vindetails->getAttributes() as $key => $value) {
+            if ($value) {
+                $this->form->$key = $value;
+            }
         }
+
     }
 
     public function hydrate()
@@ -67,7 +69,7 @@ class VinForm extends Component
     /**
      * Decodes the VIN and sets the corresponding properties.
      *
-     * @param  array  $validated The validated VIN data.
+     * @param  array  $validated  The validated VIN data.
      * @return void
      */
     private function decodeVin($validated)
@@ -84,7 +86,7 @@ class VinForm extends Component
     /**
      * Sets the chassis number for the VinForm.
      *
-     * @param  string  $chassisNumber The chassis number to set.
+     * @param  string  $chassisNumber  The chassis number to set.
      */
     private function chassisNumber(string $chassisNumber): void
     {
@@ -94,7 +96,7 @@ class VinForm extends Component
     /**
      * sets the production date for the VinForm.
      *
-     * @param  string  $productionDate the production date input
+     * @param  string  $productionDate  the production date input
      */
     private function production(string $productionDate): void
     {
@@ -104,7 +106,7 @@ class VinForm extends Component
     /**
      * retrieves all the option codes for the vin, known as mcodes.
      *
-     * @param  string  $mcodes string of option codes.
+     * @param  string  $mcodes  string of option codes.
      */
     private function mCode(string $mcodes): void
     {
@@ -114,7 +116,7 @@ class VinForm extends Component
     /**
      * sets the colour code of the form and bus display colour.
      *
-     * @param  string  $paintCode the paint code
+     * @param  string  $paintCode  the paint code
      */
     private function paintCode(string $paintCode): void
     {
@@ -136,7 +138,7 @@ class VinForm extends Component
     /**
      * interiour details for the vin including apulstry and trim.
      *
-     * @param  string  $interiorCode the interior code
+     * @param  string  $interiorCode  the interior code
      */
     private function interior(string $interiorCode): void
     {
@@ -146,7 +148,7 @@ class VinForm extends Component
     /**
      * export destination of the vin.
      *
-     * @param  string  $exportCode the export code
+     * @param  string  $exportCode  the export code
      */
     private function export(string $exportCode): void
     {
@@ -156,7 +158,7 @@ class VinForm extends Component
     /**
      * engine and transmission details for the vin.
      *
-     * @param  string  $engineTrans the engine and transmission code
+     * @param  string  $engineTrans  the engine and transmission code
      */
     private function engineTrans(string $engineTrans): void
     {
@@ -181,7 +183,7 @@ class VinForm extends Component
     /**
      * engine model details for the vin.
      *
-     * @param  string  $engine the engine code
+     * @param  string  $engine  the engine code
      */
     private function engineModel(string $engine): string
     {
