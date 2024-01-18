@@ -81,14 +81,7 @@
         </div>
     </form>
 
-    <section class="mt-5">
-        <div class="flex justify-center border-4 border-gray-500 bg-gray-300 rounded-lg p-5">
-            <p><span class="font-semibold">Volkswagen Type 2 M-Plate and VIN Decoder:</span> Essential Identification Tool for VW Buses from (1970-1979), Detailing Production Codes, Equipment, Manufacturing Dates, Destination, Specifications, and Optional Extras</p>
-        </div>
-    </section>
-
-    @isset($result)
-        @if($result != null)
+    @if(isset($results))
         <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5 p-4">
             @if (!empty($results->chassisNumber))
                 <div class="flex flex-col items-center space-y-4">
@@ -101,7 +94,6 @@
             @if(isset($results->production))
                 <livewire:results-string title="Production Date" :string="$results->production" />
             @endif
-
 
             @if ($results->mCode->isNotEmpty())
                 <div class="flex flex-col items-center space-y-4 mt-4 p-4">
@@ -151,8 +143,13 @@
                 <livewire:results-array title="Model Details" :array="$results->engineTrans" />
             @endif
         </div>
-        @endif
-    @endisset
+    @else
+    <section class="mt-5">
+        <div class="flex justify-center border-4 border-gray-500 bg-gray-300 rounded-lg p-5">
+            <p><span class="font-semibold">Volkswagen Type 2 M-Plate and VIN Decoder:</span> Essential Identification Tool for VW Buses from (1970-1979), Detailing Production Codes, Equipment, Manufacturing Dates, Destination, Specifications, and Optional Extras</p>
+        </div>
+    </section>
+    @endif
 </div>
 <script>
     window.addEventListener('BusColour', event => {

@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Livewire\Forms\VinSubmitForm;
 use App\Models\ChassisNumber;
+use App\Models\Colors;
 use App\Models\EngineCode;
 use App\Models\ExportDestination;
 use App\Models\InteriorCode;
@@ -42,7 +43,6 @@ class VinForm extends Component
                 $this->form->$key = $value;
             }
         }
-
     }
 
     public function hydrate()
@@ -61,9 +61,11 @@ class VinForm extends Component
 
         $this->decodeVin($this->form->all());
 
-        if (! Vin::where('cc', $this->form->cc)->exists()) {
-            Vin::create($this->form->all());
-        }
+        Vin::updateOrCreate(
+            ['cc' => $this->form->cc],
+            $this->form->all()
+        );
+
     }
 
     /**
@@ -125,13 +127,14 @@ class VinForm extends Component
     }
 
     /**
-     * find the colour code of the paint
+     * find the colour code of the paint and dispatch event.
      */
     private function setFirstPaintCodeColorDisplay(): void
     {
         $firstPaintCode = $this->results->paintCodes->first();
         if ($firstPaintCode) {
             $this->results->colorDisplay = $firstPaintCode->color()->get();
+            $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
         }
     }
 
