@@ -41,6 +41,7 @@ class VinForm extends Component
         foreach ($vindetails->getAttributes() as $key => $value) {
             if ($value) {
                 $this->form->$key = $value;
+                $this->$key = $value;
             }
         }
     }
