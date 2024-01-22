@@ -15,7 +15,7 @@ class VinShow extends Component
 
     public $colors = [];
 
-    public $results; // Declare the $results property
+    public $results;
 
     public function render()
     {

@@ -39,6 +39,5 @@ class VinForm extends Component
             ['cc' => $this->form->cc],
             $this->form->all()
         );
-
     }
 }
