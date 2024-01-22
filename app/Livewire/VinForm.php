@@ -41,6 +41,4 @@ class VinForm extends Component
         );
 
     }
-
-
 }

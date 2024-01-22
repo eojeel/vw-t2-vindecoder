@@ -2,15 +2,11 @@
 
 namespace App\Models;
 
-use stdClass;
-use App\Models\Mcode;
-use App\Models\PaintCodes;
-use App\Models\ChassisNumber;
-use App\Models\ProductionDate;
-use App\Models\ModelEngineGearbox;
-use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Model;
+use App\Events\BusColour;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use stdClass;
 
 class Vin extends Model
 {
@@ -18,24 +14,27 @@ class Vin extends Model
 
     protected $guarded = [];
 
+    public static $results;
+
     /**
      * Decodes the VIN and sets the corresponding properties.
      *
      * @param  array  $validated  The validated VIN data.
      * @return void
      */
-    public function decodeVin($validated)
+    public static function decodeVin($validated)
     {
-        $results = new stdClass();
+        self::$results = new stdClass();
 
-        $results->chassisNumber = self::chassisNumber($validated['cc']);
-        $results->production = self::production($validated['dd'], $results->chassisNumber);
-        $results->mCode = self::mCode($validated['mmmm']);
-        $results-> self::paintCode($validated['pp']);
-        $results-> self::interior($validated['pp']);
-        $results-> self::export($validated['ee']);
-        $results-> self::engineTrans($validated['tt']);
-        return $results;
+        self::$results->chassisNumber = self::chassisNumber($validated['cc']);
+        self::$results->production = self::production($validated['dd'], self::$results->chassisNumber);
+        self::$results->mCode = self::mCode($validated['mmmm']);
+        self::$results->paintCodes = self::paintCode($validated['pp']);
+        self::$results->interiorCodes = self::interior($validated['pp']);
+        self::$results->destination = self::export($validated['ee']);
+        self::$results->engineTrans = self::engineTrans($validated['tt']);
+
+        return self::$results;
     }
 
     /**
@@ -45,6 +44,7 @@ class Vin extends Model
      */
     private static function chassisNumber(string $chassisNumber): string
     {
+
         return ChassisNumber::Details($chassisNumber);
     }
 
@@ -73,21 +73,24 @@ class Vin extends Model
      *
      * @param  string  $paintCode  the paint code
      */
-    private static function paintCode(string $paintCode): void
+    private static function paintCode(string $paintCode): Collection
     {
-        $this->results->paintCodes = PaintCodes::PaintDetails($paintCode);
-        $this->setFirstPaintCodeColorDisplay();
+        $paintCode = PaintCodes::PaintDetails($paintCode);
+
+        self::setFirstPaintCodeColorDisplay($paintCode);
+
+        return $paintCode;
     }
 
     /**
      * find the colour code of the paint and dispatch event.
      */
-    private static function setFirstPaintCodeColorDisplay(): void
+    private static function setFirstPaintCodeColorDisplay(Collection $paintCode): void
     {
-        $firstPaintCode = $this->results->paintCodes->first();
+        $firstPaintCode = $paintCode->first();
         if ($firstPaintCode) {
-            $this->results->colorDisplay = $firstPaintCode->color()->get();
-            $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
+            self::$results->colorDisplay = $firstPaintCode->color()->get();
+            event(new BusColour(self::$results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code));
         }
     }
 
@@ -96,9 +99,9 @@ class Vin extends Model
      *
      * @param  string  $interiorCode  the interior code
      */
-    private static function interior(string $interiorCode): void
+    private static function interior(string $interiorCode): Collection
     {
-        $this->results->interiorCodes = InteriorCode::InteriorDetails($interiorCode);
+        return InteriorCode::InteriorDetails($interiorCode);
     }
 
     /**
@@ -106,9 +109,9 @@ class Vin extends Model
      *
      * @param  string  $exportCode  the export code
      */
-    private static function export(string $exportCode): void
+    private static function export(string $exportCode): string
     {
-        $this->results->destination = ExportDestination::ExportDetails($exportCode);
+        return ExportDestination::ExportDetails($exportCode);
     }
 
     /**
@@ -116,12 +119,14 @@ class Vin extends Model
      *
      * @param  string  $engineTrans  the engine and transmission code
      */
-    private static function engineTrans(string $engineTrans): void
+    private static function engineTrans(string $engineTrans): array
     {
         $car = new ModelEngineGearbox();
 
-        $this->results->engineTrans = $car->getModelDetailsByCode($engineTrans);
-        $this->appendEngineSpec();
+        $engineTrans = $car->getModelDetailsByCode($engineTrans);
+        self::appendEngineSpec();
+
+        return $engineTrans;
     }
 
     /**
@@ -131,8 +136,8 @@ class Vin extends Model
      */
     private static function appendEngineSpec()
     {
-        if (! empty($this->results->engineTrans)) {
-            $this->results->engineTrans['engine_spec'] .= ' - '.$this->engineModel($this->results->engineTrans['code'] ?? '');
+        if (! empty(self::$results->engineTrans)) {
+            self::$results->engineTrans['engine_spec'] .= ' - '.self::engineModel(self::$results->engineTrans['code'] ?? '');
         }
     }
 

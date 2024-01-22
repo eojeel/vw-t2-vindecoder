@@ -2,15 +2,19 @@
 
 namespace App\Livewire;
 
-use App\Models\Vin;
+use App\Livewire\Forms\VinSubmitForm;
 use App\Models\Colors;
-use Livewire\Component;
-use Illuminate\Support\Str;
+use App\Models\Vin;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
+use Livewire\Component;
 
 class VinShow extends Component
 {
+    public VinSubmitForm $form;
+
     public $colors = [];
+
     public $results; // Declare the $results property
 
     public function render()
@@ -26,14 +30,14 @@ class VinShow extends Component
 
         $vin = Vin::where('cc', $chassisNumber)->firstOrFail();
 
-        dd($vin);
-
         foreach ($vin->getAttributes() as $key => $value) {
             if ($value) {
                 $this->form->$key = $value;
                 $this->$key = $value;
             }
         }
+
+        $this->results = Vin::decodeVin($vin->getAttributes());
     }
 
     public function hydrate()
