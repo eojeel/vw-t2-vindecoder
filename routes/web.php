@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\VinController;
+use App\Livewire\VinForm;
+use App\Livewire\VinList;
+use App\Livewire\VinShow;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/', VinForm::class);
 
-Route::get('/vin/{chassisNumber}', [VinController::class, 'show'])->name('vin');
+Route::get('/vin/{chassisNumber}', VinShow::class);
+
+Route::get('/vins', VinList::class);
