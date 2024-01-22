@@ -139,7 +139,7 @@
         @if(!empty($vindetails->cc))
             <span class="inline-flex items-center justify-center p-5 border-4 border-gray-500 bg-gray-300 rounded-lg mb-5">
                 <span class="w-full">Vin URL: {{ route('vin', ['chassisNumber' => str_replace(' ', '', $vindetails->cc) ]) }}</span>
-                @endif</secti
+                @endif
             </span>
         </div>
     </div>
@@ -238,20 +238,9 @@
                         </div>
                     @endif
                     @if(isset($results->production))
-                           <section class="text-gray-600 body-font mb-10">
-                            <div class="container mx-auto flex flex-wrap">
-                                <div class="w-full md:w-2/5 lg:w-3/5">
-                                    <div class="flex justify-center mt-10">
-                                    @if(!empty($vindetails->cc))
-                                        <span class="inline-flex items-center justify-center p-5 border-4 border-gray-500 bg-gray-300 rounded-lg mb-5">
-                                            <span class="w-full">Vin URL: {{ route('vin', ['chassisNumber' => str_replace(' ', '', $vindetails->cc) ]) }}</span>
-                                            @endif
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    @endif
+                    <livewire:results-string title="Production Date" :string="$results->production" />
+                @endif
+
 
                     @if ($results->mCode->isNotEmpty())
                         <div class="flex flex-col items-center space-y-4 mt-4 p-4">
