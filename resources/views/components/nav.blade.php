@@ -11,7 +11,7 @@
             <a class="inline-block py-2 px-4 text-white no-underline" href="#"></a>
           </li>
           <li class="mr-3">
-            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#"></a>
+            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/vins" wire:navigate>Vins</a>
           </li>
           <li class="mr-3">
             <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#"></a>
