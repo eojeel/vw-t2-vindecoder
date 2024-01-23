@@ -5,7 +5,6 @@ namespace App\Livewire;
 use App\Livewire\Forms\VinSubmitForm;
 use App\Models\Colors;
 use App\Models\Vin;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -38,13 +37,7 @@ class VinShow extends Component
         }
 
         $this->results = Vin::decodeVin($vin->getAttributes());
-    }
 
-    public function hydrate()
-    {
-        $resArray = ['mCode', 'paintCodes', 'interiorCodes'];
-        foreach ($resArray as $res) {
-            $this->results->$res = new Collection();
-        }
+        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
     }
 }

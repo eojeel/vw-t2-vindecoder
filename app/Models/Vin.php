@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Events\BusColour;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -90,7 +89,6 @@ class Vin extends Model
         $firstPaintCode = $paintCode->first();
         if ($firstPaintCode) {
             self::$results->colorDisplay = $firstPaintCode->color()->get();
-            event(new BusColour(self::$results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code));
         }
     }
 

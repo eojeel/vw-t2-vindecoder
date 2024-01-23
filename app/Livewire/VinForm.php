@@ -35,6 +35,8 @@ class VinForm extends Component
 
         $this->results = Vin::decodeVin($this->form->all());
 
+        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
+
         Vin::updateOrCreate(
             ['cc' => $this->form->cc],
             $this->form->all()

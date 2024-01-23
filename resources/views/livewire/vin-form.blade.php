@@ -320,7 +320,7 @@
 
             document.addEventListener('livewire:init', () => {
                 Livewire.on('BusColour', event => {
-                    const data = event.detail;
+                    const data = event;
                     var element = document.querySelector('.bus__body--bottom');
                     const select = document.getElementById("colorSelector");
                     select.value = data;
