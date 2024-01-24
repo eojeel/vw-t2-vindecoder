@@ -57,6 +57,9 @@ jobs:
     - name: Clear Caches
       run: php artisan config:clear && php artisan cache:clear && php artisan route:clear
 
+    - name: Tests
+      run: ./vendor/bin/pest
+
     - id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:

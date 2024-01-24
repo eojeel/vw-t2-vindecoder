@@ -10,6 +10,7 @@ class VinController extends Controller
 {
     public function show($chassisNumber)
     {
+
         $chassisNumber = Str::substr($chassisNumber, 0, 2).' '.Str::substr($chassisNumber, 2, 3).' '.Str::substr($chassisNumber, 5, 3);
 
         $vin = Vin::where('cc', $chassisNumber)->firstOrFail();

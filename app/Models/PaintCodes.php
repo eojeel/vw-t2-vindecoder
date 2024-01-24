@@ -21,6 +21,7 @@ class PaintCodes extends Model
 
     public function color(): HasMany
     {
+
         return $this->hasMany(Colors::class, 'code', 'color_code');
     }
 }

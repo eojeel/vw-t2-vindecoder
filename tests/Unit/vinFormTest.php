@@ -1,7 +1,9 @@
 <?php
 
 use App\Livewire\VinForm;
+use App\Livewire\VinShow;
 use App\Models\Vin;
+use Illuminate\Support\Str;
 use Livewire\Livewire;
 
 beforeEach(function () {
@@ -56,7 +58,7 @@ it('can handle vindetails', function () {
 
     $vinDetails = Vin::factory()->create();
 
-    Livewire::test(VinForm::class, ['vindetails' => $vinDetails])
+    Livewire::test(VinShow::class, ['chassisNumber' => Str::replace(' ', '', $vinDetails->cc)])
         ->assertSet('cc', '12 123 123')
         ->assertSet('mmmmm', '123 123 123 123 123')
         ->assertSet('pp', 'J2J252')
