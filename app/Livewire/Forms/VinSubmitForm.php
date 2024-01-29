@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Forms;
 
+use App\Models\Colors;
+use App\Models\Vin;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -30,4 +32,20 @@ class VinSubmitForm extends Form
 
     #[Validate('required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/', as: '(XXXX TT) Body Model (Engine & Gearbox) Type')]
     public string $tt = '';
+
+    public $results;
+
+    public function save()
+    {
+        $this->validate();
+
+        $this->results = Vin::decodeVin($this->all());
+
+        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
+
+        Vin::updateOrCreate(
+            ['cc' => $this->cc],
+            $this->all()
+        );
+    }
 }

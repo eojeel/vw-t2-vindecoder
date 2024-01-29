@@ -6,8 +6,10 @@ use App\Livewire\Forms\VinSubmitForm;
 use App\Models\Colors;
 use App\Models\Vin;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('View Decoded Vin - VW T2 (1970-1979) Vin Decoder')]
 class VinShow extends Component
 {
     public VinSubmitForm $form;
@@ -38,6 +40,18 @@ class VinShow extends Component
 
         $this->results = Vin::decodeVin($vin->getAttributes());
 
-        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
+    }
+
+    public function rendered()
+    {
+        if($this->results->colorDisplay->first())
+        {
+        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code);
+        }
+    }
+
+    public function save()
+    {
+        $this->form->save();
     }
 }

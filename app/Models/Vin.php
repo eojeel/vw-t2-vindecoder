@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
 use stdClass;
+use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Vin extends Model
 {
@@ -21,7 +22,7 @@ class Vin extends Model
      * @param  array  $validated  The validated VIN data.
      * @return void
      */
-    public static function decodeVin($validated)
+    public static function decodeVin(array $validated): stdClass
     {
         self::$results = new stdClass();
 
@@ -89,6 +90,8 @@ class Vin extends Model
         $firstPaintCode = $paintCode->first();
         if ($firstPaintCode) {
             self::$results->colorDisplay = $firstPaintCode->color()->get();
+        } else {
+            self::$results->colorDisplay = new Collection([]);
         }
     }
 
