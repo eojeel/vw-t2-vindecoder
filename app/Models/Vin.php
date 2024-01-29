@@ -90,6 +90,8 @@ class Vin extends Model
         $firstPaintCode = $paintCode->first();
         if ($firstPaintCode) {
             self::$results->colorDisplay = $firstPaintCode->color()->get();
+        } else {
+            self::$results->colorDisplay = new Collection([]);
         }
     }
 

@@ -4,16 +4,13 @@ namespace App\Livewire;
 
 use App\Livewire\Forms\VinSubmitForm;
 use App\Models\Colors;
-use App\Models\Vin;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Vintage VW Decoder - VW T2 (1970-1979) Vin Decoder')]
 class VinForm extends Component
 {
-    public $title = 'VW T2 Vin Decoder';
-
     public VinSubmitForm $form;
-
-    public $results;
 
     public $colors = [];
 
@@ -29,17 +26,9 @@ class VinForm extends Component
         $this->colors = Colors::all(['code', 'name', 'hex_code']);
     }
 
+
     public function save()
     {
-        $this->validate();
-
-        $this->results = Vin::decodeVin($this->form->all());
-
-        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
-
-        Vin::updateOrCreate(
-            ['cc' => $this->form->cc],
-            $this->form->all()
-        );
+        $this->form->save();
     }
 }
