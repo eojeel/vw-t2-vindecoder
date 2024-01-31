@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\Colors;
-use App\Models\Vin;
 use Livewire\Attributes\Validate;
+use App\Models\Vin;
+
 use Livewire\Form;
 
 class VinSubmitForm extends Form
@@ -37,15 +37,13 @@ class VinSubmitForm extends Form
 
     public function save()
     {
-        $this->validate();
+       $validated = $this->validate();
 
         $this->results = Vin::decodeVin($this->all());
 
-        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
-
         Vin::updateOrCreate(
             ['cc' => $this->cc],
-            $this->all()
+            $validated
         );
     }
 }
