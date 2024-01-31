@@ -30,5 +30,8 @@ class VinForm extends Component
     public function save()
     {
         $this->form->save();
+
+        $this->dispatch('BusColour', $this->form->results->colorDisplay->first()->hex_code ?? Colors::random()->hex_code);
+
     }
 }

@@ -17,14 +17,14 @@ class VinFactory extends Factory
     public function definition(): array
     {
         return [
-            'cc' => '12 123 123',
-            'mmmmm' => '123 123 123 123 123',
-            'pp' => 'J2J252',
-            'mmmm' => '123 123 123 123',
-            'dd' => '12 1',
-            'uu' => '1234',
-            'ee' => '11',
-            'tt' => '1234 11',
+            'cc' => fake()->regexify('[0-9]{2} [0-9]{3} [0-9]{3}'),
+            'mmmmm' => fake()->regexify('[A-Z0-9]{3} [A-Z0-9]{3} [A-Z0-9]{3} [A-Z0-9]{3} [A-Z0-9]{3}'),
+            'pp' => fake()->regexify('[A-Z]{1}[0-9]{1}[A-Z]{1}[0-9]{1}[0-9]{2}'),
+            'mmmm' => fake()->regexify('[A-Z0-9]{3} [A-Z0-9]{3} [A-Z0-9]{3} [A-Z0-9]{3}'),
+            'dd' => fake()->regexify('[0-9]{2} [0-9]{1}'),
+            'uu' => fake()->randomNumber(4, true),
+            'ee' => fake()->randomNumber(2, true),
+            'tt' => fake()->regexify('[0-9]{4} [0-9]{2}'),
         ];
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
+use Illuminate\Support\Str;
 use App\Livewire\VinForm;
 use App\Livewire\VinShow;
-use App\Models\Vin;
-use Illuminate\Support\Str;
 use Livewire\Livewire;
+use App\Models\Vin;
 
 beforeEach(function () {
     $this->seed();
@@ -25,31 +25,31 @@ it('Validates form input', function () {
     $vinDetails = Vin::factory()->create();
 
     livewire::test(VinForm::class)
-        ->set('form.cc', $vinDetails['cc'])
-        ->set('form.mmmmm', $vinDetails['mmmmm'])
-        ->set('form.pp', $vinDetails['pp'])
-        ->set('form.mmmm', $vinDetails['mmmm'])
-        ->set('form.dd', $vinDetails['dd'])
-        ->set('form.uu', $vinDetails['uu'])
-        ->set('form.ee', $vinDetails['ee'])
-        ->set('form.tt', $vinDetails['tt'])
+        ->set('form.cc', $vinDetails->cc)
+        ->set('form.mmmmm', $vinDetails->mmmmm)
+        ->set('form.pp', $vinDetails->pp)
+        ->set('form.mmmm', $vinDetails->mmmm)
+        ->set('form.dd', $vinDetails->dd)
+        ->set('form.uu', $vinDetails->uu)
+        ->set('form.ee', $vinDetails->ee)
+        ->set('form.tt', $vinDetails->tt)
         ->call('save')
         ->assertHasNoErrors();
 });
 
 it('dispatches BusColour event', function () {
 
-    $vinDetails = Vin::factory()->create();
+    $vinDetails = Vin::factory()->create(['pp' => 'J2J252']);
 
     Livewire::test(VinForm::class)
-        ->set('form.cc', $vinDetails['cc'])
-        ->set('form.mmmmm', $vinDetails['mmmmm'])
-        ->set('form.pp', $vinDetails['pp'])
-        ->set('form.mmmm', $vinDetails['mmmm'])
-        ->set('form.dd', $vinDetails['dd'])
-        ->set('form.uu', $vinDetails['uu'])
-        ->set('form.ee', $vinDetails['ee'])
-        ->set('form.tt', $vinDetails['tt'])
+        ->set('form.cc', $vinDetails->cc)
+        ->set('form.mmmmm', $vinDetails->mmmmm)
+        ->set('form.pp', $vinDetails->pp)
+        ->set('form.mmmm', $vinDetails->mmmm)
+        ->set('form.dd', $vinDetails->dd)
+        ->set('form.uu', $vinDetails->uu)
+        ->set('form.ee', $vinDetails->ee)
+        ->set('form.tt', $vinDetails->tt)
         ->call('save')
         ->assertDispatched('BusColour');
 });
@@ -58,13 +58,15 @@ it('can handle vindetails', function () {
 
     $vinDetails = Vin::factory()->create();
 
-    Livewire::test(VinShow::class, ['chassisNumber' => Str::replace(' ', '', $vinDetails->cc)])
-        ->assertSet('cc', '12 123 123')
-        ->assertSet('mmmmm', '123 123 123 123 123')
-        ->assertSet('pp', 'J2J252')
-        ->assertSet('mmmm', '123 123 123 123')
-        ->assertSet('dd', '12 1')
-        ->assertSet('uu', '1234')
-        ->assertSet('ee', '11')
-        ->assertSet('tt', '1234 11');
+    $firstVin = $vinDetails->first();
+
+    Livewire::test(VinShow::class, ['chassisNumber' => Str::replace(' ', '', $firstVin->cc)])
+        ->assertSet('cc', $firstVin->cc)
+        ->assertSet('mmmmm', $firstVin->mmmmm)
+        ->assertSet('pp', $firstVin->pp)
+        ->assertSet('mmmm', $firstVin->mmmm)
+        ->assertSet('dd', $firstVin->dd)
+        ->assertSet('uu', $firstVin->uu)
+        ->assertSet('ee', $firstVin->ee)
+        ->assertSet('tt', $firstVin->tt);
 });
