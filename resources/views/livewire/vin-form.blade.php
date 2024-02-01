@@ -62,21 +62,21 @@
                         <div class="wiper-attachment"></div>
                     </div>
 
-                    <div class="directional">
+                    <div class="directional_early">
                         <div class="directional--off"></div>
                     </div>
-                    <div class="directional directional--right">
+                    <div class="directional_early directional_early--right">
                         <div class="directional--off"></div>
                     </div>
 
-                    <div class="vw-logo vw-logo--shadow">
+                    <div class="vw-logo_early vw-logo--shadow">
                         <span class="vw-logo__v"></span>
                         <span class="vw-logo__w">
                             <span class="vw-logo__w__leg-l"></span>
                             <span class="vw-logo__w__leg-r"></span>
                         </span>
                     </div>
-                    <div class="vw-logo">
+                    <div class="vw-logo_early">
                         <span class="vw-logo__v"></span>
                         <span class="vw-logo__w">
                             <span class="vw-logo__w__leg-l"></span>
@@ -312,20 +312,27 @@
         </div>
         <script>
             function bodyColor(selector) {
-                var selectedColor = selector.options[selector.selectedIndex].value;
-                var element = document.querySelector('.bus__body--bottom');
-                console.log(selectedColor);
-                element.style.backgroundColor = selectedColor;
+                let selectedColor = selector.options[selector.selectedIndex].value;
+                let element = document.querySelectorAll('.bus__body--bottom');
+                element.forEach(elem =>
+                    {
+                        elem.style.backgroundColor = selectedColor;
+                        elem.style.background = selectedColor;
+                    });
             }
 
             document.addEventListener('livewire:init', () => {
                 Livewire.on('BusColour', event => {
                     const data = event;
-                    var element = document.querySelector('.bus__body--bottom');
+                    let element = document.querySelectorAll('.bus__body--bottom');
                     const select = document.getElementById("colorSelector");
                     select.value = data;
-                    element.style.backgroundColor = data;
-                    console.log(`Received data from Livewire dehydrate: ${data}`);
+                    element.forEach(elem =>
+                    {
+                        elem.style.backgroundColor = data;
+                        elem.style.background = data;
+                    });
+
                 });
             });
         </script>

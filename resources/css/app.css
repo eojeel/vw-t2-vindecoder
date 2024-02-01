@@ -387,13 +387,23 @@ html {
     width: .96em
 }
 
+.vw-logo_early {
+    border: .08em solid #a8a9ad;
+    border-radius: 50%;
+    left: 4.4em;
+    height: 1.40em;
+    position: absolute;
+    top: 5.30em;
+    width: 1.05em
+}
+
 .vw-logo__v {
     background: #a8a9ad;
     display: block;
     height: .1em;
-    left: .35em;
+    left: .40em;
     position: absolute;
-    top: .29em;
+    top: .70em;
     width: .1em
 }
 
@@ -417,9 +427,9 @@ html {
     background: #a8a9ad;
     display: block;
     height: .1em;
-    left: .35em;
+    left: .40em;
     position: absolute;
-    top: .41em;
+    top: 0.76em;
     width: .1em
 }
 
@@ -442,10 +452,10 @@ html {
 .vw-logo__w__leg-l,.vw-logo__w__leg-r {
     background: #a8a9ad;
     display: block;
-    height: .6em;
+    height: .8em;
     left: -.26em;
     position: absolute;
-    top: -.24em;
+    top: -.2em;
     transform: rotate(-24deg);
     width: .08em
 }
@@ -479,6 +489,25 @@ html {
 .vw-logo--shadow .vw-logo__w__leg-l,.vw-logo--shadow .vw-logo__w__leg-r {
     background: rgba(0,0,0,.15)
 }
+
+.directional_early {
+    background: radial-gradient(at bottom right,#f46b0e 58%,#dd5900 59%);
+    border: 0.06em solid grey;
+    border-top-color: grey;
+    border-bottom-color: grey;
+    border-radius: 0.06em;
+    height: 0.3em;
+    left: 1.2em;
+    top: 7.25em;
+    position: absolute;
+    width: 1em;
+}
+
+.directional_early--right {
+    left: auto;
+    right: 1.2em
+}
+
 
 .directional {
     background: radial-gradient(at bottom right,#f46b0e 58%,#dd5900 59%);

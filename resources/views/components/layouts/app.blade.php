@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark scroll-smooth">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Discover the history of your VW T2 (1970-1979) with Vintage VW Decoder. This essential tool decodes VINs and M-Plates, revealing production details, specifications, and original features of Volkswagen buses. Ideal for enthusiasts and restorer"/>
+
         <title>{{ $title ?? 'Page Title' }}</title>
+
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
