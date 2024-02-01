@@ -293,30 +293,46 @@
                                 <livewire:results-string title="Export Destination" :string="$results->destination" />
                             @endif
 
-                            @if (isset($results->engineTrans))
-                                <livewire:results-array title="Model Details" :array="$results->engineTrans" />
-                            @endif
+                        @if (isset($results->engineTrans))
+                            <livewire:results-array title="Model Details" :array="$results->engineTrans" />
+                        @endif
+                    </div>
+                @else
+                    <section class="mt-5">
+                        <div class="flex justify-center border-4 border-gray-500 bg-gray-300 rounded-lg p-5">
+                            <p><span class="font-semibold">Volkswagen Type 2 M-Plate and VIN Decoder:</span> Essential
+                                Identification Tool for VW Buses from (1970-1979), Detailing Production Codes,
+                                Equipment, Manufacturing Dates, Destination, Specifications, and Optional Extras</p>
                         </div>
-                    @else
-                        <section class="mt-5">
-                            <div class="flex justify-center border-4 border-gray-500 bg-gray-300 rounded-lg p-5">
-                                <p><span class="font-semibold">Volkswagen Type 2 M-Plate and VIN Decoder:</span>
-                                    Essential
-                                    Identification Tool for VW Buses from (1970-1979), Detailing Production Codes,
-                                    Equipment, Manufacturing Dates, Destination, Specifications, and Optional Extras</p>
-                            </div>
-                        </section>
-                    @endif
-                </div>
+                    </section>
+                @endif
             </div>
         </div>
+        <script>
+            function bodyColor(selector) {
+                let selectedColor = selector.options[selector.selectedIndex].value;
+                let element = document.querySelectorAll('.bus__body--bottom');
+                element.forEach(elem =>
+                    {
+                        elem.style.backgroundColor = selectedColor;
+                        elem.style.background = selectedColor;
+                    });
+            }
+
+            document.addEventListener('livewire:init', () => {
+                Livewire.on('BusColour', event => {
+                    const data = event;
+                    let element = document.querySelectorAll('.bus__body--bottom');
+                    const select = document.getElementById("colorSelector");
+                    select.value = data;
+                    element.forEach(elem =>
+                    {
+                        elem.style.backgroundColor = data;
+                        elem.style.background = data;
+                    });
+
+                });
+            });
+        </script>
     </div>
-    <script>
-
-document.addEventListener('livewire:init', () => {
-    window.addEventListener('buscolour', event => {
-        console.log(event);
-    });
-});
-
-</script>
+</div>
