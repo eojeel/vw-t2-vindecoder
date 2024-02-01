@@ -32,16 +32,16 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                             class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                             <th scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <a href="/vin/{{ Str::replace(' ', '', $vin->cc) }}"
-                                    wire:navigate.hover>{{ $vin->cc }}</a>
+                                <a href="/vin/{{ Str::replace(' ', '', $vin->chassis_number) }}"
+                                    wire:navigate.hover>{{ $vin->chassis_number }}</a>
                                 </td>
-                            <td class="px-6 py-4">{{ $vin->mmmmm }}</td>
-                            <td class="px-6 py-4">{{ $vin->pp }}</td>
-                            <td class="px-6 py-4">{{ $vin->mmmm }}</td>
-                            <td class="px-6 py-4">{{ $vin->dd }}</td>
-                            <td class="px-6 py-4">{{ $vin->uu }}</td>
-                            <td class="px-6 py-4">{{ $vin->ee }}</td>
-                            <td class="px-6 py-4">{{ $vin->tt }}</td>
+                            <td class="px-6 py-4">{{ $vin->mcode_1 }}</td>
+                            <td class="px-6 py-4">{{ $vin->paint_interior }}</td>
+                            <td class="px-6 py-4">{{ $vin->mcode_2 }}</td>
+                            <td class="px-6 py-4">{{ $vin->model_year }}</td>
+                            <td class="px-6 py-4">{{ $vin->production_plan }}</td>
+                            <td class="px-6 py-4">{{ $vin->export_destination }}</td>
+                            <td class="px-6 py-4">{{ $vin->body_engine_model }}</td>
                         </tr>
                         </tr>
                     @endforeach

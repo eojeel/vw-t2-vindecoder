@@ -26,7 +26,6 @@ class VinForm extends Component
         $this->colors = Colors::all(['code', 'name', 'hex_code']);
     }
 
-
     public function save()
     {
         $this->form->save();

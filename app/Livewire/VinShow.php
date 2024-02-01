@@ -29,7 +29,7 @@ class VinShow extends Component
 
         $chassisNumber = Str::substr($chassisNumber, 0, 2).' '.Str::substr($chassisNumber, 2, 3).' '.Str::substr($chassisNumber, 5, 3);
 
-        $vin = Vin::where('cc', $chassisNumber)->firstOrFail();
+        $vin = Vin::where('chassis_number', $chassisNumber)->firstOrFail();
 
         foreach ($vin->getAttributes() as $key => $value) {
             if ($value) {
@@ -44,9 +44,8 @@ class VinShow extends Component
 
     public function rendered()
     {
-        if($this->results->colorDisplay->first())
-        {
-        $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code);
+        if ($this->results->colorDisplay->first()) {
+            $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code);
         }
     }
 

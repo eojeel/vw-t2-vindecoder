@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use stdClass;
-use Illuminate\Http\Response;
-use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use stdClass;
 
 class Vin extends Model
 {
@@ -26,13 +25,14 @@ class Vin extends Model
     {
         self::$results = new stdClass();
 
-        self::$results->chassisNumber = self::chassisNumber($validated['cc']);
-        self::$results->production = self::production($validated['dd'], self::$results->chassisNumber);
-        self::$results->mCode = self::mCode($validated['mmmm']);
-        self::$results->paintCodes = self::paintCode($validated['pp']);
-        self::$results->interiorCodes = self::interior($validated['pp']);
-        self::$results->destination = self::export($validated['ee']);
-        self::$results->engineTrans = self::engineTrans($validated['tt']);
+        self::$results->chassisNumber = self::chassisNumber($validated['chassis_number']);
+        self::$results->production = self::production($validated['model_year'], self::$results->chassisNumber);
+        self::$results->mCode1 = self::mCode($validated['mcode_1']);
+        self::$results->mCode2 = self::mCode($validated['mcode_2']);
+        self::$results->paintCodes = self::paintCode($validated['paint_interior']);
+        self::$results->interiorCodes = self::interior($validated['paint_interior']);
+        self::$results->destination = self::export($validated['export_destination']);
+        self::$results->engineTrans = self::engineTrans($validated['body_engine_model']);
 
         return self::$results;
     }

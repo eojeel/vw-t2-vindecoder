@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ModelEngineGearboxSeeder::class,
             EngineCodeSeeder::class,
             GearboxCodeSeeder::class,
+            VinSeeder::class,
         ]);
     }
 }

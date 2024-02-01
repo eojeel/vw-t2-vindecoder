@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Str;
 use App\Livewire\VinForm;
 use App\Livewire\VinShow;
-use Livewire\Livewire;
 use App\Models\Vin;
+use Illuminate\Support\Str;
+use Livewire\Livewire;
 
 beforeEach(function () {
     $this->seed();
@@ -12,44 +12,44 @@ beforeEach(function () {
 
 it('Errors on invalid input', function () {
     livewire::test(VinForm::class)
-        ->set('form.cc', '12 123 12')
+        ->set('form.chassis_number', '12 123 12')
         ->call('save')
         ->assertHasErrors([
-            'form.cc' => 'The Chassis Number field format is invalid.',
+            'form.chassis_number' => 'The Chassis Number field format is invalid.',
         ]);
 });
 
-//test that it validates the cc field
+//test that it validates the chassis_number field
 it('Validates form input', function () {
 
     $vinDetails = Vin::factory()->create();
 
     livewire::test(VinForm::class)
-        ->set('form.cc', $vinDetails->cc)
-        ->set('form.mmmmm', $vinDetails->mmmmm)
-        ->set('form.pp', $vinDetails->pp)
-        ->set('form.mmmm', $vinDetails->mmmm)
-        ->set('form.dd', $vinDetails->dd)
-        ->set('form.uu', $vinDetails->uu)
-        ->set('form.ee', $vinDetails->ee)
-        ->set('form.tt', $vinDetails->tt)
+        ->set('form.chassis_number', $vinDetails->chassis_number)
+        ->set('form.mcode_1', $vinDetails->mcode_1)
+        ->set('form.paint_interior', $vinDetails->paint_interior)
+        ->set('form.mcode_2', $vinDetails->mcode_2)
+        ->set('form.model_year', $vinDetails->model_year)
+        ->set('form.production_plan', $vinDetails->production_plan)
+        ->set('form.export_destination', $vinDetails->export_destination)
+        ->set('form.body_engine_model', $vinDetails->body_engine_model)
         ->call('save')
         ->assertHasNoErrors();
 });
 
 it('dispatches BusColour event', function () {
 
-    $vinDetails = Vin::factory()->create(['pp' => 'J2J252']);
+    $vinDetails = Vin::factory()->create(['paint_interior' => 'J2J252']);
 
     Livewire::test(VinForm::class)
-        ->set('form.cc', $vinDetails->cc)
-        ->set('form.mmmmm', $vinDetails->mmmmm)
-        ->set('form.pp', $vinDetails->pp)
-        ->set('form.mmmm', $vinDetails->mmmm)
-        ->set('form.dd', $vinDetails->dd)
-        ->set('form.uu', $vinDetails->uu)
-        ->set('form.ee', $vinDetails->ee)
-        ->set('form.tt', $vinDetails->tt)
+        ->set('form.chassis_number', $vinDetails->chassis_number)
+        ->set('form.mcode_1', $vinDetails->mcode_1)
+        ->set('form.paint_interior', $vinDetails->paint_interior)
+        ->set('form.mcode_2', $vinDetails->mcode_2)
+        ->set('form.model_year', $vinDetails->model_year)
+        ->set('form.production_plan', $vinDetails->production_plan)
+        ->set('form.export_destination', $vinDetails->export_destination)
+        ->set('form.body_engine_model', $vinDetails->body_engine_model)
         ->call('save')
         ->assertDispatched('BusColour');
 });
@@ -60,13 +60,13 @@ it('can handle vindetails', function () {
 
     $firstVin = $vinDetails->first();
 
-    Livewire::test(VinShow::class, ['chassisNumber' => Str::replace(' ', '', $firstVin->cc)])
-        ->assertSet('cc', $firstVin->cc)
-        ->assertSet('mmmmm', $firstVin->mmmmm)
-        ->assertSet('pp', $firstVin->pp)
-        ->assertSet('mmmm', $firstVin->mmmm)
-        ->assertSet('dd', $firstVin->dd)
-        ->assertSet('uu', $firstVin->uu)
-        ->assertSet('ee', $firstVin->ee)
-        ->assertSet('tt', $firstVin->tt);
+    Livewire::test(VinShow::class, ['chassisNumber' => Str::replace(' ', '', $firstVin->chassis_number)])
+        ->assertSet('chassis_number', $firstVin->chassis_number)
+        ->assertSet('mcode_1', $firstVin->mcode_1)
+        ->assertSet('paint_interior', $firstVin->paint_interior)
+        ->assertSet('mcode_2', $firstVin->mcode_2)
+        ->assertSet('model_year', $firstVin->model_year)
+        ->assertSet('production_plan', $firstVin->production_plan)
+        ->assertSet('export_destination', $firstVin->export_destination)
+        ->assertSet('body_engine_model', $firstVin->body_engine_model);
 });
