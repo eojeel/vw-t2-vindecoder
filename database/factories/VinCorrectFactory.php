@@ -17,14 +17,14 @@ class VinCorrectFactory extends Factory
     public function definition(): array
     {
         return [
-            'cc' => '12 123 123',
+            'chassis_number' => '12 123 123',
             'mmmmm' => '123 123 123 123 123',
-            'pp' => 'J2J252',
+            'paint_interior' => 'J2J252',
             'mmmm' => '123 123 123 123',
-            'dd' => '12 1',
-            'uu' => '1234',
-            'ee' => '11',
-            'tt' => '1234 11',
+            'model_year' => '12 1',
+            'production_plan' => '1234',
+            'export_destination' => '11',
+            'body_engine_model' => '1234 11',
         ];
     }
 }

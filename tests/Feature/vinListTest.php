@@ -1,8 +1,8 @@
 <?php
 
+use App\Livewire\VinList;
 use App\Models\Vin;
 use Livewire\Livewire;
-use App\Livewire\VinList;
 
 beforeEach(function () {
     $this->seed();
@@ -11,7 +11,7 @@ beforeEach(function () {
 it('can display vin list page', function () {
 
     Livewire::test(VinList::class)
-    ->assertStatus(200);
+        ->assertStatus(200);
 });
 
 it('can view vin list page', function () {
@@ -25,12 +25,12 @@ it('can view vin list page', function () {
 
     // Test initial state (first page)
     Livewire::test(VinList::class)
-        ->assertSee($firstVin->cc)
-        ->assertDontSee($eleventhVin->cc);
+        ->assertSee($firstVin->chassis_number)
+        ->assertDontSee($eleventhVin->chassis_number);
 
     // Test the second page
     Livewire::test(VinList::class)
         ->call('nextPage')
-        ->assertSee($eleventhVin->cc)
-        ->assertDontSee($firstVin->cc);
+        ->assertSee($eleventhVin->chassis_number)
+        ->assertDontSee($firstVin->chassis_number);
 });

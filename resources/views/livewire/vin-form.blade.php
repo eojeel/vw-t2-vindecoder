@@ -138,11 +138,11 @@
                 </select>
             </div>
             <div class="flex justify-center mt-10">
-                @if (!empty($vindetails->cc))
+                @if (!empty($vindetails->chassis_number))
                     <span
                         class="inline-flex items-center justify-center p-5 border-4 border-gray-500 bg-gray-300 rounded-lg mb-5">
                         <span class="w-full">Vin URL:
-                            {{ route('vin', ['chassisNumber' => str_replace(' ', '', $vindetails->cc)]) }}</span>
+                            {{ route('vin', ['chassisNumber' => str_replace(' ', '', $vindetails->chassis_number)]) }}</span>
                 @endif
                 </span>
             </div>
@@ -152,69 +152,69 @@
             <form wire:submit="save">
                 <div class="flex justify-center">
                     <div class="border-4 border-gray-500 bg-gray-300 rounded-lg p-2">
-                        <input wire:model.blur="form.cc" type="text" name="c" class="w-1/3 mb-1 vin-input"
-                            placeholder="CC CCC CCC" />
+                        <input wire:model.blur="form.chassis_number" type="text" name="c"
+                            class="w-1/3 mb-1 vin-input" placeholder="CC CCC CCC" />
                         <div>
-                            @error('form.cc')
+                            @error('form.chassis_number')
                                 <span class="error">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="flex">
-                            <input wire:model.blur="form.mmmmm" type="text" name="m"
+                            <input wire:model.blur="form.mcode_1" type="text" name="m"
                                 class="flex w-full mb-1 vin-input" placeholder="MMM MMM MMM MMM MMM">
                         </div>
                         <div>
-                            @error('form.mmmmm')
+                            @error('form.mcode_1')
                                 <span class="error">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="flex mb-1">
-                            <input wire:model.blur="form.pp" type="text" name="p"
-                                class="w-2/5 mr-2 vin-input" placeholder="PPPPII" value="@old('pp')" />
-                            <input wire:model.blur="form.mmmm" type="text" name="m2" class="w-3/5 vin-input"
-                                placeholder="MMM MMM MMM MMM" />
+                            <input wire:model.blur="form.paint_interior" type="text" name="p"
+                                class="w-2/5 mr-2 vin-input" placeholder="PPPPII" value="@old('paint_interior')" />
+                            <input wire:model.blur="form.mcode_2" type="text" name="m2"
+                                class="w-3/5 vin-input" placeholder="MMM MMM MMM MMM" />
                         </div>
                         <div class="flex mb-1">
                             <div class="w-2/5 mr-2">
-                                @error('form.pp')
+                                @error('form.paint_interior')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="w-3/5">
-                                @error('form.mmmm')
+                                @error('form.mcode_2')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
                         <div class="grid grid-cols-4">
-                            <input wire:model.blur="form.dd" type="text" name="d" class="mr-2 vin-input"
-                                placeholder="DD D" />
-                            <input wire:model.blur='form.uu' type="text" name="u" class="mr-2 vin-input"
-                                placeholder="UUUU" />
-                            <input wire:model.blur='form.ee' type="text" name="e" class="mr-2 vin-input"
-                                placeholder="EE" />
-                            <input wire:model.blur='form.tt' type="text" name="x" class=" vin-input"
-                                placeholder="XXXX TT" />
+                            <input wire:model.blur="form.model_year" type="text" name="d"
+                                class="mr-2 vin-input" placeholder="DD" />
+                            <input wire:model.blur='form.production_plan' type="text" name="u"
+                                class="mr-2 vin-input" placeholder="UUUU" />
+                            <input wire:model.blur='form.export_destination' type="text" name="e"
+                                class="mr-2 vin-input" placeholder="EE" />
+                            <input wire:model.blur='form.body_engine_model' type="text" name="x"
+                                class=" vin-input" placeholder="TTTT" />
                         </div>
                         <div class="flex justify-center">
                             <ul class="list-none space-y-2 m-2">
                                 <li>
-                                    @error('form.dd')
+                                    @error('form.model_year')
                                         <span class="error">{{ $message }}</span>
                                     @enderror
                                 </li>
                                 <li>
-                                    @error('form.uu')
+                                    @error('form.production_plan')
                                         <span class="error">{{ $message }}</span>
                                     @enderror
                                 </li>
                                 <li>
-                                    @error('form.ee')
+                                    @error('form.export_destination')
                                         <span class="error">{{ $message }}</span>
                                     @enderror
                                 </li>
                                 <li>
-                                    @error('form.tt')
+                                    @error('form.body_engine_model')
                                         <span class="error">{{ $message }}</span>
                                     @enderror
                                 </li>
@@ -247,30 +247,24 @@
                             <livewire:results-string title="Production Date" :string="$results->production" />
                         @endif
 
-                        @if ($results->mCode->isNotEmpty())
-                            <div class="flex flex-col items-center space-y-4 mt-4 p-4">
-                                <h3 class="text-xl font-semibold">M-Codes</h3>
-                                <ul class="mt-5 space-y-2">
-                                    @foreach ($results->mCode as $mcode)
-                                        <li
-                                            class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
-                                            {{ $mcode->code }} - {{ $mcode->description }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        @if ($results->mCode1->isNotEmpty())
+                            <livewire:results-mcode title="M-Codes" :array="$results->mCode1" />
+                        @endif
+
+
+                        @if ($results->mCode2->isNotEmpty())
+                            <livewire:results-mcode title="M-Codes" :array="$results->mCode2" />
                         @endif
 
                         @if ($results->paintCodes->isNotEmpty())
                             <div class="flex flex-col items-center space-y-4 mt-4 p-4">
-                                <h5 class="text-xl font-semibold float-right">Paint Codes</h3>
-                                    <ul class="mt-5 space-y-2">
+                                <h5 class="text-xl font-semibold">Paint Codes</h3>
+                                    <ul
+                                        class="mt-5 space-y-2 py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
                                         @foreach ($results->paintCodes as $paint_code)
-                                            <li
-                                                class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
-                                                {{ $paint_code->plate_code }} - {{ $paint_code->color_code }} (German
-                                                -
-                                                {{ $paint_code->german_name }} | English -
-                                                {{ $paint_code->english_name }})</li>
+                                            <li> {{ $paint_code->plate_code }} - {{ $paint_code->color_code }} </li>
+                                            <li>German - {{ $paint_code->german_name }}</li>
+                                            <li> English - {{ $paint_code->english_name }})</li>
                                         @endforeach
                                     </ul>
                             </div>
@@ -278,14 +272,16 @@
 
                         @if ($results->interiorCodes->isNotEmpty())
                             <div class="flex flex-col items-center space-y-4 mt-4 p-4">
-                                <h5 class="text-xl font-semibold float-right">Interior</h3>
-                                    <ul class="mt-5 space-y-2">
+                                <h5 class="text-xl font-semibold">Interior</h3>
+                                    <ul
+                                        class="mt-5 space-y-2 py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
                                         @foreach ($results->interiorCodes as $interior)
-                                            <li
-                                                class="w-full py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
-                                                {{ $interior->code }} - {{ $interior->material }} (German -
-                                                {{ $interior->german_name }} | English -
-                                                {{ $interior->english_name }})</li>
+                                            <li>
+                                                {{ $interior->code }} - {{ $interior->material }}</li>
+                                            <li>
+                                                German - {{ $interior->german_name }}</li>
+                                            <li>
+                                                English - {{ $interior->english_name }})</li>
                                         @endforeach
                                     </ul>
                             </div>

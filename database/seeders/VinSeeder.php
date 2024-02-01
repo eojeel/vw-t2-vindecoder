@@ -47,7 +47,7 @@ class VinSeeder extends Seeder
 
             // Check if the record already exists
             $exists = DB::table('vins')
-                ->where('cc', $this->formatNumericString($row['chassis_number_short']))
+                ->where('chassis_number', $this->formatNumericString($row['chassis_number_short']))
                 ->exists();
 
             if ($exists) {
@@ -55,14 +55,14 @@ class VinSeeder extends Seeder
             }
 
             DB::table('vins')->insert([
-                'cc' => $this->formatNumericString($row['chassis_number_short']),
-                'mmmmm' => $row['m_codes_1'],
-                'mmmm' => $row['m_codes_2'],
-                'pp' => $row['paint_and_interior_code'],
-                'dd' => Str::substr($row['production_date_code'], 0, 2).' '.Str::substr($row['production_date_code'], 2),
-                'uu' => $row['production_planned'],
-                'ee' => $row['export_destination_code'],
-                'tt' => $row['model_code'].' '.$row['aggregate_code'],
+                'chassis_number' => $this->formatNumericString($row['chassis_number_short']),
+                'mcode_1' => $row['m_codes_1'],
+                'mcode_2' => $row['m_codes_2'],
+                'paint_interior' => $row['paint_and_interior_code'],
+                'model_year' => Str::substr($row['production_date_code'], 0, 2).' '.Str::substr($row['production_date_code'], 2),
+                'production_plan' => $row['production_planned'],
+                'export_destination' => $row['export_destination_code'],
+                'body_engine_model' => $row['model_code'].' '.$row['aggregate_code'],
             ]);
 
         }
