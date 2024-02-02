@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('vins', function (Blueprint $table) {
             $table->id();
-            $table->string('chassis_number');
+            $table->string('cc');
             $table->string('mmmmm')->nullable();
-            $table->string('paint_interior');
+            $table->string('pp');
             $table->string('mmmm');
             $table->string('dd');
             $table->string('uu');
