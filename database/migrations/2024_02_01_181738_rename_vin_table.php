@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('vins', function (Blueprint $table) {
-            $table->renameColumn('chassis_number', 'chassis_number');
-            $table->renameColumn('mmmmm', 'mcode_1');
-            $table->renameColumn('paint_interior', 'paint_interior');
-            $table->renameColumn('mmmm', 'mcode_2');
-            $table->renameColumn('dd', 'model_year');
-            $table->renameColumn('uu', 'production_plan');
-            $table->renameColumn('ee', 'export_destination');
-            $table->renameColumn('tt', 'body_engine_model');
+        Schema::create('vins-new', function (Blueprint $table) {
+            $table->id();
+            $table->string('chassis_number');
+            $table->string('mcode_1')->nullable();
+            $table->string('paint_interior');
+            $table->string('mcode_2');
+            $table->string('model_year');
+            $table->string('production_plan');
+            $table->string('export_destination');
+            $table->string('body_engine_model');
+            $table->timestamps();
         });
     }
 };

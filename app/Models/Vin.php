@@ -11,6 +11,8 @@ class Vin extends Model
 {
     use HasFactory;
 
+    protected $table = 'vins-new';
+
     protected $guarded = [];
 
     public static $results;
