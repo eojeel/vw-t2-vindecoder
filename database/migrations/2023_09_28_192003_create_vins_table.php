@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('vins', function (Blueprint $table) {
             $table->id();
-            $table->string('cc');
-            $table->string('mmmmm')->nullable();
-            $table->string('pp');
-            $table->string('mmmm');
-            $table->string('dd');
-            $table->string('uu');
-            $table->string('ee');
-            $table->string('tt');
+            $table->string('chassis_number');
+            $table->string('mcode_1')->nullable();
+            $table->string('paint_interior');
+            $table->string('mcode_2');
+            $table->string('model_year');
+            $table->string('production_plan');
+            $table->string('export_destination');
+            $table->string('body_engine_model');
             $table->timestamps();
         });
     }

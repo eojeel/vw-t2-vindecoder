@@ -264,7 +264,7 @@
                                         @foreach ($results->paintCodes as $paint_code)
                                             <li> {{ $paint_code->plate_code }} - {{ $paint_code->color_code }} </li>
                                             <li>German - {{ $paint_code->german_name }}</li>
-                                            <li> English - {{ $paint_code->english_name }})</li>
+                                            <li> English - {{ $paint_code->english_name }}</li>
                                         @endforeach
                                     </ul>
                             </div>
@@ -281,7 +281,7 @@
                                             <li>
                                                 German - {{ $interior->german_name }}</li>
                                             <li>
-                                                English - {{ $interior->english_name }})</li>
+                                                English - {{ $interior->english_name }}</li>
                                         @endforeach
                                     </ul>
                             </div>
