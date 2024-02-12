@@ -11,6 +11,7 @@
             })(window,document,'script','dataLayer','GTM-W2J52LNQ');</script>
             <!-- End Google Tag Manager -->
             @vite('resources/css/app.css')
+            @vite('resources/js/app.js')
             @livewireStyles
     </head>
     <body>
@@ -18,9 +19,8 @@
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- End Google Tag Manager (noscript) -->
         <x-nav/>
-        {{ $slot }}
-        @vite('resources/js/app.js')
-        @livewireScripts
+        {{ $slot }}k
+        @livewireScriptConfig
     </body>
 
     <div class="flex-grow mt-16 bg-gradient-to-r from-gray-200/[.35] to-gray-200/[.15]">

@@ -46,7 +46,7 @@ class VinSeeder extends Seeder
         foreach ($data as $row) {
 
             // Check if the record already exists
-            $exists = DB::table('vinsnew')
+            $exists = DB::table('vins')
                 ->where('chassis_number', $this->formatNumericString($row['chassis_number_short']))
                 ->exists();
 
@@ -54,7 +54,7 @@ class VinSeeder extends Seeder
                 continue;
             }
 
-            DB::table('vinsnew')->insert([
+            DB::table('vins')->insert([
                 'chassis_number' => $this->formatNumericString($row['chassis_number_short']),
                 'mcode_1' => $row['m_codes_1'],
                 'mcode_2' => $row['m_codes_2'],

@@ -16,6 +16,10 @@ class VinShow extends Component
 
     public $colors = [];
 
+    public $busColor = '';
+
+    public $busColorSelector = '';
+
     public $results;
 
     public function render()
@@ -45,7 +49,9 @@ class VinShow extends Component
     public function rendered()
     {
         if ($this->results->colorDisplay->first()) {
-            $this->dispatch('BusColour', $this->results->colorDisplay->first()->hex_code);
+            $color = $this->results->colorDisplay->first()->hex_code;
+            $this->busColor = $color;
+            $this->busColorSelector = $color;
         }
     }
 
