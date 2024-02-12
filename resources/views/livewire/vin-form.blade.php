@@ -1,8 +1,8 @@
 <div>
-    <section class="text-gray-600 body-font mb-10">
-        <section class="mt-16 text-cente">
-            <div class="mx-auto text-center text-white">
-                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container  text-center lg:text-5xl/none">
+    <section class="body-font mb-10">
+        <section class="mt-16">
+            <div class="mx-auto text-white">
+                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container text-center lg:text-5xl/none">
                     VW T2 (1970-1979) Vin Decoder
                 </h1>
             </div>
