@@ -51,7 +51,7 @@ it('dispatches BusColour event', function () {
         ->set('form.export_destination', $vinDetails->export_destination)
         ->set('form.body_engine_model', $vinDetails->body_engine_model)
         ->call('save')
-        ->assertDispatched('BusColour');
+        ->assertDispatched('buscolour');
 });
 
 it('can handle vindetails', function () {

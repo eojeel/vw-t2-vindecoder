@@ -9,7 +9,7 @@
         </section>
     </section>
     <div class="container mx-auto flex flex-wrap">
-        <div class="w-full md:w-2/5 lg:w-3/5" x-data="{ bgColor: '#514d44' }">
+        <div class="w-full md:w-2/5 lg:w-3/5" x-data="{ bgColor: $wire.busColor }" x-on:buscolour.window="bgColor = $event.detail.colour">
             <div class="bus relative bus--full bus--top-white bus--bottom-love">
                 <div class="bus-body">
                     <div class="bus__body--top roof"></div>
@@ -126,8 +126,7 @@
                 </div>
             </div>
 
-
-            <div class="flex justify-center" x-data="{ selectedColor: $wire.busColor }">
+            <div class="flex justify-center" x-data="{selectedColor: $wire.busColorSelector}" x-on:buscolour.window="selectedColor = $event.detail.colour">
                     <select name="colorSelector" id="colorSelector" class="sm:w-3/6 md:w-2/6 m-1 px-4 py-2"
                         x-model="selectedColor" @change="bgColor = $event.target.value">
                         <option value="" selected disabled hidden>Select a Colour</option>
@@ -312,3 +311,12 @@
             </div>
         </div>
     </div>
+    <script>
+
+document.addEventListener('livewire:init', () => {
+    window.addEventListener('buscolour', event => {
+        console.log(event);
+    });
+});
+
+</script>
