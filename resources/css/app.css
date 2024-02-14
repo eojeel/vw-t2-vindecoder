@@ -389,34 +389,33 @@ html {
 }
 
 .vw-logo_early {
-    border: .08em solid #a8a9ad;
+    border: .10em solid #a8a9ad;
     border-radius: 50%;
-    left: 4.4em;
+    left: 4.3em;
     height: 1.40em;
     position: absolute;
     top: 5.30em;
-    width: 1.05em
+    width: 1.40em
 }
 
 .vw-logo__v {
     background: #a8a9ad;
     display: block;
-    height: .1em;
-    left: .40em;
+    left: .55em;
     position: absolute;
-    top: .70em;
+    top: .5em;
     width: .1em
 }
 
 .vw-logo__v:after,.vw-logo__v:before {
     background: #a8a9ad;
     content: '';
-    height: .4em;
-    left: -.08em;
+    height: .8em;
+    left: -.15em;
     position: absolute;
-    top: -.3em;
+    top: -.5em;
     transform: rotate(-24deg);
-    width: .08em
+    width: .10em
 }
 
 .vw-logo__v:before {
@@ -428,21 +427,21 @@ html {
     background: #a8a9ad;
     display: block;
     height: .1em;
-    left: .40em;
+    left: .55em;
     position: absolute;
-    top: 0.76em;
+    top: 0.65em;
     width: .1em
 }
 
 .vw-logo__w:after,.vw-logo__w:before {
     background: #a8a9ad;
     content: '';
-    height: .4em;
-    left: -.08em;
+    height: .5em;
+    left: -.14em;
     position: absolute;
     top: 0;
     transform: rotate(24deg);
-    width: .08em
+    width: .10em
 }
 
 .vw-logo__w:before {
@@ -453,16 +452,16 @@ html {
 .vw-logo__w__leg-l,.vw-logo__w__leg-r {
     background: #a8a9ad;
     display: block;
-    height: .8em;
-    left: -.26em;
+    height: 1.01em;
+    left: -.35em;
     position: absolute;
-    top: -.2em;
+    top: -.4em;
     transform: rotate(-24deg);
-    width: .08em
+    width: .10em
 }
 
 .vw-logo__w__leg-r {
-    left: .29em;
+    left: .35em;
     transform: rotate(24deg)
 }
 

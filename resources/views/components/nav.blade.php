@@ -14,14 +14,17 @@
           <li>
             <a class="inline-block  no-underline hover:text-gray-200 hover:text-underline py-2 px-4" aria-current="page" href="{{ route('home') }}" wire:navigate>Home</a>
           </li>
-          <li>
+          {{-- <li>
             <a class="inline-block  no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{ route('latebay') }}" vire:navigate>LateBay</a>
           </li>
           <li>
             <a class="inline-block  no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{ route('earlybay') }}">EarlyBay</a>
-          </li>
+          </li> --}}
           <li>
-            <a class="inline-block  no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{ route('home') }}" wire:navigate>Vin List</a>
+            <a class="inline-block  no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{ route('vinlist') }}" wire:navigate>Vin List</a>
+        </li>
+        <li>
+            <a class="inline-block  no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="{{ route('about') }}" wire:navigate>About</a>
         </li>
         </ul>
       </div>
