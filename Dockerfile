@@ -8,4 +8,4 @@ ENV AUTORUN_ENABLED=true
 COPY . .
 
 RUN composer install --no-dev --no-interaction --optimize-autoloader
-RUN curl -fsSL https://bun.sh/install | bash && ~/.bun/bin/bun vite build
+RUN curl -fsSL https://bun.sh/install | bash && ~/.bun/bin/bun install && ~/.bun/bin/bun vite build
