@@ -4,8 +4,14 @@ FROM serversideup/php:beta-8.3-fpm-nginx
 WORKDIR /var/www/html/
 
 ENV AUTORUN_ENABLED=true
+ENV DB_CONNECTION=sqlite
+ENV SESSION_DRIVER=cookie
 
 COPY . .
+COPY .env.example .env
 
 RUN composer install --no-dev --no-interaction --optimize-autoloader
-RUN curl -fsSL https://bun.sh/install | bash && ~/.bun/bin/bun install && ~/.bun/bin/bun vite build
+RUN php artisan key:generate
+RUN curl -fsSL https://bun.sh/install | bash
+RUN ~/.bun/bin/bun install
+RUN  ~/.bun/bin/bun vite build
