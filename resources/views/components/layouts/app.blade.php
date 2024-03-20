@@ -10,8 +10,7 @@
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-W2J52LNQ');</script>
             <!-- End Google Tag Manager -->
-            @vite('resources/css/app.css')
-            @vite('resources/js/app.js')
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
             @livewireStyles
     </head>
     <body>
@@ -19,7 +18,7 @@
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- End Google Tag Manager (noscript) -->
         <x-nav/>
-        {{ $slot }}k
+        {{ $slot }}
         @livewireScriptConfig
     </body>
 
