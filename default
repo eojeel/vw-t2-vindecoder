@@ -6,8 +6,12 @@ server {
     root /home/site/wwwroot/public;
     index  index.php;
     server_name  vintagevwdecoder.com;
-    return 301 $scheme://www.vintagevwdecoder.com$request_uri;
     port_in_redirect off;
+
+    # Redirect non-www to www
+    if ($host != www.vintagevwdecoder.com) {
+        return 301 $scheme://www.vintagevwdecoder.com$request_uri;
+    }
 
     location / {
         index  index.php index.html index.htm hostingstart.html;
