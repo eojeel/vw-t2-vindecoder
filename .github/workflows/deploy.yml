@@ -33,16 +33,14 @@ jobs:
       run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
+    - name: Setup bun
+      uses: oven-sh/setup-bun@v1
 
     - name: Install NPM dependencies
-      run: npm ci
+      run: bun install
 
     - name: Compile assets
-      run: npm run build
+      run: bun run build
 
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
