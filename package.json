@@ -14,6 +14,7 @@
     "vite": "^4.5.1"
   },
   "dependencies": {
+    "@libsql/client": "^0.6.2",
     "flowbite": "^2.2.1"
   }
 }
