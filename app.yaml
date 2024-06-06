@@ -11,11 +11,11 @@ env_variables:
   CACHE_PATH: /tmp/cache
   SESSION_DRIVER: cookie
   APP_NAME: Vintage VW Decoder
-  DB_HOST: $DB_HOST
-  DB_USERNAME: $DB_USERNAME
-  DB_PASSWORD: $DB_PASSWORD
-  DB_DATABASE: $DB_DATABASE
-  MYSQL_ATTR_SSL_CA: $MYSQL_ATTR_SSL_CA
+  DB_CONNECTION: 'turso'
+  DB_URL: $DB_URL
+  DB_ACCESS_TOKEN: $DB_ACCESS_TOKEN
+  DB_FOREIGN_KEYS: 'true'
+  DB_STICKY: 'true'
 
 handlers:
 - url: /(.*\.(gif|png|jpg|css|js))$

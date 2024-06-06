@@ -18,12 +18,8 @@ jobs:
       env:
           APP_URL: ${{ secrets.APP_URL }}
           APP_KEY: ${{ secrets.APP_KEY }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_CONNECTION: 'turso'
           DB_URL: ${{ secrets.DB_URL }}
           DB_ACCESS_TOKEN: ${{ secrets.DB_ACCESS_TOKEN }}
-          DB_FOREIGN_KEYS: 'true'
-          DB_STICKY: 'true'
       with:
           app_yaml_path: "app.yaml"
 
