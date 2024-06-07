@@ -153,39 +153,39 @@
                 <form wire:submit="save">
                     <div class="flex justify-center">
                         <div class="border-4 border-gray-500 bg-gray-300 rounded-lg p-2">
-                            <input wire:model.blur="form.chassis_number" type="text" name="c"
-                                class="w-1/3 mb-1 vin-input" placeholder="CC CCC CCC" />
+                            <x-input
+                                wire:model.blur="form.chassis_number"
+                                label="Chassis Number"
+                                name="c"
+                                class="rounded-md !w-1/3 mb-1 vin-input"
+                                placeholder="CC CCC CCC"
+                            />
                             <div>
-                                @error('form.chassis_number')
-                                    <span class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="flex">
-                                <input wire:model.blur="form.mcode_1" type="text" name="m"
-                                    class="flex w-full mb-1 vin-input" placeholder="MMM MMM MMM MMM MMM">
-                            </div>
-                            <div>
-                                @error('form.mcode_1')
-                                    <span class="error">{{ $message }}</span>
-                                @enderror
+                                <x-input
+                                    wire:model.blur="form.mcode_1"
+                                    label="M-Plate"
+                                    name="m"
+                                    class="flex mb-1 vin-input"
+                                    placeholder="MMM MMM MMM MMM MMM"
+                                />
                             </div>
                             <div class="flex mb-1">
-                                <input wire:model.blur="form.paint_interior" type="text" name="p"
-                                    class="w-2/5 mr-2 vin-input" placeholder="PPPPII" value="@old('paint_interior')" />
-                                <input wire:model.blur="form.mcode_2" type="text" name="m2"
-                                    class="w-3/5 vin-input" placeholder="MMM MMM MMM MMM" />
+                                <x-input
+                                    wire:model.blur="form.paint_interior"
+                                    label="M-Plate"
+                                    name="p"
+                                    class="w-2/5 mr-2 vin-input"
+                                    placeholder="PPPPII"
+                                />
+                                <x-input
+                                    wire:model.blur="form.mcode_2"
+                                    label="M-Plate"
+                                    name="m2"
+                                    class="w-3/5 vin-input"
+                                    placeholder="MMM MMM MMM MMM"
+                                />
                             </div>
                             <div class="flex mb-1">
-                                <div class="w-2/5 mr-2">
-                                    @error('form.paint_interior')
-                                        <span class="error">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="w-3/5">
-                                    @error('form.mcode_2')
-                                        <span class="error">{{ $message }}</span>
-                                    @enderror
-                                </div>
                             </div>
                             <div class="grid grid-cols-4">
                                 <input wire:model.blur="form.model_year" type="text" name="d"
@@ -197,29 +197,8 @@
                                 <input wire:model.blur='form.body_engine_model' type="text" name="x"
                                     class=" vin-input" placeholder="TTTT" />
                             </div>
-                            <div class="flex justify-center">
-                                <ul class="list-none space-y-2 m-2">
-                                    <li>
-                                        @error('form.model_year')
-                                            <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </li>
-                                    <li>
-                                        @error('form.production_plan')
-                                            <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </li>
-                                    <li>
-                                        @error('form.export_destination')
-                                            <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </li>
-                                    <li>
-                                        @error('form.body_engine_model')
-                                            <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </li>
-                                </ul>
+                            <div class="flex justify-center mt-1">
+                                    <x-errors />
                             </div>
                         </div>
                     </div>

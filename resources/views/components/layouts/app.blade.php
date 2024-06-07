@@ -11,6 +11,7 @@
             })(window,document,'script','dataLayer','GTM-W2J52LNQ');</script>
             <!-- End Google Tag Manager -->
             @vite(['resources/css/app.css', 'resources/js/app.js'])
+            <wireui:scripts />
             @livewireStyles
     </head>
     <body>

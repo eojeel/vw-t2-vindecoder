@@ -13,7 +13,8 @@
         "laravel/framework": "^11",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.2",
-        "richan-fongdasen/turso-laravel": "^0.7.0"
+        "richan-fongdasen/turso-laravel": "^0.7.0",
+        "wireui/wireui": "^1.19"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
