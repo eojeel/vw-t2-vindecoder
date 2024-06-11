@@ -4,13 +4,13 @@
 
 @layer components {
     input, select {
-        @apply border-2 border-blue-900 rounded-md shadow-sm focus:outline-none focus:border-blue-400 m-1;
+        @apply border-2 border-gray-500 rounded-md shadow-sm m-1;
     }
     .error {
         @apply text-sm rounded-lg bg-red-100 border border-red-400 relative text-red-700 p-1;
     }
     .vin-input {
-        @apply px-4 py-2
+        @apply px-4 py-2  focus:border-gray-800
     }
 }
 html {

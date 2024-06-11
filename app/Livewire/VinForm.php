@@ -3,9 +3,9 @@
 namespace App\Livewire;
 
 use App\Livewire\Forms\VinSubmitForm;
+use App\Models\Colors;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use App\Models\Colors;
 
 #[Title('Vintage VW Decoder - VW T2 (1970-1979) Vin Decoder')]
 class VinForm extends Component

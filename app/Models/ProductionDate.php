@@ -21,8 +21,7 @@ class ProductionDate extends Model
             $date->subYear(1);
         }
 
-
-        $date->addDays((int)$productionDate[1]);
+        $date->addDays((int) $productionDate[1]);
 
         return $date->format('l jS \\of F Y');
     }

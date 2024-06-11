@@ -157,7 +157,7 @@
                                 wire:model.blur="form.chassis_number"
                                 label="Chassis Number"
                                 name="c"
-                                class="rounded-md !w-1/3 mb-1 vin-input"
+                                class="rounded-md !w-1/3 mb-1 vin-input @error('chassis_number') border-red-500 @enderror"
                                 placeholder="CC CCC CCC"
                             />
                             <div>
@@ -170,32 +170,62 @@
                                 />
                             </div>
                             <div class="flex mb-1">
-                                <x-input
-                                    wire:model.blur="form.paint_interior"
-                                    label="M-Plate"
-                                    name="p"
-                                    class="w-2/5 mr-2 vin-input"
-                                    placeholder="PPPPII"
-                                />
-                                <x-input
-                                    wire:model.blur="form.mcode_2"
-                                    label="M-Plate"
-                                    name="m2"
-                                    class="w-3/5 vin-input"
-                                    placeholder="MMM MMM MMM MMM"
-                                />
+                                <div class="mr-2">
+                                    <x-input
+                                        wire:model.blur="form.paint_interior"
+                                        label="M-Plate"
+                                        name="p"
+                                        class="w-2/5 vin-input"
+                                        placeholder="PPPPII"
+                                    />
+                                </div>
+                                <div>
+                                    <x-input
+                                        wire:model.blur="form.mcode_2"
+                                        label="M-Plate"
+                                        name="m2"
+                                        class="w-3/5 vin-input"
+                                        placeholder="MMM MMM MMM MMM"
+                                    />
+                                </div>
                             </div>
-                            <div class="flex mb-1">
-                            </div>
-                            <div class="grid grid-cols-4">
-                                <input wire:model.blur="form.model_year" type="text" name="d"
-                                    class="mr-2 vin-input" placeholder="DD" />
-                                <input wire:model.blur='form.production_plan' type="text" name="u"
-                                    class="mr-2 vin-input" placeholder="UUUU" />
-                                <input wire:model.blur='form.export_destination' type="text" name="e"
-                                    class="mr-2 vin-input" placeholder="EE" />
-                                <input wire:model.blur='form.body_engine_model' type="text" name="x"
-                                    class=" vin-input" placeholder="TTTT" />
+                            <div class="flex">
+                                <div class="mr-2">
+                                    <x-input
+                                        wire:model.blur="form.model_year"
+                                        label="Model Year"
+                                        name="d"
+                                        class="vin-input"
+                                        placeholder="DD"
+                                    />
+                                </div>
+                                <div class="mr-2">
+                                    <x-input
+                                        wire:model.blur="form.production_plan"
+                                        label="Production Plan"
+                                        name="u"
+                                        class="vin-input"
+                                        placeholder="UUUU"
+                                    />
+                                </div>
+                                <div class="mr-2">
+                                    <x-input
+                                        wire:model.blur="form.export_destination"
+                                        label="Export Dest"
+                                        name="e"
+                                        class="vin-input"
+                                        placeholder="EE"
+                                    />
+                                </div>
+                                <div>
+                                    <x-input
+                                        wire:model.blur="form.body_engine_model"
+                                        label="Engine Model"
+                                        name="x"
+                                        class="vin-input"
+                                        placeholder="TTTT"
+                                    />
+                                </div>
                             </div>
                             <div class="flex justify-center mt-1">
                                     <x-errors />

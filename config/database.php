@@ -94,14 +94,14 @@ return [
         ],
 
         'turso' => [
-            'driver'                  => 'turso',
-            'db_url'                  => env('DB_URL', 'http://localhost:8080'),
-            'access_token'            => env('DB_ACCESS_TOKEN'),
-            'db_replica'              => env('DB_REPLICA'),
-            'database'                => null, // Leave this null
-            'prefix'                  => env('DB_PREFIX', ''),
+            'driver' => 'turso',
+            'db_url' => env('DB_URL', 'http://localhost:8080'),
+            'access_token' => env('DB_ACCESS_TOKEN'),
+            'db_replica' => env('DB_REPLICA'),
+            'database' => null, // Leave this null
+            'prefix' => env('DB_PREFIX', ''),
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
-            'sticky'                  => env('DB_STICKY', true),
+            'sticky' => env('DB_STICKY', true),
         ],
 
     ],
@@ -136,7 +136,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
         ],
 
         'default' => [
