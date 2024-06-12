@@ -157,7 +157,7 @@
                                 wire:model.blur="form.chassis_number"
                                 label="Chassis Number"
                                 name="c"
-                                class="rounded-md !w-1/3 mb-1 vin-input @error('chassis_number') border-red-500 @enderror"
+                                class="rounded-md !w-1/3 mb-1 vin-input"
                                 placeholder="CC CCC CCC"
                             />
                             <div>
