@@ -20,7 +20,7 @@
         "barryvdh/laravel-debugbar": "^3.9",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
-        "laravel/sail": "^1.29",
+        "laravel/sail": "*",
         "mockery/mockery": "^1.4.4",
         "pestphp/pest": "^2.9",
         "pestphp/pest-plugin-livewire": "^2.1",
