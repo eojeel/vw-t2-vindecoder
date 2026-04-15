@@ -1,48 +1,42 @@
-@php
-if (! isset($scrollTo)) {
-    $scrollTo = 'body';
-}
+<div class="container mx-auto px-4 py-10">
 
-$scrollIntoViewJsSnippet = ($scrollTo !== false)
-    ? <<<JS
-       (\$el.closest('{$scrollTo}') || document.querySelector('{$scrollTo}')).scrollIntoView()
-    JS
-    : '';
-@endphp
+    <div class="mb-6">
+        <h1 class="text-2xl font-bold text-white tracking-tight">VIN Registry</h1>
+        <p class="text-sm text-zinc-500 mt-1">Decoded VW T2 chassis records &mdash; 1970&ndash;1979</p>
+    </div>
 
-<div>
-    <div class="mt-5 mb-5 flex items-center justify-center w-full">
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div class="rounded-xl border border-zinc-800 overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-left">
+                <thead class="bg-zinc-800/60 border-b border-zinc-700/80">
                     <tr>
-                        <th scope="col" class="px-6 py-3">Chassis Number</th>
-                        <th scope="col" class="px-6 py-3">M-Codes</th>
-                        <th scope="col" class="px-6 py-3">Paint Code</th>
-                        <th scope="col" class="px-6 py-3">M-Codes</th>
-                        <th scope="col" class="px-6 py-3">Production Date</th>
-                        <th scope="col" class="px-6 py-3">Production Plant</th>
-                        <th scope="col" class="px-6 py-3">Export Destination</th>
-                        <th scope="col" class="px-6 py-3">Model</th>
+                        <th scope="col" class="px-4 py-3 font-semibold text-zinc-300 whitespace-nowrap">Chassis No.</th>
+                        <th scope="col" class="px-4 py-3 font-semibold text-zinc-300 whitespace-nowrap hidden sm:table-cell">Prod. Date</th>
+                        <th scope="col" class="px-4 py-3 font-semibold text-zinc-300 whitespace-nowrap hidden md:table-cell">Model</th>
+                        <th scope="col" class="px-4 py-3 font-semibold text-zinc-300 whitespace-nowrap hidden md:table-cell">Paint</th>
+                        <th scope="col" class="px-4 py-3 font-semibold text-zinc-300 whitespace-nowrap hidden lg:table-cell">M-Code 1</th>
+                        <th scope="col" class="px-4 py-3 font-semibold text-zinc-300 whitespace-nowrap hidden lg:table-cell">M-Code 2</th>
+                        <th scope="col" class="px-4 py-3 font-semibold text-zinc-300 whitespace-nowrap hidden xl:table-cell">Plant</th>
+                        <th scope="col" class="px-4 py-3 font-semibold text-zinc-300 whitespace-nowrap hidden xl:table-cell">Export</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="divide-y divide-zinc-800/80">
                     @foreach ($vins as $vin)
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <tr class="bg-zinc-900 hover:bg-zinc-800/50 transition-colors duration-100">
+                            <td class="px-4 py-3 whitespace-nowrap">
                                 <a href="/vin/{{ Str::replace(' ', '', $vin->chassis_number) }}"
-                                    wire:navigate.hover>{{ $vin->chassis_number }}</a>
-                                </td>
-                            <td class="px-6 py-4">{{ $vin->mcode_1 }}</td>
-                            <td class="px-6 py-4">{{ $vin->paint_interior }}</td>
-                            <td class="px-6 py-4">{{ $vin->mcode_2 }}</td>
-                            <td class="px-6 py-4">{{ $vin->model_year }}</td>
-                            <td class="px-6 py-4">{{ $vin->production_plan }}</td>
-                            <td class="px-6 py-4">{{ $vin->export_destination }}</td>
-                            <td class="px-6 py-4">{{ $vin->body_engine_model }}</td>
-                        </tr>
+                                   wire:navigate.hover
+                                   class="font-mono font-semibold text-amber-400 hover:text-amber-300 transition-colors duration-150">
+                                    {{ $vin->chassis_number }}
+                                </a>
+                            </td>
+                            <td class="px-4 py-3 text-zinc-400 whitespace-nowrap hidden sm:table-cell">{{ $vin->model_year }}</td>
+                            <td class="px-4 py-3 text-zinc-300 whitespace-nowrap hidden md:table-cell">{{ $vin->body_engine_model }}</td>
+                            <td class="px-4 py-3 text-zinc-400 whitespace-nowrap hidden md:table-cell">{{ $vin->paint_interior }}</td>
+                            <td class="px-4 py-3 text-zinc-500 font-mono text-xs whitespace-nowrap hidden lg:table-cell">{{ $vin->mcode_1 }}</td>
+                            <td class="px-4 py-3 text-zinc-500 font-mono text-xs whitespace-nowrap hidden lg:table-cell">{{ $vin->mcode_2 }}</td>
+                            <td class="px-4 py-3 text-zinc-500 whitespace-nowrap hidden xl:table-cell">{{ $vin->production_plan }}</td>
+                            <td class="px-4 py-3 text-zinc-500 whitespace-nowrap hidden xl:table-cell">{{ $vin->export_destination }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -50,5 +44,8 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
         </div>
     </div>
 
-    {{ $vins->links() }}
+    <div class="mt-5">
+        {{ $vins->links() }}
+    </div>
+
 </div>
