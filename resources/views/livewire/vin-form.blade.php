@@ -1,15 +1,21 @@
 <div>
-    <section class="text-gray-600 body-font mb-10">
-        <section class="mt-16 text-cente">
+    <section class="text-zinc-400 body-font mb-10">
+        <section class="mt-10 text-center">
             <div class="mx-auto text-center text-white">
-                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container  text-center lg:text-5xl/none">
-                    VW T2 (1970-1979) Vin Decoder
+                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container text-center lg:text-5xl/none">
+                    VW T2 (1970–1979) Vin Decoder
                 </h1>
             </div>
         </section>
     </section>
+
     <div class="container mx-auto flex flex-wrap">
-        <div class="w-full md:w-2/5 lg:w-3/5" x-data="{ bgColor: $wire.busColor }" x-on:buscolour.window="bgColor = $event.detail.colour">
+
+        {{-- Bus illustration + colour selector --}}
+        <div class="w-full md:w-2/5 lg:w-3/5"
+             x-data="{ bgColor: $wire.busColor }"
+             x-on:buscolour.window="bgColor = $event.detail.colour">
+
             <div class="bus relative bus--full bus--top-white bus--bottom-love">
                 <div class="bus-body">
                     <div class="bus__body--top roof"></div>
@@ -19,9 +25,7 @@
                     <div class="bus__body--top gutter gutter--right"></div>
                     <div class="bus__body--top mid-top"></div>
                     <div class="bus__body--top bump"></div>
-
                     <div class="bus__body--bottom front" x-bind:style="'background: ' + bgColor"></div>
-
                     <div class="bus__body--bottomx front-middle"></div>
                     <div class="bus__body--bottomx front-middle--bottom"></div>
                     <div class="bus__body--bottomx grill">
@@ -61,14 +65,12 @@
                         <div class="wiper-arm"></div>
                         <div class="wiper-attachment"></div>
                     </div>
-
                     <div class="directional">
                         <div class="directional--off"></div>
                     </div>
                     <div class="directional directional--right">
                         <div class="directional--off"></div>
                     </div>
-
                     <div class="vw-logo vw-logo--shadow">
                         <span class="vw-logo__v"></span>
                         <span class="vw-logo__w">
@@ -83,7 +85,6 @@
                             <span class="vw-logo__w__leg-r"></span>
                         </span>
                     </div>
-
                     <div class="headlight">
                         <div class="headlight--off">
                             <div class="headlight--off__star"></div>
@@ -94,7 +95,6 @@
                             <div class="headlight--off__star"></div>
                         </div>
                     </div>
-
                     <div class="bumper">
                         <div class="bumper-top"></div>
                         <div class="bumper-straight bs-middle"></div>
@@ -126,206 +126,222 @@
                 </div>
             </div>
 
-            <div class="flex justify-center" x-data="{selectedColor: $wire.busColorSelector}" x-on:buscolour.window="selectedColor = $event.detail.colour">
-                    <select name="colorSelector" id="colorSelector" class="sm:w-3/6 md:w-2/6 m-1 px-4 py-2"
-                        x-model="selectedColor" @change="bgColor = $event.target.value">
-                        <option value="" selected disabled hidden>Select a Colour</option>
+            {{-- Colour selector --}}
+            <div class="flex justify-center"
+                 x-data="{ selectedColor: $wire.busColorSelector }"
+                 x-on:buscolour.window="selectedColor = $event.detail.colour">
+                <div class="relative sm:w-3/6 md:w-2/6 m-1">
+                    <select name="colorSelector" id="colorSelector"
+                            class="w-full appearance-none bg-zinc-800 border border-zinc-600 rounded-lg px-4 py-2.5 text-zinc-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors duration-150 cursor-pointer"
+                            x-model="selectedColor"
+                            @change="bgColor = $event.target.value">
+                        <option value="" selected disabled hidden class="text-zinc-500">Select a colour</option>
                         @foreach ($colors as $color)
                             <option value="{{ $color->hex_code }}"
-                                :selected="selectedColor === '{{ $color->hex_code }}'">
+                                    class="bg-zinc-800 text-zinc-200"
+                                    :selected="selectedColor === '{{ $color->hex_code }}'">
                                 {{ $color->name }}
                             </option>
                         @endforeach
                     </select>
-                </div>
-                <div class="flex justify-center mt-10">
-                    @if (!empty($vindetails->chassis_number))
-                        <span
-                            class="inline-flex items-center justify-center p-5 border-4 border-gray-500 bg-gray-300 rounded-lg mb-5">
-                            <span class="w-full">Vin URL:
-                                {{ route('vin', ['chassisNumber' => str_replace(' ', '', $vindetails->chassis_number)]) }}</span>
-                    @endif
-                    </span>
+                    <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                        <svg class="w-4 h-4 text-zinc-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
 
-            <div class="md:w-3/5 lg:w-2/5 lg:py-28 md:py-28 md:pl-6 sm:py-42">
-                <form wire:submit="save">
-                    <div class="flex justify-center">
-                        <div class="border-4 border-gray-500 bg-gray-300 rounded-lg p-2">
+            {{-- VIN permalink --}}
+            @if (!empty($vindetails->chassis_number))
+                <div class="flex justify-center mt-6">
+                    <div class="flex items-center gap-2 px-4 py-3 border border-zinc-700 bg-zinc-800/60 rounded-xl text-sm text-zinc-400 max-w-full overflow-hidden">
+                        <svg class="w-4 h-4 text-zinc-500 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/>
+                        </svg>
+                        <span class="font-mono text-xs text-zinc-300 truncate">
+                            {{ route('vin', ['chassisNumber' => str_replace(' ', '', $vindetails->chassis_number)]) }}
+                        </span>
+                    </div>
+                </div>
+            @endif
+        </div>
+
+        {{-- Form + Results --}}
+        <div class="md:w-3/5 lg:w-2/5 lg:py-28 md:py-28 md:pl-6 sm:py-42">
+            <form wire:submit="save">
+                <div class="flex justify-center">
+                    <div class="border border-zinc-700 bg-zinc-800/60 rounded-xl p-4 w-full">
+                        <x-input
+                            wire:model.blur="form.chassis_number"
+                            label="Chassis Number"
+                            name="c"
+                            class="rounded-md !w-1/3 mb-1 vin-input"
+                            placeholder="CC CCC CCC"
+                        />
+                        <div class="mt-2">
                             <x-input
-                                wire:model.blur="form.chassis_number"
-                                label="Chassis Number"
-                                name="c"
-                                class="rounded-md !w-1/3 mb-1 vin-input"
-                                placeholder="CC CCC CCC"
+                                wire:model.blur="form.mcode_1"
+                                label="M-Plate"
+                                name="m"
+                                class="flex mb-1 vin-input"
+                                placeholder="MMM MMM MMM MMM MMM"
                             />
-                            <div>
+                        </div>
+                        <div class="flex gap-2 mt-2">
+                            <div class="flex-1">
                                 <x-input
-                                    wire:model.blur="form.mcode_1"
-                                    label="M-Plate"
-                                    name="m"
-                                    class="flex mb-1 vin-input"
-                                    placeholder="MMM MMM MMM MMM MMM"
+                                    wire:model.blur="form.paint_interior"
+                                    label="Paint / Interior"
+                                    name="p"
+                                    class="vin-input"
+                                    placeholder="PPPPII"
                                 />
                             </div>
-                            <div class="flex mb-1">
-                                <div class="mr-2">
-                                    <x-input
-                                        wire:model.blur="form.paint_interior"
-                                        label="M-Plate"
-                                        name="p"
-                                        class="w-2/5 vin-input"
-                                        placeholder="PPPPII"
-                                    />
-                                </div>
-                                <div>
-                                    <x-input
-                                        wire:model.blur="form.mcode_2"
-                                        label="M-Plate"
-                                        name="m2"
-                                        class="w-3/5 vin-input"
-                                        placeholder="MMM MMM MMM MMM"
-                                    />
-                                </div>
-                            </div>
-                            <div class="flex">
-                                <div class="mr-2">
-                                    <x-input
-                                        wire:model.blur="form.model_year"
-                                        label="Model Year"
-                                        name="d"
-                                        class="vin-input"
-                                        placeholder="DD"
-                                    />
-                                </div>
-                                <div class="mr-2">
-                                    <x-input
-                                        wire:model.blur="form.production_plan"
-                                        label="Production Plan"
-                                        name="u"
-                                        class="vin-input"
-                                        placeholder="UUUU"
-                                    />
-                                </div>
-                                <div class="mr-2">
-                                    <x-input
-                                        wire:model.blur="form.export_destination"
-                                        label="Export Dest"
-                                        name="e"
-                                        class="vin-input"
-                                        placeholder="EE"
-                                    />
-                                </div>
-                                <div>
-                                    <x-input
-                                        wire:model.blur="form.body_engine_model"
-                                        label="Engine Model"
-                                        name="x"
-                                        class="vin-input"
-                                        placeholder="TTTT"
-                                    />
-                                </div>
-                            </div>
-                            <div class="flex justify-center mt-1">
-                                    <x-errors />
+                            <div class="flex-1">
+                                <x-input
+                                    wire:model.blur="form.mcode_2"
+                                    label="M-Plate 2"
+                                    name="m2"
+                                    class="vin-input"
+                                    placeholder="MMM MMM MMM MMM"
+                                />
                             </div>
                         </div>
-                    </div>
-                    <div class="flex justify-center mt-2">
-                        <button
-                            class="bg-slate-900 hover:bg-slate-700 active:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full transition duration-150 ease-in-out shadow-lg focus:shadow-outline sm:w-auto md:text-base lg:w-1/2 xl:w-1/3 2xl:w-1/4 focus-visible:ring-sky-300 dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400 dark:active:bg-sky-600 disabled:opacity-50"
-                            type="submit">
-                            Decode Vin!
-                        </button>
-                    </div>
-                </form>
-                <div class="container mx-auto">
-                    @if (isset($results))
-                        <div class="border-4 border-gray-500 bg-gray-300 rounded-lg mt-5 p-4">
-                            @if (!empty($results->chassisNumber))
-                                <div class="flex flex-col items-center space-y-4">
-                                    <h3 class="text-xl font-semibold">Model Year</h3>
-                                    <ul class="mt-5 space-y-2">
-                                        <li
-                                            class="w-full border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
-                                            Year - {{ $results->chassisNumber }}</li>
-                                    </ul>
-                                </div>
-                            @endif
-                            @if (isset($results->production))
-                                <livewire:results-string title="Production Date" :string="$results->production" />
-                            @endif
-
-                            @if ($results->mCode1->isNotEmpty())
-                                <livewire:results-mcode title="M-Codes" :array="$results->mCode1" />
-                            @endif
-
-
-                            @if ($results->mCode2->isNotEmpty())
-                                <livewire:results-mcode title="M-Codes" :array="$results->mCode2" />
-                            @endif
-
-                            @if ($results->paintCodes->isNotEmpty())
-                                <div class="flex flex-col items-center space-y-4 mt-4 p-4">
-                                    <h5 class="text-xl font-semibold">Paint Codes</h3>
-                                        <ul
-                                            class="mt-5 space-y-2 py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
-                                            @foreach ($results->paintCodes as $paint_code)
-                                                <li> {{ $paint_code->plate_code }} - {{ $paint_code->color_code }}
-                                                </li>
-                                                <li>German - {{ $paint_code->german_name }}</li>
-                                                <li> English - {{ $paint_code->english_name }}</li>
-                                            @endforeach
-                                        </ul>
-                                </div>
-                            @endif
-
-                            @if ($results->interiorCodes->isNotEmpty())
-                                <div class="flex flex-col items-center space-y-4 mt-4 p-4">
-                                    <h5 class="text-xl font-semibold">Interior</h3>
-                                        <ul
-                                            class="mt-5 space-y-2 py-1 border-b-2 border-neutral-100 border-opacity-100 dark:border-opacity-50">
-                                            @foreach ($results->interiorCodes as $interior)
-                                                <li>
-                                                    {{ $interior->code }} - {{ $interior->material }}</li>
-                                                <li>
-                                                    German - {{ $interior->german_name }}</li>
-                                                <li>
-                                                    English - {{ $interior->english_name }}</li>
-                                            @endforeach
-                                        </ul>
-                                </div>
-                            @endif
-
-                            @if (isset($results->destination))
-                                <livewire:results-string title="Export Destination" :string="$results->destination" />
-                            @endif
-
-                            @if (isset($results->engineTrans))
-                                <livewire:results-array title="Model Details" :array="$results->engineTrans" />
-                            @endif
-                        </div>
-                    @else
-                        <section class="mt-5">
-                            <div class="flex justify-center border-4 border-gray-500 bg-gray-300 rounded-lg p-5">
-                                <p><span class="font-semibold">Volkswagen Type 2 M-Plate and VIN Decoder:</span>
-                                    Essential
-                                    Identification Tool for VW Buses from (1970-1979), Detailing Production Codes,
-                                    Equipment, Manufacturing Dates, Destination, Specifications, and Optional Extras</p>
+                        <div class="flex gap-2 mt-2">
+                            <div class="flex-1">
+                                <x-input
+                                    wire:model.blur="form.model_year"
+                                    label="Model Year"
+                                    name="d"
+                                    class="vin-input"
+                                    placeholder="DD"
+                                />
                             </div>
-                        </section>
-                    @endif
+                            <div class="flex-1">
+                                <x-input
+                                    wire:model.blur="form.production_plan"
+                                    label="Production Plant"
+                                    name="u"
+                                    class="vin-input"
+                                    placeholder="UUUU"
+                                />
+                            </div>
+                            <div class="flex-1">
+                                <x-input
+                                    wire:model.blur="form.export_destination"
+                                    label="Export Dest."
+                                    name="e"
+                                    class="vin-input"
+                                    placeholder="EE"
+                                />
+                            </div>
+                            <div class="flex-1">
+                                <x-input
+                                    wire:model.blur="form.body_engine_model"
+                                    label="Engine Model"
+                                    name="x"
+                                    class="vin-input"
+                                    placeholder="TTTT"
+                                />
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <x-errors class="text-sm text-red-400" />
+                        </div>
+                    </div>
                 </div>
+
+                <div class="flex justify-center mt-3">
+                    <button type="submit"
+                            class="bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-zinc-950 font-semibold h-12 px-6 rounded-lg w-full transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-zinc-900 sm:w-auto lg:w-1/2 xl:w-1/3 2xl:w-1/4 disabled:opacity-50">
+                        Decode VIN
+                    </button>
+                </div>
+            </form>
+
+            {{-- Results --}}
+            <div class="container mx-auto">
+                @if (isset($results))
+                    <div class="border border-zinc-700 bg-zinc-800/60 rounded-xl mt-5 p-5 space-y-1">
+
+                        @if (!empty($results->chassisNumber))
+                            <div class="flex flex-col items-center py-3 border-b border-zinc-700/60">
+                                <h3 class="text-sm font-semibold uppercase tracking-widest text-zinc-500 mb-2">Model Year</h3>
+                                <p class="text-zinc-200">{{ $results->chassisNumber }}</p>
+                            </div>
+                        @endif
+
+                        @if (isset($results->production))
+                            <livewire:results-string title="Production Date" :string="$results->production" />
+                        @endif
+
+                        @if ($results->mCode1->isNotEmpty())
+                            <livewire:results-mcode title="M-Code Plate 1" :array="$results->mCode1" />
+                        @endif
+
+                        @if ($results->mCode2->isNotEmpty())
+                            <livewire:results-mcode title="M-Code Plate 2" :array="$results->mCode2" />
+                        @endif
+
+                        @if ($results->paintCodes->isNotEmpty())
+                            <div class="flex flex-col items-center py-3 border-b border-zinc-700/60">
+                                <h3 class="text-sm font-semibold uppercase tracking-widest text-zinc-500 mb-3">Paint Codes</h3>
+                                <ul class="w-full space-y-1 text-sm">
+                                    @foreach ($results->paintCodes as $paint_code)
+                                        <li class="py-1 border-b border-zinc-700/40 text-zinc-300">
+                                            <span class="text-amber-400 font-mono">{{ $paint_code->plate_code }}</span>
+                                            &mdash; {{ $paint_code->color_code }}
+                                        </li>
+                                        <li class="py-0.5 text-zinc-400 text-xs">DE: {{ $paint_code->german_name }}</li>
+                                        <li class="py-0.5 text-zinc-400 text-xs">EN: {{ $paint_code->english_name }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if ($results->interiorCodes->isNotEmpty())
+                            <div class="flex flex-col items-center py-3 border-b border-zinc-700/60">
+                                <h3 class="text-sm font-semibold uppercase tracking-widest text-zinc-500 mb-3">Interior</h3>
+                                <ul class="w-full space-y-1 text-sm">
+                                    @foreach ($results->interiorCodes as $interior)
+                                        <li class="py-1 border-b border-zinc-700/40 text-zinc-300">
+                                            <span class="text-amber-400 font-mono">{{ $interior->code }}</span>
+                                            &mdash; {{ $interior->material }}
+                                        </li>
+                                        <li class="py-0.5 text-zinc-400 text-xs">DE: {{ $interior->german_name }}</li>
+                                        <li class="py-0.5 text-zinc-400 text-xs">EN: {{ $interior->english_name }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (isset($results->destination))
+                            <livewire:results-string title="Export Destination" :string="$results->destination" />
+                        @endif
+
+                        @if (isset($results->engineTrans))
+                            <livewire:results-array title="Model Details" :array="$results->engineTrans" />
+                        @endif
+                    </div>
+                @else
+                    <section class="mt-5">
+                        <div class="border border-zinc-700 bg-zinc-800/60 rounded-xl p-5 text-sm text-zinc-400 leading-relaxed">
+                            <span class="font-semibold text-zinc-300">Volkswagen Type 2 M-Plate and VIN Decoder:</span>
+                            Essential identification tool for VW Buses from (1970–1979), detailing production codes,
+                            equipment, manufacturing dates, destination, specifications, and optional extras.
+                        </div>
+                    </section>
+                @endif
             </div>
         </div>
     </div>
+
     <script>
-
-document.addEventListener('livewire:init', () => {
-    window.addEventListener('buscolour', event => {
-        console.log(event);
-    });
-});
-
-</script>
+        document.addEventListener('livewire:init', () => {
+            window.addEventListener('buscolour', event => {
+                console.log(event);
+            });
+        });
+    </script>
+</div>
