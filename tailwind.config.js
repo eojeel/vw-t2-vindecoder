@@ -20,7 +20,16 @@ export default {
     extend: {
         fontFamily: {
             'Roboto': ['"Roboto"', 'cursive'],
-          },
+        },
+        colors: {
+            vw: {
+                navy:       '#001E50',
+                'navy-mid': '#1F2F57',
+                blue:       '#6091C3',
+                silver:     '#C2C3C4',
+                'off-white': '#FDFAF9',
+            },
+        },
     },
   },
   plugins: [

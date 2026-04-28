@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
         <wireui:scripts />
         @livewireStyles
     </head>
-    <body class="min-h-screen bg-zinc-900 text-zinc-100 flex flex-col">
+    <body class="min-h-screen bg-vw-off-white text-gray-900 flex flex-col antialiased">
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2J52LNQ"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -23,9 +23,9 @@
             {{ $slot }}
         </main>
 
-        <footer class="border-t border-zinc-800 py-6 mt-8">
+        <footer class="border-t border-vw-silver/40 bg-white py-6 mt-8">
             <div class="container mx-auto px-4 text-center">
-                <p class="text-xs tracking-widest uppercase text-zinc-600">
+                <p class="text-xs tracking-widest uppercase text-gray-400">
                     &copy; Joe Lee {{ date('Y') }}. All rights reserved.
                 </p>
             </div>
