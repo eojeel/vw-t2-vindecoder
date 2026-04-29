@@ -1,10 +1,11 @@
 <div>
-    <section class="text-zinc-400 body-font mb-10">
+    <section class="mb-10">
         <section class="mt-10 text-center">
-            <div class="mx-auto text-center text-white">
-                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container text-center lg:text-5xl/none">
+            <div class="mx-auto">
+                <h1 class="text-2xl/tight md:text-3xl/tight font-bold container text-center lg:text-5xl/none text-vw-navy">
                     VW T2 (1970–1979) Vin Decoder
                 </h1>
+                <p class="mt-2 text-sm text-gray-500 tracking-wide">Enter your M-plate data to decode your Volkswagen Type 2</p>
             </div>
         </section>
     </section>
@@ -132,20 +133,19 @@
                  x-on:buscolour.window="selectedColor = $event.detail.colour">
                 <div class="relative sm:w-3/6 md:w-2/6 m-1">
                     <select name="colorSelector" id="colorSelector"
-                            class="w-full appearance-none bg-zinc-800 border border-zinc-600 rounded-lg px-4 py-2.5 text-zinc-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors duration-150 cursor-pointer"
+                            class="w-full appearance-none bg-white border border-vw-silver/60 rounded-lg px-4 py-2.5 text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-vw-blue/40 focus:border-vw-blue transition-colors duration-150 cursor-pointer shadow-sm"
                             x-model="selectedColor"
                             @change="bgColor = $event.target.value">
-                        <option value="" selected disabled hidden class="text-zinc-500">Select a colour</option>
+                        <option value="" selected disabled hidden>Select a colour</option>
                         @foreach ($colors as $color)
                             <option value="{{ $color->hex_code }}"
-                                    class="bg-zinc-800 text-zinc-200"
                                     :selected="selectedColor === '{{ $color->hex_code }}'">
                                 {{ $color->name }}
                             </option>
                         @endforeach
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
-                        <svg class="w-4 h-4 text-zinc-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <svg class="w-4 h-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
                         </svg>
                     </div>
@@ -155,11 +155,11 @@
             {{-- VIN permalink --}}
             @if (!empty($vindetails->chassis_number))
                 <div class="flex justify-center mt-6">
-                    <div class="flex items-center gap-2 px-4 py-3 border border-zinc-700 bg-zinc-800/60 rounded-xl text-sm text-zinc-400 max-w-full overflow-hidden">
-                        <svg class="w-4 h-4 text-zinc-500 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <div class="flex items-center gap-2 px-4 py-3 border border-vw-blue/30 bg-blue-50 rounded-xl text-sm max-w-full overflow-hidden">
+                        <svg class="w-4 h-4 text-vw-blue shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/>
                         </svg>
-                        <span class="font-mono text-xs text-zinc-300 truncate">
+                        <span class="font-mono text-xs text-vw-navy truncate">
                             {{ route('vin', ['chassisNumber' => str_replace(' ', '', $vindetails->chassis_number)]) }}
                         </span>
                     </div>
@@ -171,7 +171,7 @@
         <div class="md:w-3/5 lg:w-2/5 lg:py-28 md:py-28 md:pl-6 sm:py-42">
             <form wire:submit="save">
                 <div class="flex justify-center">
-                    <div class="border border-zinc-700 bg-zinc-800/60 rounded-xl p-4 w-full">
+                    <div class="border border-vw-silver/40 bg-white rounded-xl p-5 w-full shadow-sm">
                         <x-input
                             wire:model.blur="form.chassis_number"
                             label="Chassis Number"
@@ -179,7 +179,7 @@
                             class="rounded-md !w-1/3 mb-1 vin-input"
                             placeholder="CC CCC CCC"
                         />
-                        <div class="mt-2">
+                        <div class="mt-3">
                             <x-input
                                 wire:model.blur="form.mcode_1"
                                 label="M-Plate"
@@ -188,7 +188,7 @@
                                 placeholder="MMM MMM MMM MMM MMM"
                             />
                         </div>
-                        <div class="flex gap-2 mt-2">
+                        <div class="flex gap-2 mt-3">
                             <div class="flex-1">
                                 <x-input
                                     wire:model.blur="form.paint_interior"
@@ -208,7 +208,7 @@
                                 />
                             </div>
                         </div>
-                        <div class="flex gap-2 mt-2">
+                        <div class="flex gap-2 mt-3">
                             <div class="flex-1">
                                 <x-input
                                     wire:model.blur="form.model_year"
@@ -247,14 +247,14 @@
                             </div>
                         </div>
                         <div class="mt-3">
-                            <x-errors class="text-sm text-red-400" />
+                            <x-errors class="text-sm text-red-600" />
                         </div>
                     </div>
                 </div>
 
                 <div class="flex justify-center mt-3">
                     <button type="submit"
-                            class="bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-zinc-950 font-semibold h-12 px-6 rounded-lg w-full transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-zinc-900 sm:w-auto lg:w-1/2 xl:w-1/3 2xl:w-1/4 disabled:opacity-50">
+                            class="bg-vw-navy hover:bg-vw-navy-mid active:bg-vw-navy text-white font-semibold h-12 px-6 rounded-lg w-full transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-vw-blue focus:ring-offset-2 sm:w-auto lg:w-1/2 xl:w-1/3 2xl:w-1/4 disabled:opacity-50 shadow-sm">
                         Decode VIN
                     </button>
                 </div>
@@ -263,12 +263,12 @@
             {{-- Results --}}
             <div class="container mx-auto">
                 @if (isset($results))
-                    <div class="border border-zinc-700 bg-zinc-800/60 rounded-xl mt-5 p-5 space-y-1">
+                    <div class="border border-vw-silver/40 bg-white rounded-xl mt-5 p-5 shadow-sm space-y-1">
 
                         @if (!empty($results->chassisNumber))
-                            <div class="flex flex-col items-center py-3 border-b border-zinc-700/60">
-                                <h3 class="text-sm font-semibold uppercase tracking-widest text-zinc-500 mb-2">Model Year</h3>
-                                <p class="text-zinc-200">{{ $results->chassisNumber }}</p>
+                            <div class="flex flex-col items-center py-3 border-b border-gray-100">
+                                <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Model Year</h3>
+                                <p class="text-vw-navy font-medium">{{ $results->chassisNumber }}</p>
                             </div>
                         @endif
 
@@ -285,32 +285,32 @@
                         @endif
 
                         @if ($results->paintCodes->isNotEmpty())
-                            <div class="flex flex-col items-center py-3 border-b border-zinc-700/60">
-                                <h3 class="text-sm font-semibold uppercase tracking-widest text-zinc-500 mb-3">Paint Codes</h3>
+                            <div class="flex flex-col items-center py-3 border-b border-gray-100">
+                                <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Paint Codes</h3>
                                 <ul class="w-full space-y-1 text-sm">
                                     @foreach ($results->paintCodes as $paint_code)
-                                        <li class="py-1 border-b border-zinc-700/40 text-zinc-300">
-                                            <span class="text-amber-400 font-mono">{{ $paint_code->plate_code }}</span>
+                                        <li class="py-1 border-b border-gray-100 text-gray-800">
+                                            <span class="text-vw-blue font-mono font-semibold">{{ $paint_code->plate_code }}</span>
                                             &mdash; {{ $paint_code->color_code }}
                                         </li>
-                                        <li class="py-0.5 text-zinc-400 text-xs">DE: {{ $paint_code->german_name }}</li>
-                                        <li class="py-0.5 text-zinc-400 text-xs">EN: {{ $paint_code->english_name }}</li>
+                                        <li class="py-0.5 text-gray-500 text-xs">DE: {{ $paint_code->german_name }}</li>
+                                        <li class="py-0.5 text-gray-500 text-xs">EN: {{ $paint_code->english_name }}</li>
                                     @endforeach
                                 </ul>
                             </div>
                         @endif
 
                         @if ($results->interiorCodes->isNotEmpty())
-                            <div class="flex flex-col items-center py-3 border-b border-zinc-700/60">
-                                <h3 class="text-sm font-semibold uppercase tracking-widest text-zinc-500 mb-3">Interior</h3>
+                            <div class="flex flex-col items-center py-3 border-b border-gray-100">
+                                <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Interior</h3>
                                 <ul class="w-full space-y-1 text-sm">
                                     @foreach ($results->interiorCodes as $interior)
-                                        <li class="py-1 border-b border-zinc-700/40 text-zinc-300">
-                                            <span class="text-amber-400 font-mono">{{ $interior->code }}</span>
+                                        <li class="py-1 border-b border-gray-100 text-gray-800">
+                                            <span class="text-vw-blue font-mono font-semibold">{{ $interior->code }}</span>
                                             &mdash; {{ $interior->material }}
                                         </li>
-                                        <li class="py-0.5 text-zinc-400 text-xs">DE: {{ $interior->german_name }}</li>
-                                        <li class="py-0.5 text-zinc-400 text-xs">EN: {{ $interior->english_name }}</li>
+                                        <li class="py-0.5 text-gray-500 text-xs">DE: {{ $interior->german_name }}</li>
+                                        <li class="py-0.5 text-gray-500 text-xs">EN: {{ $interior->english_name }}</li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -326,8 +326,8 @@
                     </div>
                 @else
                     <section class="mt-5">
-                        <div class="border border-zinc-700 bg-zinc-800/60 rounded-xl p-5 text-sm text-zinc-400 leading-relaxed">
-                            <span class="font-semibold text-zinc-300">Volkswagen Type 2 M-Plate and VIN Decoder:</span>
+                        <div class="border border-vw-silver/40 bg-white rounded-xl p-5 shadow-sm text-sm text-gray-500 leading-relaxed">
+                            <span class="font-semibold text-vw-navy">Volkswagen Type 2 M-Plate and VIN Decoder:</span>
                             Essential identification tool for VW Buses from (1970–1979), detailing production codes,
                             equipment, manufacturing dates, destination, specifications, and optional extras.
                         </div>
