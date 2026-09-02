@@ -69,6 +69,13 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
+        },
+        "audit": {
+            "ignore": {
+                "PKSA-m5cs-t1y6-qpcs": "Laravel: Temporary Signed URL Path Confusion. No patched release exists in the Laravel 11.x line (fixed in 12.60.0+/12.61.1+). Upgrading is blocked by richan-fongdasen/turso-laravel, which caps illuminate/* at ^11.0 even at its latest 1.0.0. Reviewed: this app performs no email-rule validation and generates no signed URLs, so exposure is minimal. Revisit when the Turso driver supports Laravel 12+.",
+                "PKSA-3r5d-mb8f-1qw9": "Laravel: CRLF injection in default email rule. No patched release exists in the Laravel 11.x line (fixed in 12.60.0+/12.61.1+). Upgrading is blocked by richan-fongdasen/turso-laravel, which caps illuminate/* at ^11.0 even at its latest 1.0.0. Reviewed: this app performs no email-rule validation and generates no signed URLs, so exposure is minimal. Revisit when the Turso driver supports Laravel 12+.",
+                "PKSA-mdq4-51ck-6kdq": "Laravel: CRLF injection in default email rule (CVE-2026-48019). No patched release exists in the Laravel 11.x line (fixed in 12.60.0+/12.61.1+). Upgrading is blocked by richan-fongdasen/turso-laravel, which caps illuminate/* at ^11.0 even at its latest 1.0.0. Reviewed: this app performs no email-rule validation and generates no signed URLs, so exposure is minimal. Revisit when the Turso driver supports Laravel 12+."
+            }
         }
     },
     "minimum-stability": "stable",
