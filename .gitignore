@@ -29,3 +29,4 @@ yarn-error.log
 # SQLite databases and Windows download markers
 *.db
 *.db:Zone.Identifier
+*.sql

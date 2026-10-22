@@ -11,7 +11,7 @@ use Livewire\WithPagination;
 #[Title('View Decoded Vin - VW T2 (1970-1979) View all vins')]
 class VinList extends Component
 {
-    use WithoutUrlPagination, withPagination;
+    use WithoutUrlPagination, WithPagination;
 
     public function render()
     {

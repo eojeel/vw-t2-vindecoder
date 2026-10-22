@@ -5,8 +5,8 @@ use App\Livewire\VinList;
 use App\Livewire\VinShow;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', VinForm::class);
+Route::get('/', VinForm::class)->name('home');
 
-Route::get('/vin/{chassisNumber}', VinShow::class);
+Route::get('/vin/{chassisNumber}', VinShow::class)->name('vin');
 
-Route::get('/vins', VinList::class);
+Route::get('/vins', VinList::class)->name('vins');

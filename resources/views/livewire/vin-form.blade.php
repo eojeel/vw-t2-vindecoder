@@ -133,7 +133,7 @@
                  x-on:buscolour.window="selectedColor = $event.detail.colour">
                 <div class="relative sm:w-3/6 md:w-2/6 m-1">
                     <select name="colorSelector" id="colorSelector"
-                            class="w-full appearance-none bg-white border border-vw-silver/60 rounded-lg px-4 py-2.5 text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-vw-blue/40 focus:border-vw-blue transition-colors duration-150 cursor-pointer shadow-sm"
+                            class="w-full appearance-none bg-white border border-vw-silver/60 rounded-lg px-4 py-2.5 text-gray-700 text-sm focus:outline-hidden focus:ring-2 focus:ring-vw-blue/40 focus:border-vw-blue transition-colors duration-150 cursor-pointer shadow-xs"
                             x-model="selectedColor"
                             @change="bgColor = $event.target.value">
                         <option value="" selected disabled hidden>Select a colour</option>
@@ -171,12 +171,11 @@
         <div class="md:w-3/5 lg:w-2/5 lg:py-28 md:py-28 md:pl-6 sm:py-42">
             <form wire:submit="save">
                 <div class="flex justify-center">
-                    <div class="border border-vw-silver/40 bg-white rounded-xl p-5 w-full shadow-sm">
+                    <div class="border border-vw-silver/40 bg-white rounded-xl p-5 w-full shadow-xs">
                         <x-input
                             wire:model.blur="form.chassis_number"
                             label="Chassis Number"
                             name="c"
-                            class="rounded-md !w-1/3 mb-1 vin-input"
                             placeholder="CC CCC CCC"
                         />
                         <div class="mt-3">
@@ -184,7 +183,6 @@
                                 wire:model.blur="form.mcode_1"
                                 label="M-Plate"
                                 name="m"
-                                class="flex mb-1 vin-input"
                                 placeholder="MMM MMM MMM MMM MMM"
                             />
                         </div>
@@ -194,7 +192,6 @@
                                     wire:model.blur="form.paint_interior"
                                     label="Paint / Interior"
                                     name="p"
-                                    class="vin-input"
                                     placeholder="PPPPII"
                                 />
                             </div>
@@ -203,7 +200,6 @@
                                     wire:model.blur="form.mcode_2"
                                     label="M-Plate 2"
                                     name="m2"
-                                    class="vin-input"
                                     placeholder="MMM MMM MMM MMM"
                                 />
                             </div>
@@ -214,7 +210,6 @@
                                     wire:model.blur="form.model_year"
                                     label="Model Year"
                                     name="d"
-                                    class="vin-input"
                                     placeholder="DD"
                                 />
                             </div>
@@ -223,7 +218,6 @@
                                     wire:model.blur="form.production_plan"
                                     label="Production Plant"
                                     name="u"
-                                    class="vin-input"
                                     placeholder="UUUU"
                                 />
                             </div>
@@ -232,7 +226,6 @@
                                     wire:model.blur="form.export_destination"
                                     label="Export Dest."
                                     name="e"
-                                    class="vin-input"
                                     placeholder="EE"
                                 />
                             </div>
@@ -241,7 +234,6 @@
                                     wire:model.blur="form.body_engine_model"
                                     label="Engine Model"
                                     name="x"
-                                    class="vin-input"
                                     placeholder="TTTT"
                                 />
                             </div>
@@ -254,7 +246,7 @@
 
                 <div class="flex justify-center mt-3">
                     <button type="submit"
-                            class="bg-vw-navy hover:bg-vw-navy-mid active:bg-vw-navy text-white font-semibold h-12 px-6 rounded-lg w-full transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-vw-blue focus:ring-offset-2 sm:w-auto lg:w-1/2 xl:w-1/3 2xl:w-1/4 disabled:opacity-50 shadow-sm">
+                            class="bg-vw-navy hover:bg-vw-navy-mid active:bg-vw-navy text-white font-semibold h-12 px-6 rounded-lg w-full transition-colors duration-150 focus:outline-hidden focus:ring-2 focus:ring-vw-blue focus:ring-offset-2 sm:w-auto lg:w-1/2 xl:w-1/3 2xl:w-1/4 disabled:opacity-50 shadow-xs">
                         Decode VIN
                     </button>
                 </div>
@@ -263,7 +255,7 @@
             {{-- Results --}}
             <div class="container mx-auto">
                 @if (isset($results))
-                    <div class="border border-vw-silver/40 bg-white rounded-xl mt-5 p-5 shadow-sm space-y-1">
+                    <div class="border border-vw-silver/40 bg-white rounded-xl mt-5 p-5 shadow-xs space-y-1">
 
                         @if (!empty($results->chassisNumber))
                             <div class="flex flex-col items-center py-3 border-b border-gray-100">
@@ -326,7 +318,7 @@
                     </div>
                 @else
                     <section class="mt-5">
-                        <div class="border border-vw-silver/40 bg-white rounded-xl p-5 shadow-sm text-sm text-gray-500 leading-relaxed">
+                        <div class="border border-vw-silver/40 bg-white rounded-xl p-5 shadow-xs text-sm text-gray-500 leading-relaxed">
                             <span class="font-semibold text-vw-navy">Volkswagen Type 2 M-Plate and VIN Decoder:</span>
                             Essential identification tool for VW Buses from (1970–1979), detailing production codes,
                             equipment, manufacturing dates, destination, specifications, and optional extras.

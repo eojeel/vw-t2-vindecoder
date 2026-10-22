@@ -7,14 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Colors extends Model
 {
-    public $primaryKey = 'code';
-
     use HasFactory;
 
-    public static function random()
-    {
-        $random = Colors::inRandomOrder()->first();
+    protected $primaryKey = 'code';
 
-        return $random;
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
+    public static function random(): ?self
+    {
+        return static::inRandomOrder()->first();
     }
 }

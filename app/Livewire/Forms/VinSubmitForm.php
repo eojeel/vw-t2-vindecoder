@@ -3,8 +3,10 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Vin;
+use App\Services\VinDecoder;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
+use stdClass;
 
 class VinSubmitForm extends Form
 {
@@ -32,17 +34,18 @@ class VinSubmitForm extends Form
     #[Validate('required|regex:/^[a-zA-Z0-9]{4} [a-zA-Z0-9]{2}$/', as: 'Body Model (Engine & Gearbox) Type')]
     public string $body_engine_model = '';
 
-    public $results;
-
-    public function save()
+    /**
+     * Validates and stores the VIN, returning its decoded results.
+     */
+    public function save(): stdClass
     {
         $validated = $this->validate();
-
-        $this->results = Vin::decodeVin($this->all());
 
         Vin::updateOrCreate(
             ['chassis_number' => $this->chassis_number],
             $validated
         );
+
+        return app(VinDecoder::class)->decode($validated);
     }
 }

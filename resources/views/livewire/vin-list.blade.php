@@ -5,7 +5,7 @@
         <p class="text-sm text-gray-500 mt-1">Decoded VW T2 chassis records &mdash; 1970&ndash;1979</p>
     </div>
 
-    <div class="rounded-xl border border-vw-silver/40 overflow-hidden shadow-sm bg-white">
+    <div class="rounded-xl border border-vw-silver/40 overflow-hidden shadow-xs bg-white">
         <div class="overflow-x-auto">
             <table class="min-w-full text-sm text-left">
                 <thead class="bg-vw-navy text-white">

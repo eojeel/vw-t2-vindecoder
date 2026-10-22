@@ -11,17 +11,16 @@ class PaintCodes extends Model
 {
     use HasFactory;
 
-    public static function PaintDetails($code): Collection
+    /**
+     * The paint details for a paint / interior code, where the paint is the first four characters.
+     */
+    public static function forCode(string $code): Collection
     {
-        $code = mb_substr($code, 0, 4);
-
-        return PaintCodes::where('plate_code', $code)
-            ->get();
+        return static::where('plate_code', mb_substr($code, 0, 4))->get();
     }
 
     public function color(): HasMany
     {
-
         return $this->hasMany(Colors::class, 'code', 'color_code');
     }
 }

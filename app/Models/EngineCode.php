@@ -10,12 +10,13 @@ class EngineCode extends Model
 {
     use HasFactory;
 
-    public static function Details($engine): string
+    /**
+     * A readable engine type and fuel induction for an engine code, or an empty string when it is unknown.
+     */
+    public static function label(string $engine): string
     {
-        $engine = Str::substr($engine, 5, 1);
+        $details = static::where('engine_code', Str::substr($engine, 5, 1))->first(['engine_type', 'fuel_induction']);
 
-        $engineDetails = static::where('engine_code', $engine)->first(['engine_type', 'fuel_induction']);
-
-        return $engineDetails->engine_type.' '.$engineDetails->fuel_induction;
+        return $details ? $details->engine_type.' '.$details->fuel_induction : '';
     }
 }

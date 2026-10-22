@@ -10,7 +10,10 @@ class InteriorCode extends Model
 {
     use HasFactory;
 
-    public static function InteriorDetails($code): Collection
+    /**
+     * The interior details for a paint / interior code, where the interior is everything after the paint.
+     */
+    public static function forCode(string $code): Collection
     {
         return static::where('code', mb_substr($code, 4, 6))->get();
     }

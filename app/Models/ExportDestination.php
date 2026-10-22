@@ -10,15 +10,15 @@ class ExportDestination extends Model
 {
     use HasFactory;
 
-    public static function ExportDetails($code): string
+    /**
+     * A readable "CODE - Destination" label for an export code, or an empty string when it is unknown.
+     */
+    public static function label(string $code): string
     {
-        $export = static::where('code', $code)
-            ->first();
+        $destination = static::where('code', $code)->first();
 
-        if ($export) {
-            return $export->code.' - '.Str::replace('_', ' ', $export->export);
-        }
-
-        return '';
+        return $destination
+            ? $destination->code.' - '.Str::replace('_', ' ', $destination->export)
+            : '';
     }
 }

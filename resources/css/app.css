@@ -1,16 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* WireUI 2's stylesheet pulls in Tailwind itself, its forms plugin, theme colours and variants */
+@import '../../vendor/wireui/wireui/ts/global.css';
+
+@plugin 'flowbite/plugin';
+
+@source '../../node_modules/flowbite';
+@source '../views';
+@source '../js';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-Roboto: "Roboto", cursive;
+
+    --color-vw-navy: #001E50;
+    --color-vw-navy-mid: #1F2F57;
+    --color-vw-blue: #6091C3;
+    --color-vw-silver: #C2C3C4;
+    --color-vw-off-white: #FDFAF9;
+}
+
+@utility container {
+    margin-inline: auto;
+}
 
 @layer components {
     input, select {
-        @apply border-2 border-gray-500 rounded-md shadow-sm m-1;
+        @apply border-2 border-gray-500 rounded-md shadow-xs m-1;
     }
     .error {
         @apply text-sm rounded-lg bg-red-100 border border-red-400 relative text-red-700 p-1;
     }
-    .vin-input {
-        @apply px-4 py-2  focus:border-gray-800
+    [form-wrapper] input {
+        @apply m-0;
     }
 }
 html {

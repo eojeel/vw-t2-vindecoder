@@ -10,8 +10,14 @@ class Mcode extends Model
 {
     use HasFactory;
 
-    public static function CodeDetails($codes): Collection
+    /**
+     * The option codes for a space separated list of M-codes.
+     */
+    public static function forCodes(?string $codes): Collection
     {
-        return static::whereIn('code', explode(' ', $codes))->get();
+        // the code column is an integer, so anything that isn't a number can't match
+        $codes = array_filter(explode(' ', (string) $codes), 'ctype_digit');
+
+        return static::whereIn('code', $codes)->get();
     }
 }

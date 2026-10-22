@@ -2,60 +2,39 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Forms\VinSubmitForm;
-use App\Models\Colors;
 use App\Models\Vin;
+use App\Services\VinDecoder;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Title;
-use Livewire\Component;
 
 #[Title('View Decoded Vin - VW T2 (1970-1979) Vin Decoder')]
-class VinShow extends Component
+class VinShow extends VinForm
 {
-    public VinSubmitForm $form;
-
-    public $colors = [];
-
-    public $busColor = '';
-
-    public $busColorSelector = '';
-
-    public $results;
-
-    public function render()
+    public function mount(string $chassisNumber = ''): void
     {
-        return view('livewire.vin-form');
+        parent::mount();
+
+        $vin = Vin::where('chassis_number', $this->formatChassisNumber($chassisNumber))->firstOrFail();
+
+        $this->form->fill(array_filter($vin->only(Vin::FIELDS)));
+        $this->results = app(VinDecoder::class)->decode($vin->only(Vin::FIELDS));
     }
 
-    public function mount($chassisNumber = null)
+    public function rendered(): void
     {
-        $this->colors = Colors::all(['code', 'name', 'hex_code']);
+        $color = $this->results?->colorDisplay->first()?->hex_code;
 
-        $chassisNumber = Str::substr($chassisNumber, 0, 2).' '.Str::substr($chassisNumber, 2, 3).' '.Str::substr($chassisNumber, 5, 3);
-
-        $vin = Vin::where('chassis_number', $chassisNumber)->firstOrFail();
-
-        foreach ($vin->getAttributes() as $key => $value) {
-            if ($value) {
-                $this->form->$key = $value;
-            }
-        }
-
-        $this->results = Vin::decodeVin($vin->getAttributes());
-
-    }
-
-    public function rendered()
-    {
-        if ($this->results->colorDisplay->first()) {
-            $color = $this->results->colorDisplay->first()->hex_code;
-            $this->busColor = $color;
+        if ($color) {
+            $this->busColor         = $color;
             $this->busColorSelector = $color;
         }
     }
 
-    public function save()
+    /**
+     * Turns a chassis number from the URL ("12345678") back into its stored format ("12 345 678").
+     */
+    private function formatChassisNumber(string $chassisNumber): string
     {
-        $this->form->save();
+        return Str::substr($chassisNumber, 0, 2).' '.Str::substr($chassisNumber, 2, 3).' '.Str::substr($chassisNumber, 5, 3);
     }
 }

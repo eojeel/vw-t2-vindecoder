@@ -4,10 +4,6 @@ use App\Livewire\VinList;
 use App\Models\Vin;
 use Livewire\Livewire;
 
-beforeEach(function () {
-    $this->seed();
-});
-
 it('can display vin list page', function () {
 
     Livewire::test(VinList::class)
@@ -20,7 +16,7 @@ it('can view vin list page', function () {
     $vinDetails = Vin::factory()->count(30)->create();
 
     // Grab the first and eleventh record for reference
-    $firstVin = $vinDetails->first();
+    $firstVin    = $vinDetails->first();
     $eleventhVin = $vinDetails->skip(10)->first();
 
     // Test initial state (first page)

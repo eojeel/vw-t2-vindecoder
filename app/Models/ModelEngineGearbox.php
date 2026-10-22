@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Transmission;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -10,7 +11,7 @@ class ModelEngineGearbox extends Model
 {
     use HasFactory;
 
-    private static $modelDescriptions = [
+    private const array MODEL_DESCRIPTIONS = [
         '211' => 'Delivery van, sliding door right, LHD',
         '214' => 'Delivery van, sliding door left, RHD',
         '215' => 'Delivery van, sliding door left and right, LHD',
@@ -32,39 +33,27 @@ class ModelEngineGearbox extends Model
         '274' => 'Ambulance, cargo door left, RHD',
     ];
 
-    private static $transmission = [
-        'M' => '4 Speed Manual',
-        'A' => '4 Speed Automatic',
-    ];
-
-    public function getModelDetailsByCode(string $tt): ?array
+    /**
+     * The model, engine and transmission details for a body / engine / model code, or an empty array when unknown.
+     *
+     * @return array<string, mixed>
+     */
+    public static function detailsFor(string $code): array
     {
-        $model_id = Str::substr($tt, 0, 3);
-        $sale_code = Str::substr($tt, 2, 1);
-        $engine_code = Str::substr($tt, 4, 4);
+        $modelId = Str::substr($code, 0, 3);
 
-        $details = self::select('model_description', 'engine_spec', 'transmission_type', 'engine_code', 'gearbox_code', 'extras')
-            ->where('model_id', $model_id)
-            ->where('sale_code', $sale_code)
+        $details = static::select('model_description', 'engine_spec', 'transmission_type', 'engine_code', 'gearbox_code', 'extras')
+            ->where('model_id', $modelId)
+            ->where('sale_code', Str::substr($code, 2, 1))
             ->first();
 
-        if ($details) {
-            $details->model_description = self::modelDescription($model_id);
-            $details->transmission_type = self::transmissionDetails($details->transmission_type);
-
-            return $details->toArray();
+        if (! $details) {
+            return [];
         }
 
-        return [];
-    }
+        $details->model_description = self::MODEL_DESCRIPTIONS[$modelId]                           ?? $details->model_description;
+        $details->transmission_type = Transmission::tryFrom($details->transmission_type)?->label() ?? $details->transmission_type;
 
-    private static function modelDescription(int $model): string
-    {
-        return self::$modelDescriptions[$model];
-    }
-
-    private static function transmissionDetails(string $transmissionType): string
-    {
-        return self::$transmission[$transmissionType];
+        return $details->toArray();
     }
 }

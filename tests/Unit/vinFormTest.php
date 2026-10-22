@@ -2,16 +2,13 @@
 
 use App\Livewire\VinForm;
 use App\Livewire\VinShow;
+use App\Models\Colors;
 use App\Models\Vin;
 use Illuminate\Support\Str;
 use Livewire\Livewire;
 
-beforeEach(function () {
-    $this->seed();
-});
-
 it('Errors on invalid input', function () {
-    livewire::test(VinForm::class)
+    Livewire::test(VinForm::class)
         ->set('form.chassis_number', '12 123 12')
         ->call('save')
         ->assertHasErrors([
@@ -19,12 +16,12 @@ it('Errors on invalid input', function () {
         ]);
 });
 
-//test that it validates the chassis_number field
+// test that it validates the chassis_number field
 it('Validates form input', function () {
 
     $vinDetails = Vin::factory()->create();
 
-    livewire::test(VinForm::class)
+    Livewire::test(VinForm::class)
         ->set('form.chassis_number', $vinDetails->chassis_number)
         ->set('form.mcode_1', $vinDetails->mcode_1)
         ->set('form.paint_interior', $vinDetails->paint_interior)
@@ -38,6 +35,7 @@ it('Validates form input', function () {
 });
 
 it('dispatches BusColour event', function () {
+    Colors::factory()->create();
 
     $vinDetails = Vin::factory()->create(['paint_interior' => 'J2J252']);
 
@@ -69,4 +67,20 @@ it('can handle vindetails', function () {
         ->assertSet('form.production_plan', $firstVin->production_plan)
         ->assertSet('form.export_destination', $firstVin->export_destination)
         ->assertSet('form.body_engine_model', $firstVin->body_engine_model);
+});
+
+it('shows the decoded results after submitting', function () {
+    $vin = Vin::factory()->make(['chassis_number' => '21 320 123', 'model_year' => '12 3']);
+
+    Livewire::test(VinForm::class)
+        ->set('form.chassis_number', $vin->chassis_number)
+        ->set('form.mcode_1', $vin->mcode_1)
+        ->set('form.paint_interior', $vin->paint_interior)
+        ->set('form.mcode_2', $vin->mcode_2)
+        ->set('form.model_year', $vin->model_year)
+        ->set('form.production_plan', $vin->production_plan)
+        ->set('form.export_destination', $vin->export_destination)
+        ->set('form.body_engine_model', $vin->body_engine_model)
+        ->call('save')
+        ->assertSee('1972');
 });
