@@ -12,9 +12,6 @@ class Mcode extends Model
 
     public static function CodeDetails($codes): Collection
     {
-        // the code column is an integer, which Postgres will not compare against non-numeric strings
-        $codes = array_filter(explode(' ', $codes), 'ctype_digit');
-
-        return static::whereIn('code', $codes)->get();
+        return static::whereIn('code', explode(' ', $codes))->get();
     }
 }
