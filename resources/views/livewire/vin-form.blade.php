@@ -1,6 +1,6 @@
 <div>
     <section class="mb-10">
-        <section class="mt-10 text-center">
+        <section class="mt-10 px-4 text-center">
             <div class="mx-auto">
                 <h1 class="text-2xl/tight md:text-3xl/tight font-bold container text-center lg:text-5xl/none text-vw-navy">
                     VW T2 (1970–1979) Vin Decoder
@@ -10,10 +10,10 @@
         </section>
     </section>
 
-    <div class="container mx-auto flex flex-wrap">
+    <div class="container mx-auto flex flex-wrap items-center px-4">
 
         {{-- Bus illustration + colour selector --}}
-        <div class="w-full md:w-2/5 lg:w-3/5"
+        <div class="@container w-full md:sticky md:top-20 md:w-2/5 md:self-start md:pt-10 lg:w-3/5"
              x-data="{ bgColor: $wire.busColor }"
              x-on:buscolour.window="bgColor = $event.detail.colour">
 
@@ -131,7 +131,7 @@
             <div class="flex justify-center"
                  x-data="{ selectedColor: $wire.busColorSelector }"
                  x-on:buscolour.window="selectedColor = $event.detail.colour">
-                <div class="relative sm:w-3/6 md:w-2/6 m-1">
+                <div class="relative w-full max-w-xs m-1">
                     <select name="colorSelector" id="colorSelector"
                             class="w-full appearance-none bg-white border border-vw-silver/60 rounded-lg px-4 py-2.5 text-gray-700 text-sm focus:outline-hidden focus:ring-2 focus:ring-vw-blue/40 focus:border-vw-blue transition-colors duration-150 cursor-pointer shadow-xs"
                             x-model="selectedColor"
@@ -168,7 +168,7 @@
         </div>
 
         {{-- Form + Results --}}
-        <div class="md:w-3/5 lg:w-2/5 lg:py-28 md:py-28 md:pl-6 sm:py-42">
+        <div class="w-full py-6 md:w-3/5 md:py-0 md:pl-6 lg:w-2/5">
             <form wire:submit="save">
                 <div class="flex justify-center">
                     <div class="border border-vw-silver/40 bg-white rounded-xl p-5 w-full shadow-xs">
@@ -186,8 +186,8 @@
                                 placeholder="MMM MMM MMM MMM MMM"
                             />
                         </div>
-                        <div class="flex gap-2 mt-3">
-                            <div class="flex-1">
+                        <div class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2">
+                            <div>
                                 <x-input
                                     wire:model.blur="form.paint_interior"
                                     label="Paint / Interior"
@@ -195,7 +195,7 @@
                                     placeholder="PPPPII"
                                 />
                             </div>
-                            <div class="flex-1">
+                            <div>
                                 <x-input
                                     wire:model.blur="form.mcode_2"
                                     label="M-Plate 2"
@@ -204,36 +204,40 @@
                                 />
                             </div>
                         </div>
-                        <div class="flex gap-2 mt-3">
-                            <div class="flex-1">
+                        <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 xl:grid-cols-4">
+                            <div>
                                 <x-input
                                     wire:model.blur="form.model_year"
                                     label="Model Year"
                                     name="d"
+                                    class="flex h-full flex-col justify-end"
                                     placeholder="DD"
                                 />
                             </div>
-                            <div class="flex-1">
+                            <div>
                                 <x-input
                                     wire:model.blur="form.production_plan"
                                     label="Production Plant"
                                     name="u"
+                                    class="flex h-full flex-col justify-end"
                                     placeholder="UUUU"
                                 />
                             </div>
-                            <div class="flex-1">
+                            <div>
                                 <x-input
                                     wire:model.blur="form.export_destination"
                                     label="Export Dest."
                                     name="e"
+                                    class="flex h-full flex-col justify-end"
                                     placeholder="EE"
                                 />
                             </div>
-                            <div class="flex-1">
+                            <div>
                                 <x-input
                                     wire:model.blur="form.body_engine_model"
                                     label="Engine Model"
                                     name="x"
+                                    class="flex h-full flex-col justify-end"
                                     placeholder="TTTT"
                                 />
                             </div>

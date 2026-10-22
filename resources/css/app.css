@@ -70,7 +70,8 @@ html {
 }
 
 .bus--full {
-    font-size: 3vw;
+    /* 1em is 8% of the column width (the bus is 10em wide), capped at the desktop size */
+    font-size: min(8cqw, 2.4rem);
 }
 
 .bus--half {
@@ -1195,9 +1196,3 @@ html {
     border-radius: 0 40%
 }
 
-@media screen and (max-width: 768px) {
-    .bus--full {
-        font-size: 9vw;
-    }
-
-}
