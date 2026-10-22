@@ -61,12 +61,12 @@ it('can handle vindetails', function () {
     $firstVin = $vinDetails->first();
 
     Livewire::test(VinShow::class, ['chassisNumber' => Str::replace(' ', '', $firstVin->chassis_number)])
-        ->assertSet('chassis_number', $firstVin->chassis_number)
-        ->assertSet('mcode_1', $firstVin->mcode_1)
-        ->assertSet('paint_interior', $firstVin->paint_interior)
-        ->assertSet('mcode_2', $firstVin->mcode_2)
-        ->assertSet('model_year', $firstVin->model_year)
-        ->assertSet('production_plan', $firstVin->production_plan)
-        ->assertSet('export_destination', $firstVin->export_destination)
-        ->assertSet('body_engine_model', $firstVin->body_engine_model);
+        ->assertSet('form.chassis_number', $firstVin->chassis_number)
+        ->assertSet('form.mcode_1', $firstVin->mcode_1)
+        ->assertSet('form.paint_interior', $firstVin->paint_interior)
+        ->assertSet('form.mcode_2', $firstVin->mcode_2)
+        ->assertSet('form.model_year', $firstVin->model_year)
+        ->assertSet('form.production_plan', $firstVin->production_plan)
+        ->assertSet('form.export_destination', $firstVin->export_destination)
+        ->assertSet('form.body_engine_model', $firstVin->body_engine_model);
 });

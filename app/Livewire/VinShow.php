@@ -38,7 +38,6 @@ class VinShow extends Component
         foreach ($vin->getAttributes() as $key => $value) {
             if ($value) {
                 $this->form->$key = $value;
-                $this->$key = $value;
             }
         }
 
